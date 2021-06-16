@@ -1,4 +1,4 @@
-Intro à la programmation
+Introduction à la programmation
 ========================
  
 

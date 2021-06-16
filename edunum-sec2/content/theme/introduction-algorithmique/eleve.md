@@ -1,10 +1,12 @@
-Intro à l'algorithmique
+<span style="color:rgb(92, 201, 169);font-weight:600; font-size:1.2em">Version du 20 avril 2021</span>
+
+Introduction à l'algorithmique
 ==============================
 
 
 ## Objectifs
 
-A la fin de ce chapitre, vous serez familiarisé.e avec la notion d’algorithme et vous serez capable de transcrire un algorithme dans un programme. Vous saurez résoudre des problèmes, en décomposant leur solution en étapes à suivre. Vous verrez également que pour un même problème, on peut avoir plusieurs solutions avec différents propriétés, avantages et désavantages. Afin de choisir la meilleure des solutions, il faut pouvoir comparer celles-ci selon des critères objectifs. Vous saurez quels critères prendre en considération pour choisir le meilleur algorithme.  
+A la fin de ce chapitre, vous saurez ce qu'est un algorithme et vous serez capable de transcrire des algorithmes en programmes. Vous saurez résoudre des problèmes, en décomposant leur solution en étapes à suivre. Vous verrez également que pour un même problème, on peut avoir plusieurs solutions avec différents propriétés, avantages et désavantages. 
 
 ::::{admonition,hint} Qui suis-je ?
 
