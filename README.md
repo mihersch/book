@@ -1,6 +1,68 @@
-# Ressources d'enseignement de l'informatique au secondaire 2
+# Informatique au Gymnase / Pilote
 
-## Installation recommandée
+![chatbot](https://user-images.githubusercontent.com/73947555/117774857-301d3580-b23a-11eb-9657-2eeebb19fde3.png)
+
+
+## Introduction
+
+Des moyens d'enseignement pour l'informatique en discipline obligatoire au niveau Secondaire II ont été produits par un groupe de travail issu d'une collaboration entre la DGEP, l'EPFL, la HEP et l'UNIL. Dans le cadre de l’introduction de cette discipline, prévue à la rentrée 2022 dans le canton de Vaud, l'objectif de ces ressources est de proposer aux enseignant·e·s d'informatique des contenus théoriques, des séries d'exercices et des idées d'activités.
+
+En accord avec la DGEP, une partie de ce matériel est déjà mise à disposition des enseignant·e·s vaudois·e·s pour une première phase pilote.
+
+Les ressources sont accessibles via le [site web](https://edunumsec2.ch). Elles peuvent être utilisées telles quelles ou modifiées via un [dépôt GitHub](https://github.com/edunumsec2/book).
+
+
+### Votre avis et ceux de vos élèves sont importants
+
+En tant que membre du projet pilote, nous vous remercions par avance pour votre participation au processus d’enquête. Les données recueillies permettront d'évaluer la pertinence des contenus afin de réaliser les ajustements nécessaires. La démarche porte uniquement sur les ressources et les élèves, il ne s'agit en aucun cas d'évaluer la qualité de l'enseignement dispensé. Toutes les données seront traitées de façon confidentielle. En dernier lieu, ces données agrégées et anonymisées feront l'objet d'analyses statistiques à la fin de chaque semestre. 
+
+
+## Table des matières
+
+---
+
+- [Introduction](#introduction)
+- [Utilisation](#utilisation)
+- [Installation](#installation)
+  - [Installation recommandée](#installation-recommandée)
+  - [Installation Ubuntu 20.04 LTS](#installation-ubuntu-20.04-lts)
+  - [Références](#références)
+  - [Build](#build)
+- [Exemples d'utilisation des ressources](#exemples-dutilisation-des-ressources)
+  - [Utilisation en ligne](#utilisation-en-ligne)
+  - [Modifications indépendantes](#modifications-indépendantes)
+  - [Participation au développement](#participation-au-développement)
+  
+
+## Utilisation
+
+L'utilisation **standard** des ressources ne requiert pas d'installation particulière et peut-être effectuée immédiatement à l'adresse https://edunumsec2.ch. 
+
+Dans le cadre du projet pilote, nous vous saurions gré de suivre le protocole minimal décrit ci-dessous :  
+
+1. Participer aux sondages suivants (30 min) : 
+    - [Choix entre TigerJython et Micro:Bit](https://fr.surveymonkey.com/r/programPR)
+    - [Besoin en termes de formations](https://fr.surveymonkey.com/r/27QW723)
+    - [Sondage profil enseignant·e](https://fr.surveymonkey.com/r/J3B3J8D)
+    - [Sondage en amont de l'enseignement](https://www.surveymonkey.com/r/gymprescinf)
+
+2. Ecrire à nathalie.farenc@epfl.ch pour la tenir informée du début et de la fin d'un cours donné sur l'un ou l'autre des sujets du Plan d'études.
+3. Signaler tout défaut éventuel des ressources à nathalie.farenc@epfl.ch ou directement à la personne en charge de la thématique en question, dont vous trouverez l'adresse sous [comité de rédaction](#comité-de-rédaction).
+
+L'utilisation **avancée** des ressources comprend, en outre, les étapes suivantes : 
+
+4. Utiliser les fonctionnalités de GitHub telles que [issues](https://github.com/edunumsec2/book/issues) et [discussions](https://github.com/edunumsec2/book/discussions) pour signaler des améliorations potentielles. 
+5. Proposer et rédiger des modifications via la création d'une [branche](https://github.com/edunumsec2/book/branches). 
+6. Forker le dépôt pour en faire un clône indépendant via le mécanisme de [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo). 
+7. Utiliser l'environnement Jupyter-book pour tester ses améliorations en local sur sa propre machine. 
+
+## Installation 
+
+Les fonctionnalités décrites aux points 4 à 6 ne nécessitent pas d'installation particulière et sont inhérentes à GitHub. Pour un descriptif détaillé de leur utilisation, se référer au WIKI (en construction). Une explication allégée de leur utilisation est disponible directement dans les services en question : [issues](https://github.com/edunumsec2/book/issues) et [discussions](https://github.com/edunumsec2/book/discussions). 
+
+Pour ceux et celles qui souhaitent utiliser l'environnement Jupyter Book pour tester des contenus et participer au développement, la marche à suivre est la suivante : 
+
+### Installation recommandée
 
  1. Seulement si pas encore présent: [installer git](https://git-scm.com/downloads) sur votre machine
    * Sous Windows, il faut activer les symlinks de git. Après l'installation de git, éditer le fichier `C:\ProgramData\Git\config` et y insérer:
@@ -28,7 +90,7 @@
       * [Instructions complètes](https://jupyterbook.org/intro.html#install-jupyter-book) si la version ci-dessus ne marche pas
 
  5. Installer [Visual Studio Code](https://code.visualstudio.com) 
-    * Sert à éditer le Markdown et le format Jupyter (et le format YAML pour la config si nécessaire)
+    * Permer d'éditer le Markdown et le format Jupyter (et le format YAML pour la config, si nécessaire)
     * Fournit des boutons pour produire l'output sans passer par le terminal
 
  6. Ouvrir le fichier `workspace.code-workspace` dans VS Code
@@ -42,7 +104,7 @@
       
       Accepter l'installation de ces recommandations à l'ouverture du workspace:
       
-      ![](docs/extension_recommendations.png)
+      ![](docs/media/extension_recommendations.png)
 
     * Si l'installation des extensions ne vous est pas proposée, le faire manuellement via l'interface graphique de VS Code ou via le terminal:
       ```bash
@@ -50,8 +112,7 @@
       ```
 <sup>1</sup> *Note de Philippe: J'ai pris la version 3.9.0 et tout ce qui suit fonctionne parfaitement.*
 
-
-## Installation Ubuntu 20.04 LTS
+### Installation Ubuntu 20.04 LTS
 
 * Cloner le dépôt  dans un dossier de votre choix
 
@@ -71,18 +132,18 @@ cd ressources
 ./install_ubuntu.sh
 ```
 
-## Références
+### Références
 
 * Syntaxe Mardown utilisée: [MyST](https://jupyterbook.org/reference/glossary.html#term-MyST)
 
 
-## Build
+### Build
 
 **Pour produire l'output HTML statique depuis les fichiers source**
 
 Avec VS Code si installé comme ci-dessous, cliquer sur un des boutons en bas de la fenêtre:
 
-![](docs/build_screenshot.png)
+![](docs/media/build_screenshot.png)
 
 Sinon, via le terminal. Pour la partie élèves:
 
@@ -110,3 +171,39 @@ cd <dossier-du-checkout>/edunum-sec2/config/maitre
 #puis:
 jupyter-book clean .
 ```
+
+## Exemples d'utilisation des ressources
+
+### Utilisation en ligne
+
+1. Je me rends sur https://edunumsec2.ch
+2. Je navigue à travers les différents chapitres du cours. 
+3. Si une information m'intéresse, par exemple une anecdote historique, un angle d'attaque pour une notion, un exemple particulier, voire même une séquence entière de cours théorique, je prends des notes et la réutilise à souhait dans mes leçons. 
+4. Je parcours les idées d'activité et je choisis celles qui m'intéressent. 
+5. J'utilise les séries d'exercices à disposition comme "devoirs" pour mes élèves. 
+6. Je demande à mes élèves de lire certains chapitres en préparation des cours. Je reprends les notions essentielles en classe.  
+
+### Modifications indépendantes
+
+1. Si certains contenus m'intéressent mais que je considère qu'ils pourraient être transformés pour être plus efficaces, je peux à tout moment aller consulter les fichiers sources. 
+2. Je reviens sur ce dépôt Github.
+3. Je retrouve le chapitre qui m'intéresse. 
+4. Je télécharge le fichier source. 
+5. Je le retravaille pour en faire ma propre version. 
+
+### Participation au développement
+
+1. Je me réfère au chapitre [installation](#installation). 
+2. Une fois que l'environnement est installé, plusieurs options s'offrent à moi. 
+3. Je peux travailler à l'amélioration des ressources en tant que *correcteur*. Dans ce cas, j'utilise les fonctions [issues](https://github.com/edunumsec2/book/issues) et [discussions](https://github.com/edunumsec2/book/discussions) de Github et je propose des améliorations ou des modifications qui me paraissent importantes. 
+4. Je peux travailler en tant que *rédacteur*. Dans ce cas je crée une branche, je propose des contenus originaux à l'intérieur d'un chapitre - séquences théoriques, activités, séries d'exercices, et je les soumets aux autres utilisateurs pour validation via un pull-request.
+
+## Comité de rédaction
+
+- Représentation de l'information : 
+- Algorithmique : 
+- Programmation : 
+- Architecture des ordinateurs : 
+- Enjeux sociaux : 
+
+
