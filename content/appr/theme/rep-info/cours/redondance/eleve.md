@@ -7,7 +7,7 @@ qui ne tombe
 jamais
 en panne ?
 
-Si tous les ingénieurs
+Si tou·te·s les ingénieur·es
 cherchent à y parvenir,
 l'aviation commerciale
 est un domaine
@@ -115,19 +115,13 @@ est reçue
 (sans omissions) et
 **parfaitement**
 (sans erreurs),
-un expéditeur
-pourrait
-naïvement
-l'envoyer
+elle pourrait être
+naïvement envoyée
 deux fois,
 par deux moyens indépendants,
 dans un SMS et
 sur une carte postale
-par exemple.
-Le destinataire
-devrait alors
-renvoyer une confirmation… 
-par deux moyens indépendants ?!
+par exemple.Une fois l’information arrivée à destination, une confirmation devrait alors être envoyée par deux moyens indépendants ?!
 
 
 On convient
