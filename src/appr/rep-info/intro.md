@@ -17,7 +17,7 @@ Mais avant de découvrir le code choisi pour représenter l'information à l'int
 
 ## Alphabets anciens et traditionnels
 
-Depuis qu'elle existe, l'espèce humaine a créé de nombreux alphabets, ainsi que de nombreux {glo}`sysco|systèmes de communication`. Depuis les [sumériens](https://fr.wikipedia.org/wiki/Sum%C3%A9rien) qui utilisaient des {glo}`picto|pictogrammes` et [l’écriture cunéiforme](https://fr.wikipedia.org/wiki/Cun%C3%A9iforme), en passant par les égyptiens et leurs [hiéroglyphes](https://fr.wikipedia.org/wiki/%C3%89criture_hi%C3%A9roglyphique_%C3%A9gyptienne), les chinois et leurs [idéogrammes](https://fr.wikipedia.org/wiki/Caract%C3%A8res_chinois) pour arriver aux symboles de nos alphabets actuels, l'espèce humaine n’a eu de cesse de mettre au point des systèmes pour représenter l’information et la {glo}`transmission|transmettre`.
+Depuis quelques millénaires, l'espèce humaine a créé de nombreux alphabets, ainsi que de nombreux {glo}`sysco|systèmes de communication`. Depuis les [sumériens](https://fr.wikipedia.org/wiki/Sum%C3%A9rien) qui utilisaient des {glo}`picto|pictogrammes` et [l’écriture cunéiforme](https://fr.wikipedia.org/wiki/Cun%C3%A9iforme), en passant par les égyptiens et leurs [hiéroglyphes](https://fr.wikipedia.org/wiki/%C3%89criture_hi%C3%A9roglyphique_%C3%A9gyptienne), les chinois et leurs [idéogrammes](https://fr.wikipedia.org/wiki/Caract%C3%A8res_chinois) pour arriver aux symboles de nos alphabets actuels, l'espèce humaine n’a eu de cesse de mettre au point des systèmes pour représenter l’information et la {glo}`transmission|transmettre`. Les systèmes d'écriture représentent une réalité perçue ou imaginée par des combinaisons de symboles prédéfinis qui peuvent facilement être manipulés. En ce sens, les systèmes d'écriture sont les précurseurs de l'informatique, qui nécessite ses propres systèmes de représentation. 
 
 ````{tabbed} Sumérien
 ```{image} media/cuneiform.jpg
@@ -124,22 +124,9 @@ align: left
 Le code Morse est le système de représentation de l'information qui se rapproche le plus du langage binaire de l'informatique moderne. 
 ````
 
-````{admonition} Micro-activité
-:class: note
-Amusez-vous avec votre assistant vocal en lui demandant par exemple : «Salut Siri. Quel est le code Morse pour *j'ai envie de dormir* ?».
-````
 
 Si vous observez le [code Morse](https://fr.wikipedia.org/wiki/Code_Morse_international), vous remarquerez que les signaux utilisés pour représenter les lettres ne suivent pas simplement l'ordre de l'alphabet, puisqu'il est plus économique de coder les lettres les plus fréquentes avec les codes les plus courts.
 
-
-````{admonition} Le saviez-vous ? 
-:class: hint
-À l'époque où les transmissions télégraphiques en code Morse sont payées à l'unité d'information, donc la lettre, des codex spécifiques sont développés par les utilisateurs pour utiliser le moins de caractères possibles. C'est exactement la même situation qui s'est produite avec l'arrivée des [SMS](https://fr.wikipedia.org/wiki/Short_Message_Service) dans les années 1990, où les utilisateurs payaient au caractère. Aujourd'hui, même s'il est rare de payer à l'unité d'information, ce genre de raccourcis existent encore, mais surtout pour un avantage de vitesse. 
-
-```{image} media/morsecodeshort.png
-:height: 500px
-:width: 500px
-```
 
 Le désavantage de ces codex d'abréviations est leur faible degré de standardisation. Comment savoir quel codex est utilisé ? Et surtout : comment faire pour que tout le monde s'accorde sur le codex ? 
 
@@ -158,26 +145,31 @@ Ceci est une représentation de la fréquence moyenne de distribution des lettre
 
 ## Le binaire
 
-À partir du moment où le [Morse](https://fr.wikipedia.org/wiki/Code_Morse_international) a été inventé comme système de {glo}`codage|codage` et de {glo}`transmission|transmission` de l'information par l'électricité, il ne manquait plus que quelques éléments pour commencer à construire les {glo}`ordinateur|ordinateurs`.
+On pourrait penser de premier abord que le code Morse est un code constitué de deux symboles: le point et le trait. Mais il ne faut pas oublier les espaces, sans lesquelles on ne peut pas distinguer la lettre "A" (.-) du mot "ET" (. -). Ainsi le Morse est constité de trois symboles (voire 4 si on considère aussi le long espace entre les mots, mais qui pourrait être approximé par deux espaces consécutifs). 
 
-Une pièce technologique, qui permettrait de {glo}`transmission|transmettre` pour ainsi dire cette information : le {glo}`transistor|transistor` (voir {ref}`architecture des ordinateurs <architectureordinateurs>`).
+Un code constitué de deux symboles est appelé un code binaire. C'est ce genre code qui est utilisé par les ordinateurs, car deux symboles peuvent facilement être représenté par l'état d'un circuit électrique qui peut être allumé ou éteint. 
 
-Un {glo}`codage|code` plus élaboré que le Morse pour pouvoir représenter tous les types d'informations possibles à partir d'une alternative entre deux états : courant ou pas courant ; allumé ou éteint ; vrai ou faux ; 1 ou 0.  
+## Questions
 
-Ce {glo}`codage|code` est le {glo}`codebinaire|code binaire`. Il permet, en utilisant uniquement des 0 et des 1, de représenter n'importe quel type d'information : des chiffres, du texte, des images, du son, des vidéos, etc. 
 
 ```{question} Question 1
 Pourquoi la lettre «e», en Morse, est-elle représentée par un seul point ? 
-* {v}`Parce que c'est la lettre la plus utilisée en anglais.`
-* {f}`Par hasard.`
-* {f}`Parce que c'est la lettre la plus rare en anglais.`
-* {f}`Parce que c'était la lettre préférée de l'inventeur du Morse.`
+1. {v}`Parce que c'est la lettre la plus utilisée en anglais.`
+1. {f}`Par hasard.`
+1. {f}`Parce que c'est la lettre la plus rare en anglais.`
+1. {f}`Parce que c'était la lettre préférée de l'inventeur du Morse.`
 ```
 
 ```{question} Question 2
 Que signifie informatique ? 
-* {f}`Information + quantique.`
-* {f}`Information + technique.`
-* {v}`Information + automatique.`
-* {f}`Information + pratique`
+1. {f}`Information + quantique.`
+1. {f}`Information + technique.`
+1. {v}`Information + automatique.`
+1. {f}`Information + pratique`
+```
+```{question} Question 3
+Pourrait-on imaginer un code composé d'un seul symbol ? 
+1. {f}`Non`
+1. {v}`Oui`
+1. {f}`Ca dépend`
 ```
