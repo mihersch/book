@@ -1,10 +1,12 @@
 _build/
+_docs/
 
 # General
 .DS_Store
 .AppleDouble
 .LSOverride
 .vscode
+.docx
 
 # Icon must end with two \r
 Icon
@@ -39,6 +41,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 build/
+docs/
 develop-eggs/
 dist/
 downloads/
