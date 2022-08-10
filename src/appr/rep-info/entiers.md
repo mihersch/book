@@ -22,7 +22,7 @@ Ainsi, tout nombre écrit dans la base 10 est composé de ces chiffres.
 
 La valeur de chaque chiffre dépend alors du chiffre lui-même et de sa
 place. Ainsi, le 3 de 1934 et celui de 3008 n'ont pas la même valeur :
-Le premier vaut 30, alors que le second vaut 3000.  
+le premier vaut 30, alors que le second vaut 3000.
 On parle alors de **représentation positionnelle en base 10**.
 
 Dans ce système, pour connaître la valeur de chaque chiffre qui compose
@@ -32,35 +32,44 @@ et son coefficient, c'est la **forme canonique**.
 ``` {panels}
 :column: col-sm
 
-Décomposition du nombre 3528 :
+*Décomposition du nombre 4528* (en gardant en tête que $10^0=1$):
 ^^^
-* 8 unités
-* 2 dizaines
-* 5 centaines
-* 3 milliers
+* 8 unités $= 8 \cdot 1 = 8 \cdot 10 ^{0}$ 
+* 2 dizaines $= 2 \cdot 10 = 2 \cdot 10 ^{1}$ 
+* 5 centaines $= 5 \cdot 100 = 5 \cdot 10 ^{2}$ 
+* 4 milliers $= 4 \cdot 1000 = 4 \cdot 10 ^{3}$ 
 +++
-Sa forme canonique est : $3 \cdot 10^3 + 5 \cdot 10^2 + 2 \cdot 10^1 + 8 \cdot 10^0$ 
+
+Sa forme canonique est : $4 \cdot 10^3 + 5 \cdot 10^2 + 2 \cdot 10^1 + 8 \cdot 10^0 $ ce qui fait 4528. 
 ```
 
-On peut alors vérifier que le nombre 3528 est bien dans la base 10, car
-tous ces chiffres appartiennent à la base 10. Les nombres de la base 10
-ou du système décimal sont des nombres décimaux.
+Si on veut préciser que cette écriture est à interpréter en base 10, on peut l'indiquer
+avec un petit indice placé à droite du nombre: $3528_{10}$ 
+Les nombres représentés en base 10 ou du système décimal sont des nombres décimaux.
+
 
 ### Le système binaire
 
 Le système binaire, ou numération positionnelle en base 2, est
-représenté à l'aide d'uniquement 2 symboles : 0 et 1.  
-Cette représentation et la représentation décimale sont deux
-représentations, parmi d'autres, d'un même concept.
+représenté à l'aide d'uniquement deux symboles : 0 et 1.
+De la même manière qu'en base 10 les nombres se représentent avec leurs unité, dizaines, centaines etc.,
+en base 2 les nombres se représentent avec leurs unité, "deuzaines", "quatraines", "huitaines", etc. 
 
-Un élément binaire se nomme un *bit* et un ensemble de *bits* peut
-représenter un entier en utilisant le même principe que pour le système
-décimal.
-
+Ainsi, la forme canonique du nombre binaire $1101_{2}$ est : $1 \cdot 2^3 + 1 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0$
 La valeur de chaque chiffre dépend toujours de sa place qui représente,
 cette fois, une puissance de 2.
 
-La forme canonique du nombre binaire $1101_{(2)}$ est : $1 \cdot 2^3 + 1 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0$
+Ce nombre représente donc $1101_{2} =  1 \cdot 8 + 1 \cdot 4 + 0 \cdot 2 + 1 \cdot 1  = 8+4+1 = 13_{10}$.
+
+Le nombre treize peut donc s'écrire $13_{10}$ en décimal comme on en a l'habitude, ou $1101_{2}$ comme le ferait un
+ordinateur. 
+
+Un élément binaire se nomme un *bit* et un ensemble de *bits* peut
+représenter un entier en utilisant le même principe que pour le système
+décimal. Ainsi le nombre treize $1101_{2}$ s'écrit avec 4 bits. 
+
+
+
 
 ```{admonition} Le saviez-vous ? 
 :class: hint
@@ -85,10 +94,10 @@ On répète ces opérations pour tous les chiffres, quelle que soit leur
 position. Ainsi, en base 10 :
 
 $$
-0;-;1;-;2;-;3;-;...;-;9;-;10;-;11;-;...;-;99;-;100;-;101;-;...
+0\quad1\quad 2\quad 3\quad ...\quad 9\quad 10\quad 11\quad ...\quad 99\quad 100\quad 101\quad ...
 $$
 
-En binaire, on obtient : $0;-;1;-;10;-;11;-;100;-;101;-;110;-;111;-;1000;-;...$
+En binaire, on obtient : $0\quad 1\quad 10\quad 11\quad 100\quad 101\quad 110\quad 111\quad 1000\quad ...$
 
 ```{admonition} Micro-activité ✏️📒 
 :class: note 
@@ -110,7 +119,7 @@ puissances de 2.
 Conversion du nombre 10101
 ^^^
 $$
-10101_{(2)} = 1 \cdot 2^4 + 0 \cdot 2^3 + 1 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0 = 21_{(10)}
+10101_{2} = 1 \cdot 2^4 + 0 \cdot 2^3 + 1 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0 = 21_{10}
 $$
 ```
 
@@ -151,8 +160,8 @@ octet en nombre décimal.
   - 0
 ```
 
-L'exemple utilisé ici est l'octet $(00101010_{(2)})$ dont la valeur
-décimale est : $ 00101010\_{(2)} = 0 \cdot 2^7 + 0 \cdot 2^6 + 1 \cdot 2^5 + 0 \cdot 2^4 + 1 \cdot 2^3 + 0 \cdot 2^2 + 1 \cdot 2^1 + 0 \cdot 2^0 = 42\_{(10)}$
+L'exemple utilisé ici est l'octet $(00101010_{2})$ dont la valeur
+décimale est : $ 00101010_{2} = 0 \cdot 2^7 + 0 \cdot 2^6 + 1 \cdot 2^5 + 0 \cdot 2^4 + 1 \cdot 2^3 + 0 \cdot 2^2 + 1 \cdot 2^1 + 0 \cdot 2^0 = 42_{10}$
 
 ```{admonition} Important 
 :class: caution 
@@ -242,7 +251,7 @@ avec les étapes suivantes :
 \end{array}
 ```
 
-Résultat : $(666_{(10)} = 1010011010_{(2)})$
+Résultat : $(666_{10} = 1010011010_{2})$
 
 ```{admonition} Micro-activité ✏️📒 
 :class: note
