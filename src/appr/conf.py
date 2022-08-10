@@ -46,7 +46,7 @@ extensions = [
     'exercise',
 ]
 
-glossary_doc = 'glossaire'
+glossary_doc = 'glossaire.csv'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['../templates']
@@ -62,7 +62,8 @@ language = 'fr'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-# exclude_patterns = ['prog1', 'prog2','archi','glossaire']
+
+exclude_patterns = ['prog1', 'prog2', 'hist','algo2', 'projets','resx']
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -156,7 +157,9 @@ myst_url_schemes = ['mailto', 'http', 'https']
 
 latex_elements = {
     'papersize': 'a4paper',
-    'preamble': r'\input{src/static/latex/customize}',
+    'preamble': r'\input{../../../src/static/latex/customize}',
     'pxunit': '0.5bp',
     'figure_align': 'H'
 }
+
+#latex_documents = ('modulo','modulo.tex',"Modulo: une introduction à l'informatique", "John","manual","True")

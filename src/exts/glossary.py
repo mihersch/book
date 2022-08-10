@@ -36,7 +36,15 @@ def visit_glossary_reference_latex(self, node):
 def depart_glossary_reference_latex(self, node):
     self.body.append('}')
     
+def visit_glossary_list_latex(self, node):
+    self.body.append('\glossarylist')
 
+
+def depart_glossary_list_latex(self, node):
+    pass
+    
+
+    
 def _glossary_file_name(app):
     return os.path.normpath(os.path.join(
         app.srcdir, '../glossaire.csv'))
@@ -200,6 +208,10 @@ def process_glossary_list(app, doctree, fromdocname):
         env.glossary_references = {}
 
     for node in doctree.traverse(glossary_list):
+        ## micha
+        if not hasattr(node,"glossary_index"):
+            return
+        ## end micha
         index = node.glossary_index
         refs = env.glossary_references.get(index, [])
         node.replace_self(index_link_node(
@@ -263,7 +275,7 @@ class GlossaryRole(SphinxRole):
         return [target_node, node], []
 
 def setup(app):
-    app.add_node(glossary_list)
+    app.add_node(glossary_list,latex=(visit_glossary_list_latex,depart_glossary_list_latex))
     app.add_node(glossary_reference,
                  html=(visit_glossary_reference_html, depart_glossary_reference_html),
                  latex=(visit_glossary_reference_latex, depart_glossary_reference_latex))
