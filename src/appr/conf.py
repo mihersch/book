@@ -19,9 +19,9 @@ import sys
 
 # -- Project information -----------------------------------------------------
 
-project = 'Modulo2'
+project = "Modulo2"
 copyright = 'CC-BY-NC'
-author = 'Groupe de travail DGEP, EPFL, HEP, UNIL'
+author = 'Adapté des ressources cantonales vaudoise'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1'
@@ -63,7 +63,7 @@ language = 'fr'
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 
-exclude_patterns = ['archi', 'prog1', 'prog2', 'hist','algo2', 'projets','resx']
+exclude_patterns = ['archi', 'algo1', 'prog1', 'prog2', 'hist','algo2', 'projets','resx', 'glossaire.md']
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -159,7 +159,11 @@ latex_elements = {
     'papersize': 'a4paper',
     'preamble': r'\input{../../../src/static/latex/customize}',
     'pxunit': '0.5bp',
-    'figure_align': 'H'
+    'figure_align': 'H',
+    'maketitle':  '\maketitle'
 }
 
-#latex_documents = ('modulo','modulo.tex',"Modulo: une introduction à l'informatique", "John","manual","True")
+
+
+
+latex_documents = [('index','modulo2.tex',"Introduction à l'informatique", "Adapté de Modulo, les ressources vaudoises pour l'enseignement de l'informatique","manual","True")]
