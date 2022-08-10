@@ -131,7 +131,7 @@ Si vous observez le [code Morse](https://fr.wikipedia.org/wiki/Code_Morse_intern
 Le désavantage de ces codex d'abréviations est leur faible degré de standardisation. Comment savoir quel codex est utilisé ? Et surtout : comment faire pour que tout le monde s'accorde sur le codex ? 
 
 La réponse à cette question est l'apport le plus essentiel de l'introduction du code binaire, et des standards de représentation de l'information qui l'ont suivi : un langage pour les contrôler tous. 
-````
+
 
 ```{figure} media/letterdistribution.png
 ---
