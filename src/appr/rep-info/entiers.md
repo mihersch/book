@@ -173,7 +173,7 @@ représentation décimale.
 
 ```{admonition} Micro-activité ✏️📒 
 :class: note
-<!-- <span style="color:green">Niveau débutant</span> -->
+
 
 Donnez la conversion décimale des nombres binaires suivants :
 
@@ -182,7 +182,7 @@ Donnez la conversion décimale des nombres binaires suivants :
   - 1111
   - 1111011
 
-<!-- end list -->
+
 
 ```
 
@@ -271,4 +271,77 @@ entier sur 16 bits. Malheureusement, le nombre en question était plus
 grand que 32767 (le plus grand entier que l'on peut coder en tant qu'entier signé sur 16 bits)
 et la conversion a été incorrecte, induisant un changement de
 trajectoire fatal.
+```
+
+### Le système hexadécimal
+
+La représentation binaire des nombres est bien adaptée pour leur manipulation par des ordinateurs,
+mais vous avez peut-être remarqué qu'elle a un désavantage notoire pour les humains: les nombres
+écrits en binaire sont longs (ils contiennent beaucoup de chiffre), et on a tendance à s'emméler
+en les manipulant, par exemple pour les recopier ou les reconnaître. C'est pas exemple nettement plus
+facile pour nous (surtout au vu de notre expérence) de faire la différence entre $76_{10}$ et $78_{10}$
+qu'entre $1001100_{2}$ et $1001110_{2}$ qui représentent la même paire de nombres en binaire.
+
+C'est pour résoudre ce problème que le système hexadécimal est utilisé. Il s'agit simplement d'un système de numération en base 16. Ce système utilise donc 16 symboles différents pour représenter les 16 chiffres que l'on peut utiliser. Ces symboles sont donnés dans le tableau suivant:
+
+```{math}
+\begin{array}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\text{Décimal} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\ 
+\hline
+\text{Binaire} & 0 & 1 & 10 & 11  & 100 & 101 & 110 & 111 & 1000 & 1001 & 1010 & 1011 & 1100 & 1101 & 1110 & 1111 \\ 
+\hline
+\text{Hexadécimal} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F \\ 
+\hline 
+\end{array} 
+```
+
+Pour les nombres de 0 à 9, le système hexadécimal reprend les symboles du système décimal, ce qui
+semble logique. Pour les nombres de 10 à 15, on a décidé de prendre les 6 premières lettres de
+l'alphabet. On aurait pu choisir d'autres symboles, mais les lettres ont l'avantage d'être faciles
+à mémoriser (si on utilise l'alphabet latin), d'avoir déjà un ordre bien connu et d'être déjà
+disponible dans les claviers et les systèmes d'affichage.
+
+Dans la notation hexadécimale, les positions des chiffres n'indiquent pas les unité, dizaines,
+centaines, mais de manière analogue, des unités, "seizaines" et "256-aines" (car $16^2= 256$).
+
+Ainsi, la forme canonique du nombre hexadécimal $23_{16}$ est $2\cdot 16^{1} + 3\cdot 16^{0}$
+ce qui fait $2\cdot 16 + 3 = 35_{10}$. De même comme $B_{16} = 11_{10}$,
+le nombre hexadécimal $1B_{16}$ peut se traduire en
+$1\cdot 16^{1} + 11 \cdot 16^{0} = 16 + 11 = 27_{10}$.
+
+```{admonition} Micro-activité ✏️📒 
+:class: note
+
+Convertissez en décimal puis en binaire les nombres hexadécimaux suivants. 
+
+  - 32
+  - AB
+  - 4E
+  - 10C
+
+Est-ce que vous remarquez quelque chose de spécial? Lisez la suite pour en savoir plus. 
+
+```
+
+Si on utilise l'hexadécimal, c'est-à-dire une représentation en base 16, et pas une autre base comme
+15, 17 ou 18, c'est parce qu'il est très facile de convertir un nombre binaire en un nombre hexadécimal
+et vice-versa. On pourrait bien sûr le faire en passant par la représentation décimale, comme ci-dessus,
+mais il y a une manière plus simple. En effet, on peut établir une correspondance entre chaque chiffre
+hexadécimal et son équivalent codé sur 4 bits. Ainsi pour convertir $3D_{16}$ en binaire, on prend
+le premier chiffre $3_{16}$ et on le code en binaire sur quatre bit, ce qui donne $0011_{2}$ et de même
+avec le chiffre suivant: $D_{16} = 1101_{2}$ comme indiqué sur le tableau ci-dessus. En mettant bout à
+bout les groupe de 4 bits (en gardant le bon ordre!), on obtient la représentation binaire du nombre
+hexadécimal: $3D_{16} = \underbrace{0011}_{3}\ \underbrace{1101_{2}}_{D}$ (l'espace est facultatif et aide à la lecture).
+
+De la même manière, on peut convertir un nombre binaire en hexadécimal en faisant des groupes de 4 bit en commençant par la droite et en les remplaçant par le symbole hexadécimal correspondant. Par exemple,
+$101100_{2}$ peut se séparer en groupes (en commençant à droite) ainsi $\underbrace{10}_{2}\ \underbrace{1100_{2}}_{C}$ ce qui est équivalent à $2C$. 
+
+Cette manière de faire ne fonctionne que parce que $16 = 2^{4}$ et ne peut donc pas être utilisée avec
+une autre base que l'hexadécimal.
+
+```{admonition} Pour aller plus loin
+:class: note
+1. Justifier pourquoi cette méthode de conversion entre binaire en hexadécimal est correcte.
+1. Par analogie, trouver comment convertir un nombre binaire en nombre octal, c'est-à-dire en base 8. 
 ```
