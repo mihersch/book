@@ -47,6 +47,7 @@ Depuis quelques millénaires, l'espèce humaine a créé de nombreux alphabets, 
 ```
 ````
 
+
 ```{dropdown} Différentes représentations de la même information
 - Nombres en chiffres classiques, romains, lettres
 - Mot en différentes langues, morse, idéogrammes
