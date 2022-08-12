@@ -1,8 +1,8 @@
 (appr:repinfo:entiers)=
 # Les entiers
 
-La plupart des civilisations humaines utilise le système décimal.
-Pourquoi ? Tout simplement parce que nous avons 10 doigts !
+Notre système de numération, le système indo-arabe, a été inventé en Inde et repris par les Arabes qui l'ont transmis à l'Europe. Il utilise le système décimal.
+Pourquoi? Tout simplement parce que nous avons 10 doigts !
 
 L'ordinateur, lui, n'a pas de doigts mais utilise l'électricité. Par
 conséquent, il ne connaît que deux types d'informations : il y a du
@@ -332,13 +332,47 @@ hexadécimal et son équivalent codé sur 4 bits. Ainsi pour convertir $3D_{16}$
 le premier chiffre $3_{16}$ et on le code en binaire sur quatre bit, ce qui donne $0011_{2}$ et de même
 avec le chiffre suivant: $D_{16} = 1101_{2}$ comme indiqué sur le tableau ci-dessus. En mettant bout à
 bout les groupe de 4 bits (en gardant le bon ordre!), on obtient la représentation binaire du nombre
-hexadécimal: $3D_{16} = \underbrace{0011}_{3}\ \underbrace{1101_{2}}_{D}$ (l'espace est facultatif et aide à la lecture).
+hexadécimal: $3D_{16} = \underbrace{0011}_{3}\ \underbrace{1101_{2}}_{D}$ (l'espace est facultatif et
+aide à la lecture). On peut se convaincre que la réponse est correcte en faisant la conversion en décimal.
+```{math}
+3D_{16} = 3*16+13 = 61_{10} \quad \text{et}\quad 111101_{2} = 32+16+8+4+1 = 61_{10}
+```
 
-De la même manière, on peut convertir un nombre binaire en hexadécimal en faisant des groupes de 4 bit en commençant par la droite et en les remplaçant par le symbole hexadécimal correspondant. Par exemple,
-$101100_{2}$ peut se séparer en groupes (en commençant à droite) ainsi $\underbrace{10}_{2}\ \underbrace{1100_{2}}_{C}$ ce qui est équivalent à $2C$. 
+```{admonition} Micro-activité ✏️📒 
+:class: note 
+Convertissez les nombres hexadécimaux suivants en binaire:
+  - 2B3
+  - 819
+  - BAFFE
+  - B0F
+```
+
+
+De la même manière, on peut convertir un nombre binaire en hexadécimal en faisant des groupes de 4 bit
+en commençant par la droite et en les remplaçant par le symbole hexadécimal correspondant. Par exemple,
+$101100_{2}$ peut se séparer en groupes (en commençant à droite) ainsi
+$\underbrace{10}_{2}\ \underbrace{1100_{2}}_{C}$ ce qui est équivalent à $2C$. A nouveau,
+la conversion en décimal nous permet de vérifier que c'est bien juste:
+```{math}
+2C_{16} = 2*16+12 = 44_{10} \quad \text{et}\quad 101100_{2} = 32+8+4 = 44_{10}
+```
 
 Cette manière de faire ne fonctionne que parce que $16 = 2^{4}$ et ne peut donc pas être utilisée avec
 une autre base que l'hexadécimal.
+
+
+```{admonition} Micro-activité ✏️📒 
+:class: note 
+Convertissez les nombres binaire suivants en hexadécimal:
+  - 1010110
+  - 001010100011
+  - 1111101011011110
+  - 1101111010101101
+
+Vous pouvez vérifier vos réponses avec un convertisseur en ligne, par exemple [celui-ci](https://sebastienguillon.com/test/javascript/convertisseur.html).
+
+```
+
 
 ```{admonition} Pour aller plus loin
 :class: note
