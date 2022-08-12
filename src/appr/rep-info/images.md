@@ -5,23 +5,26 @@
 
 Depuis des siècles les humains gardent des traces de leur environnement sous forme d'images. Plus le temps passe, plus ces traces sont fidèles. On découvre par exemple la perspective autour du XV<sup>e</sup> siècle, les progrès en optique et en chimie permettent ensuite la création de la camera obscura et de la photographie argentique. Enfin l'informatique se développe permettant l'invention de la photographie numérique.
 
-```{figure} media/camera_obscura.jpg
----
-height: 16em
-align: left
-name: camera_obscura
----
+````{panels}
+
+:img-top: media/camera_obscura.jpg
+
 Principe de fonctionnement de la camera obscura.
-```
+^^^^^
 
-```{figure} media/camobscura.png
----
-height: 16em
-name: camobscura
----
+----
+:img-top: media/camobscura.png
+
 Une caméra obscura.
-```
 
+^^^^^
+````
+
+````{tabbed} Une caméra obscura.
+```{image} media/camobscura.png
+:width: 400px
+```
+````
 ### De la camera obscura à la caméra numérique
 
 Comment fonctionne une caméra numérique ? Une caméra numérique fonctionne en fait d'une manière très similaire à la caméra obscura et aux appareils photographiques analogiques d'un point de vue optique. Imaginez une chambre noire pourvue d'un trou sur l'une de ses parois. La lumière venant de l'extérieur vient se projeter sur le mur opposé. 
@@ -53,7 +56,11 @@ Principe de la capture numérique d'une image.
 ```
 ````
 
-Un bit est l'unité minimale d'information qu'un ordinateur manipule : 1 ou 0, allumé ou éteint. L'image la plus simple qu'un ordinateur puisse afficher est constituée uniquement de noir et blanc. Ainsi, un pixel pourrait être à l'état soit «noir», soit «blanc».
+Une image matricielle est constituée d'une grille de petits carrés lumineux, appelé les {glo}`pixel|pixels`, de l'anglais "**pic**ture **el**ement". Un pixel est le plus le composant minimal d'une image. Dans une image en noir et blanc, un pixel peut être
+soit noir soit blanc. Ces deux états peuvent être codés sur un seul bit, 0 pour noir, 1 pour blanc. Ainsi une image peut être
+représentée par une séquence de bits indiquant pour chaque pixel s'il est noir ou blanc. Si ce n'est pas donné par le contexte,
+il faut aussi bien sûr indiquer combien de lignes et de colonnes contient le tableau (la grille) de pixels et dans quel ordre on les remplit. 
+
 
 ```{figure} media/bitmap1.png
 ---
@@ -64,74 +71,6 @@ width: 250px
 ---
 Tous les pixels marqués d'un 1 s'affichent en blanc, tous ceux marqués d'un 0 s'affichent en noir. 
 Ceci nous permet de construire des images simples, dessinées seulement en noir et blanc.
-```
-
-```{codeplay}
-import turtle
-
-ATuin = turtle.Turtle()
-ATuin.hideturtle()
-ATuin.speed(0)
-
-def drawSquare(size, color=(1,1,1)):
-    #ATuin.pencolor(color)
-    ATuin.fillcolor(color)
-    ATuin.begin_fill()
-    for i in range(4):
-        ATuin.forward(size)
-        ATuin.right(90)
-    ATuin.end_fill()
-    ATuin.forward(size)
-
-divtpl = lambda tpl : tuple(round(x/255.,2) for x in tpl)
-
-def setColor(col):
-    if isinstance(col,tuple) and len(col) == 3 :
-        return divtpl(col)
-    elif isinstance(col, (int, float)):
-        if col > 1 and col < 255:
-            grey = int(col)
-            return divtpl((grey,)*3)
-        elif col == 1 or col == 0:
-            bw = 255 - int(col)*255
-            return divtpl((bw,)*3)
-        else:
-            return divtpl((1,1,1))
-    else:
-        return divtpl((1,1,1))
-
-
-
-def drawImg(mtrx, imgSize = 300):
-    nb = max(len(mtrx), max([len(line) for line in mtrx]))
-    pixSize = imgSize // nb
-    ATuin.up()
-    ATuin.setpos(-nb*pixSize//2,nb*pixSize//2)
-    ATuin.down()
-    for line in mtrx :
-        for elmt in line:
-            drawSquare(pixSize, setColor(elmt))
-        ATuin.up()
-        pos = ATuin.pos()
-        ATuin.setpos(pos[0]-pixSize*len(line), pos[1]-pixSize)
-        ATuin.down()
-
-===
-alien = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0],
-    [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-    [0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0],
-    [0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-    [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1],
-    [0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-]
-
-drawImg(alien)
 ```
 
 Un {glo}`pixel|pixel`, de l'anglais "**pic**ture **el**ement", est le composant minimal d'une image. C'est à dire que c'est le plus petit élément avec lequel on construit une image sur un écran d'ordinateur. Dans notre exemple minimaliste, chaque pixel peut être soit noir, soit blanc, ce qui nous permet de construire une image.
