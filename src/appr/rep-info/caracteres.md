@@ -1,14 +1,15 @@
 (appr:repinfo:caracteres)=
-# Les caractères
+# Le texte
 
 Toute l'information est représentée dans un ordinateur par des nombres
 encodés sous forme binaire par des 0 et des 1. Se pose alors la question
-de la représentation des caractères, ne serait-ce que parce que la communication
+de la représentation du texte, ne serait-ce que parce que la communication
 entre les utilisateurs et les ordinateurs s'opère essentiellement sous forme textuelle. 
 
 ## Principe
 
-La solution est simple : on associe chaque caractère à un code binaire.
+La solution est simple : comme on sait déjà représenter les nombre en binaire, on associe chaque
+caractère à un nombre qui pourra être représenté en binaire.
 
 | Caractère | Décimal | Hexadécimal |   Binaire    |
 |-----------|---------|-------------|--------------|
@@ -28,50 +29,6 @@ de 0 et 1.
 Lorsqu'il s'agit de représenter ce texte à l'écran ou à l'impression, les logiciels utilisent la table
 dans l'autre sens pour trouver le caractère correspondant au nombre binaire.
 
-````{panels}
-:column: col-lg
-
-Les propriétés 
-de la table de conversion 
-décrite précédemment 
-sont telles 
-qu'il est aisé 
-de changer la casse 
-(minuscule/majuscule)
-d'un caractère
-en agissant sur
-le bit de valeur 32.
-
-```{codeplay}
-
-saisie = input('Un texte : ')
-
-print('-'*42)
-majuscules = ''
-for each in saisie:
-    # cela ne marche qu'avec les lettres, pas les symboles
-    if each.isalpha():
-        # on s'assure que le bit de valeur 32 est à 0
-        majuscules += chr(ord(each) & 0b11111011111)
-    else:
-        majuscules += each
-
-print("En majuscules :", majuscules)
-
-minuscules = ''
-for each in saisie:
-    # cela ne marche qu'avec les lettres, pas les symboles
-    if each.isalpha():
-        # on s'assure que le bit de valeur 32 est à 1
-        minuscules += chr(ord(each) | 0b00000100000)
-    else:
-        minuscules += each
-
-print("En minuscules :", minuscules)
-print('-'*42)
-```
-````
-
 En plus des lettres, les caractères qui représentent
 les chiffres sont eux-mêmes listés dans la table de conversion.
 Contre-intuitivement, la valeur binaire du caractère
@@ -90,36 +47,71 @@ et des symboles mathématiques, ainsi que des caractères non-imprimables comme
 le retour à la ligne.
 
 En réalité, il n'existe pas une table de conversion unique, mais des dizaines
-de tables de conversion. Certaines tables ont été proposées à l'origine
-par des constructeurs d'ordinateurs ou des éditeurs de systèmes d'exploitation.
+de tables de conversion. En effet, les caractères utilisés dans les différents pays
+diffèrent et donc les tables utilisées dans un pays (par exemple les Etats-Unis) ne
+conviennent pas pour la France (à cause des accents) et encore moins pour la Russie ou la Chine.
+Certaines tables ont été proposées à l'origine
+par des constructeurs d'ordinateurs ou des éditeurs de systèmes d'exploitation. Voici les tables
+les plus importantes. 
 
 ## Table ASCII
 
-Le code américain normalisé pour l’échange d’information ASCII (pour American Standard Code for Information Interchange) est apparu dans les année 1960.
-Malgré sa large acceptation, avec ses **7 bits par caractère**,
-cette table avait pour principal défaut de ne pas prendre en compte
-les caractères qui n'existent pas dans la langue anglaise,
+Le code américain normalisé pour l’échange d’information ASCII
+(pour American Standard Code for Information Interchange) est apparu dans les année 1960.
+Cette table représentait chaque caractère avec 7 bits, et pouvait donc contenir $2^{7}$ 128 caractères
+différents, ce qui suffisait pour les 26 lettres de l'alphabet en minuscule et majuscule, les 10
+chiffres et les signes de ponctuations. De nos jours, cette table est encore largement utilisée mais
+sur 8 bits (le bit de plus à gauche est laissé toujours à 0). Cela permet de faire correspondre chaque
+caractère à un octet qui peut être représenter en hexadécimal par un nombre à deux chiffre. 
+Cette table à l'avantage de prendre peu de place en mémoire, mais sont principal principal défaut est
+de ne pas prendre en compte les caractères qui n'existent pas dans la langue anglaise,
 ne serait-ce que les lettres accentuées.
 
-```{image} media/ASCII-Table.png
-:width: 600
-:height: 700
+```{image} media/ASCII-Table-FR.png
+:width: 850
 ```
 **Tab. 1** La table de représentation des caractères ASCII
 
-<br>
-L'exemple ci-dessous renvoie la valeur binaire du texte écrit.
 
-```{codeplay}
+Ainsi, pour représenter du texte en binaire en utilisant la table ASCII, on convertit chaque
+caractère, y compris les espaces et la ponctuation en hexadécimal puis en binaire. Par exemple,
+pour coder "A l'aide!" en binaire:
 
-texte = input("Le texte : ")
 
-print("Le texte d'origine est : " + texte)
+```{math}
+\begin{array}{c||c|c|c|c|c|c|c|c|c|}
+ \text{Texte} & \text{A}       &        & \text{l}       &\text{'}        &\text{a}        &\text{i}        &\text{d}        &\text{e}        & \text{!}        \\
+ \hline
+\text{Hex.}& 41       &20       &6C       &27       &61       &69       &64       &65       & 21   \\
+\hline
+\text{Binaire}& \scriptstyle 0100\,0001 & \scriptstyle 0010\ 0000 & \scriptstyle 0110\ 1100 & \scriptstyle 0010\ 0111 & \scriptstyle 0110\ 0001 & \scriptstyle 0110\ 1001 & \scriptstyle 0110\ 0100 & \scriptstyle 0110\ 0101 & \scriptstyle 0010\ 0001\\
+\hline
+\end{array}
 
-res = ' '.join(format(ord(i), 'b') for i in texte)
-
-print("Le texte en binaire est : " + res)
 ```
+Le texte "A l'aide!" peut donc être représenté par en binaire par la séquence de bits
+
+01000001 00100000 01101100 00100111 01100001 01101001 01100100 01100101 00100001.
+
+(Les espaces qui
+séparent les octets sont là pour nous aider à la lecture, mais ne sont pas représentés dans l'ordinateur.). Pour convertir du binaire en texte, il suffit séparer la séquence de bit en groupes de 8 bits et de convertir chaque paire d'octet en hexadécimal puis dans d'afficher le caractère correspondant en consultant
+la table. 
+
+
+````{admonition} A vous!️📒
+:class: note 
+
+1. À l’aide de la table ASCII, codez en binaire la phrase suivante  «L’an qui vient !».
+
+1. Voici maintenant une exclamation codée en binaire : 01000010 01110010 01100001 01110110 01101111 00100001. Retrouvez cette exclamation !
+
+1. Peut-on coder en binaire la phrase «Un âne est-il passé par là ?» à l’aide de la table ASCII (justifiez la réponse) ?
+
+1. Que se passe-t-il si un bit d'une séquence de bits encodant un texte en ascii disparaît (par exemple lors de la transmission). Peut-on quand même comprendre le texte transmis?
+
+
+````
+
 
 `````{admonition} Le saviez-vous ? 
 :class: hint
@@ -144,7 +136,7 @@ print ("""
 """)
 ````
 
-[Cet outil](https://www.patorjk.com/software/taag/#p=display&f=Small&t=Entrez%20votre%20texte)
+[Cet outil](https://www.patorjk.com/software/taag/)
 vous permet de transformer n'importe quel texte en ASCII.
 
 La vidéo suivante présente "l'asciiquarium",
@@ -153,7 +145,9 @@ un aquarium en ASCII dans le terminal.
 ```{youtube} pAfvoVtsA64
 `````
 
-Des tables multiples, mutuellement incompatibles, ont alors émergé : une table
+
+
+Au cours du XXe siècle, des tables multiples, mutuellement incompatibles, ont émergé : une table
 pour les européens, une autre pour les Japonais et ainsi de suite.
 
 Progressivement, notamment avec l'émergence du Web au cours des années 1990,
@@ -211,30 +205,6 @@ Les bits représentés par le caractère «x» représentent ce que l'on appelle
 
 Puisqu'on peut dire quel type d'octet on regarde à partir des premiers bits du premier octet à gauche, alors même si quelque chose est altéré quelque part, la séquence entière n'est pas perdue : ce codage est appelé *codage auto-synchronisant*.
 
-#### Codage UTF-8 en détail
-
-Le premier octet en partant de la droite sert lui à encoder les caractères ASCII, donnant ainsi au jeu de caractères une **totale compatibilité avec ASCII**.
-
-Chaque caractère non ASCII (c'est à dire dont le point de code - ici le codage décimal - est supérieur à 127) se code nécessairement sur plusieurs octets, entre 2 et 4 octets ; les bits de poids fort du premier octet en partant de la gauche forment, en partant de la gauche également, une suite de 1 de longueur égale au nombre total d'octets utilisés pour coder le caractère ; les octets suivants auront 10 comme bits de poids fort comme on vient de l'écrire.
-
-Reprenons la table ASCII de la figure 8 et la [table UTF-8](https://www.utf8-chartable.de/unicode-utf8-table.pl?number=512&utf8=dec) : on observe que le signe ~ par exemple est sur la table ASCII à l'adresse décimale 126 (01111110 en binaire), et sera donc à la même adresse sur la table UTF-8. Même chose pour le caractère suivant, qui est le caractère de contrôle *del* qui se trouve à l'adresse 127 (01111111 en binaire). En revanche, le caractère suivant, qui est également un caractère de contrôle, bien évidemment n'apparaît plus sur la table ASCII ; sur la table [table UTF-8](https://www.utf8-chartable.de/unicode-utf8-table.pl?number=512&utf8=dec), l'adresse décimale est 194 128.
-
-Si l'on prend à présent, par exemple, le caractère «æ», on lit sur la table UTF-8 : 195 166, soit, en binaire : 11000011 10100110.
-
-On constate bien le passage du codage sur deux octets. L'adresse décimale 195 du premier octet correspond a la valeur binaire 11000011. On retrouve la suite de deux "1" en début de ce premier octet en partant de la gauche, indiquant ce codage total sur deux octets ; il reste 000011 pour la charge utile du premier octet du codage UTF-8. L'adresse décimale de 166 est 10100110 et commence donc bien par 10 comme bits de poids fort ; la charge utile du deuxième octet du codage UTF-8 est donc 100110.
-L'encodage binaire UTF-8 global s'écrit donc, en concaténant les deux charges utiles : 000011100110, ce qui correspond à 230 en décimal, valeur qu'on peut vérifier sur cette autre [table UTF-8](https://kellykjones.tripod.com/webtools/ascii_utf8_table.html) indiquant également le codage décimal.
-
-```{image} media/UTF8_exemples.png
-:width: 500
-:height: 200
-```
-**Tab. 3** Définition du nombre d'octets utilisés
-
-
-Par exemple le caractère « € » (euro) est le 8365e caractère du répertoire Unicode ; son index, ou point de code, est donc 8364, il se code en UTF-8 sur 3 octets : 226, 130, et 172 exprimé en décimal (11100010 10000010 10101100 exprimé en binaire).
-
-<br>
-
 ```{image} media/UTF8.png
 :width: 700
 :height: 400
@@ -242,84 +212,33 @@ Par exemple le caractère « € » (euro) est le 8365e caractère du répertoir
 **Tab. 4** Extrait de la table de représentation UTF-8
 
 
-## Exercices
 
-````{admonition} Exercice 2.4.1. - Utilisation de la table ASCII ✏️📒
-:class: note 
-<!--- <span style="color:orange">Niveau intermédiaire</span> -->
-
-
-1 - À l’aide de la table ASCII, codez en binaire la phrase suivante  «L’an qui vient !».
-
-2 - Voici maintenant une exclamation codée en binaire : 01000010 01110010 01100001 01110110 01101111 00100001. Retrouvez cette exclamation !
-
-3 - Peut-on coder en binaire la phrase «Un âne est-il passé par là ?» à l’aide de la table ASCII (justifiez la réponse) ?
-
-````
-
-
-`````{admonition} Exercice 2.4.2. - Activité codage et internet 🔌
+`````{admonition} A vous!
 :class: note
-<!--- <span style="color:green">Niveau débutant</span> -->
 
-Ouvrez un navigateur Internet (Firefox, …). Dans la barre d’outils, on peut voir à «Affichage», «Encodage des caractères» que c’est le format UTF-8 qui est sélectionné par défaut. 
+1. Ouvrez un navigateur Internet (Firefox, …) et essayez de trouver dans les menus quel encodage de caractère
+(c'est-à-dire quelle table) ce navigateur utilise. Une recherche sur internet peut vous aider. 
 
-1 - Changez la sélection UTF-8 et choisissez à présent Europe Centrale (Windows). De petits caractères désagréables apparaissent. Que s’est-il passé ? 
-
-````{admonition} Réponse
-:class: hint
-```{dropdown} <span style="color:grey">Cliquer ici pour voir la réponse</span>
-:animate: fade-in-slide-down
-En allant dans «Outils», «Informations sur la page», on voit que cette page est encodée en UTF-8. Lorsque le lecteur est lui aussi en UTF-8 tout va bien. Dès qu’on change le paramètre du lecteur (ici, le navigateur), des incompatibilités apparaissent.
-````
-
-
-2 - Utilisez toujours le navigateur web, et allez dans «Affichage», «Source». On lit alors l'entête de la page *html* visitée. Où se situe l’information relative à l’encodage ?
-
-````{admonition} Réponse
-:class: hint
-```{dropdown} <span style="color:grey">Cliquer ici pour voir la réponse</span>
-:animate: fade-in-slide-down
-<span style="color:green">*meta http-equiv="Content-Type" content="text/html; </span> <span style="color:red">charset=utf-8"*</span>
-````
-
-
-3 - On peut aussi dans «Affichage», «Codage», sélectionner Grec (ISO) et se rendre compte en lisant le texte, que le «à» a été remplacé par un «L» à l’envers dit *Gamma*.
+1. Essayez de changer l'encodage de caractère selon diverses possibilités proposées. Qu'observez-vous et comment pouvez-vous l'expliquer? 
 
 ``````
 
-
-
-````{admonition} Exercice 2.4.3. - Coder en UTF-8 ✏️📒
+````{admonition} Pour aller plus loin. ️📒
 :class: note
-<!--- <span style="color:orange">Niveau intermédiaire</span> -->
 
-Le symbole Ø correspond à la valeur décimale 8709.
+On transmet le texte suivant codé en UTF-8:
 
-1 - Convertissez cette valeur en binaire.
+11000011 1000000 00100000 01100011 01100101 01110100 00100000 11000011 10101001 01110100 11000011 10101001 0010001
 
-2 - Combien d’octets doit-on utiliser en UTF-8 pour coder ce nombre convenablement (les moitiés d’octet sont interdites) ?
+1. Séparez ce texte en ses différentes caractères et vérifiez qu'il en compte bien 9.
 
-3 - Donnez le codage UTF-8 correspondant.
+1. Décodez les caractères qui peuvent l'être grâce à la table ASCII
+
+1. Sachant qu'en UTF-8 le caractère "é" se code par "11000011 10101001", essayer de décoder l'entier du message. 
 
 `````
 
-````{admonition} Exercice 2.4.4. - Activité Hexadécimal ✏️📒
-:class: note
-<!--- <span style="color:red">Niveau avancé</span> -->
 
-Nous avons vu au cours du chapitre précédent deux systèmes de numération, décimal et binaire. Il existe également un troisième système de numération très utilisé, le système hexadécimal, visible par ailleurs sur les tables. Le système binaire permet d'exprimer n'importe quel nombre en base 2 (soit 0, soit 1), le système décimal en base 10 (de 0 à 9) - c'est notre mode de représentation usuel. Le système hexadécimal permet d'exprimer n'importe quel nombre en base 16 : de 0 à 9... puis les lettres A, B, C, D, E, F.
-
-1 - Selon vous, comment s'expriment les nombres décimaux 6, 8, 11, 14 et 16 en hexadécimal ?
-
-2 - Exprimer 34 puis 128 en hexadécimal.
-
-3 - A quels nombres décimaux correspondent les nombres hexadécimaux 80, puis 9A ?
-
-4 - En prenant la valeur décimale 154, essayez de décrire une méthode permettant de passer du système décimal au système hexadécimal.
-
-5 - En reprenant la valeur hexadécimale 9A, essayez de décrire une méthode permettant de passer du système hexadécimal au système décimal.
-````
 
 
 
