@@ -167,3 +167,5 @@ latex_elements = {
 
 
 latex_documents = [('index','modulo2.tex',"Introduction à l'informatique", "Adapté de Modulo, les ressources vaudoises pour l'enseignement de l'informatique","manual","True")]
+
+latex_show_urls = 'footnote'
