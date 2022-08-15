@@ -8,68 +8,58 @@ Un son est une histoire d’énergie et de vibrations. Un son émerge quand des 
 ```
 
 
-Toutes ces «tranches» de molécules vont donc osciller successivement, formant une onde qui va se déplacer au sein du milieu matériel : air, eau, caoutchouc par exemple. C'est ce que l'on peut observer lorsqu'un projectile heurte une flaque d’eau : à partir du point d'impact, se forme progressivement une onde circulaire qui s'étend et se propage à la surface de l'eau.
+Toutes ces «tranches» de molécules vont donc osciller successivement, formant une onde qui va se déplacer au sein du milieu matériel : air, eau, caoutchouc par exemple. C'est similaire à ce que l'on observe lorsqu'un projectile heurte une flaque d’eau : à partir du point d'impact, se forme progressivement une onde circulaire qui s'étend et se propage à la surface de l'eau.
 
-
-
-```{youtube} Yi3LW5riHfc
-```
-
-Le son est donc une **vibration mécanique**, nécessitant un **milieu matériel** : s'agissant des sons que nous entendons tous les jours, le milieu matériel est bien évidemment l'air ambiant.
+Le son est donc une **vibration mécanique**, nécessitant un **milieu matériel** : s'agissant des sons que nous entendons tous les jours, le milieu matériel est bien évidemment l'air ambiant. 
 
 On appelle **fréquence** du son, la vitesse avec laquelle ces molécules vibrent. Plus la vibration des molécules est rapide, plus le son est aigu : on parle de fréquence élevée. Inversement, plus la vibration est lente, plus basse est la fréquence. Une corde de guitare détendue vibre moins vite que sa voisine très tendue, elle va produire un son plus grave avec une oscillation bien plus lente. 
 
-Le niveau sonore correspond lui à la hauteur de l’oscillation : on parle d’**amplitude**. 
+Le niveau sonore correspond lui à l'**amplitude** de l’oscillation, c'est-à-dire si les molécule bougent beaucoup (grande amplitude) ou peu (faible amplitude).  
 
-Ce phénomène physique d’oscillation des molécules dans l’air est capté par notre oreille en mettant en vibration nos organes qui vont convertir cette pression reçue en signaux électriques transmis au cerveau. Votre musique préférée est donc une addition de sons avec des fréquences et amplitudes différentes qui vont vous fait vibrer au sens propre... comme au figuré !
-
-
-Entre phénomène physique et organe sensoriel, le son physique (on parle également de son **analogique**) va être un ensemble d’oscillations, de vibrations, définies par des fréquences et des amplitudes.
+Lorsque la vibration de l'air atteint notre oreille, elle est transmise par le tympan à la cochlée dans laquelle des cellules vont détecter certaines fréquences spécifiques de vibration et envoyer cette information au cerveau. 
+Votre musique préférée est donc une addition de sons avec des fréquences et amplitudes différentes qui vont vous fait vibrer au sens propre... comme au figuré !
 
 
-```{youtube} XFyT1bsSnHI
-```
-
-Chaque «son élémentaire» peut ainsi être assimilé à une courbe comme celle décrite dans la vidéo : on parle de courbe sinusoïdale, ou encore de sinusoïde. Les sons ou la musique que vous écoutez n'est autre qu'une somme de ces courbes «convenablement» arrangées.
-
-<center>
-<title> Util_Audacity.mov </title>
-<body>
-    <div id="player">
-    <video width="500" height="300" controls>
-    <source src="https://maitre.edunumsec2.ch/_videos/Util_Audacity.mov"type="video/quicktime">
-    </audio> 
-    </div>
-</body> 
-</center>
-
-La question est de savoir comment ramener ces oscillations sinusoïdales combinées ensemble en un ensemble de 0 et 1 pour être stockées numériquement dans un ordinateur, comme les nombres, images et les caractères.
+Pour représenter ces oscillations sonore, on peut imaginer placer une membrane (par exemple un microphone) qui va vibrer avec le son. La position du centre de
+cette membrane au cours du temps, constitue un signal (en une dimension) qui représente le son. 
 
 
-```{admonition} Le saviez-vous ?
-:class: hint
-Les casques à conduction osseuse transmettent les vibrations directement à l’os temporal du crâne : la cochlée qui est nichée dans cet os va vibrer et transmettre les informations électriques au cerveau, comme le ferait un signal passant par le tympan et le marteau.
-```
+La question est de savoir comment représenter ces oscillations en un ensemble de 0 et 1 pour être stockées numériquement dans un ordinateur, comme les nombres, images et les caractères.
 
 
-
-
-```{admonition} Le saviez-vous ?
-:class: hint
-Vous rappelez-vous de l’explosion de l’étoile de la mort dans Star Wars ? et bien un son pareil ne peut exister dans l'espace : il n’y a pas assez de molécules à agiter, l’énergie transmise par l'explosion ne peut pas se propager de la sorte.
-
-<title> starwars.mov </title>
-<body>
-    <div id="player">
-    <video width="500" height="300" controls>
-    <source src="https://files.modulo-info.ch/starwars.m4v">
-    </audio> 
-    </div>
-</body> 
-
+```{figure} media/soncontinu.png
+:height: 16em
+:name: fig-repr-num-sig
+---
+Un signal sonore représenté par la position d'une membrane vibrante
+(axe vertical) en fonction du temps (axe hoorizontal). 
 ```
 
 ## Numérisation
+
+````{admonition} Micro-activité
+:class: note
+Essayez de représenter le signal ci-dessus par une une suite de nombres. Votre
+représentation est-elle précise? 
+
+````
+
+Un signal analogique continu tel que celui représenté ci-dessus ne peut pas
+être directement représenté par un ordinateur, car étant continu, il est
+constitué d'une infinité de nombres à virgules pouvant chacun avoir une infinité
+de chiffres après la virgule. Pour convertir ce signal continu en données
+numérique il faut le *discrétiser*, c'est à dire le transformer en une suite finie de nombres représentable par un ordinateur. 
+
+Pour ceci, le signal est d'abord *échantilloné*, c'est-à-dire que l'on va
+découper l'intervalle de temps du signal en un nombre fini de morceaux par
+exemple toutes les milisecondes. On va alors attribuer une valeur de signal pour
+chaque morceau. Plus il y a de morceaux, plus  ceux-ci sont petit et plus il sera possible de représenter précisément le signal. Le nombre de morceaux
+par secondes représente la fréquence d'échantillonage exprimée en Herz (ou Hz).
+Ainsi, un son de 5 secondes échantilloné à 1000 Hz (ou 1 kHz) aura
+$5 \cdot 1000= 5000$ morceaux donc sera décrit par 5000 valeurs du signal. 
+
+
+
 
 La conversion d’une grandeur physique analogique continue – température, vitesse du vent, position d'une girouette, etc. – en données numériques digitales est appelée **numérisation**. Elle est réalisée en trois étapes : un **échantillonnage**, une **quantification** puis un **encodage**.
 
@@ -79,17 +69,8 @@ Il s'agit donc d'un compromis entre la qualité de la représentation et les co�
 
 Ci-après, un signal continu sera numérisé, mettant en évidence le rôle et les effets des différents paramètres de la numérisation. Il s'agira pour l'exemple de l'intensité sonore telle qu'elle peut être capturée par un microphone.
 
-```{figure} media/soncontinu.png
-:height: 16em
-:name: fig-repr-num-sig
----
-Signal continu à numériser, par exemple un son.
-```
 
-````{admonition} Le saviez-vous ?
-:class: note
-Les sons, tels que perçus
-par notre ouïe, résultent de la vibration de l'air, prenant la forme d'oscillations cycliques de la pression.
+
 
 ```{toggle}
 Ces oscillations peuvent être capturées par la membrane d'un microphone et générer un signal électrique qui peut être numérisé.
