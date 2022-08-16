@@ -20,9 +20,12 @@ Lorsque la vibration de l'air atteint notre oreille, elle est transmise par le t
 Votre musique préférée est donc une addition de sons avec des fréquences et amplitudes différentes qui vont vous fait vibrer au sens propre... comme au figuré !
 
 
-Pour représenter ces oscillations sonore, on peut imaginer placer une membrane (par exemple un microphone) qui va vibrer avec le son. La position du centre de
-cette membrane au cours du temps, constitue un signal (en une dimension) qui représente le son. 
-
+Pour représenter ces oscillations sonores, on peut imaginer placer une membrane (par exemple un microphone) qui va vibrer avec le son. La position du centre de
+cette membrane au cours du temps, constitue un signal (en une dimension) qui représente le son.
+Dans un microphone, ces oscillations sont converties en oscillations de tension électrique constituant
+un signal qui peut être captées par un ordinateur. En échange, un signal électrique qui stimule un
+haut-parleur produit des oscillations de la pression de l'air qui peuvent à leur tour être perçues. Ce signal
+peut provenir de la reconstruction d'un signal numérisé.
 
 La question est de savoir comment représenter ces oscillations en un ensemble de 0 et 1 pour être stockées numériquement dans un ordinateur, comme les nombres, images et les caractères.
 
@@ -48,83 +51,60 @@ Un signal analogique continu tel que celui représenté ci-dessus ne peut pas
 être directement représenté par un ordinateur, car étant continu, il est
 constitué d'une infinité de nombres à virgules pouvant chacun avoir une infinité
 de chiffres après la virgule. Pour convertir ce signal continu en données
-numérique il faut le *discrétiser*, c'est à dire le transformer en une suite finie de nombres représentable par un ordinateur. 
+numérique il faut le *discrétiser*, c'est à dire le transformer en une suite finie de nombres représentables
+par un ordinateur. La discrétisation d'un signal et son stockage dans un ordinateur
+s'appelle la *numérisation*. 
 
-Pour ceci, le signal est d'abord *échantilloné*, c'est-à-dire que l'on va
+Pour ceci, le signal est d'abord *échantillonné*, c'est-à-dire que l'on va
 découper l'intervalle de temps du signal en un nombre fini de morceaux par
 exemple toutes les milisecondes. On va alors attribuer une valeur de signal pour
-chaque morceau. Plus il y a de morceaux, plus  ceux-ci sont petit et plus il sera possible de représenter précisément le signal. Le nombre de morceaux
+chaque morceau. Plus il y a de morceaux, plus  ceux-ci sont petits et plus il sera possible de
+représenter précisément le signal. Le nombre de morceaux
 par secondes représente la fréquence d'échantillonage exprimée en Herz (ou Hz).
 Ainsi, un son de 5 secondes échantilloné à 1000 Hz (ou 1 kHz) aura
 $5 \cdot 1000= 5000$ morceaux donc sera décrit par 5000 valeurs du signal. 
 
-
-
-
-La conversion d’une grandeur physique analogique continue – température, vitesse du vent, position d'une girouette, etc. – en données numériques digitales est appelée **numérisation**. Elle est réalisée en trois étapes : un **échantillonnage**, une **quantification** puis un **encodage**.
-
-Le processus de numérisation engendre une quantité d'information (des bits) qui vise à représenter, aussi précisément que nécessaire, la grandeur physique sous une forme manipulable par les ordinateurs.
-
-Il s'agit donc d'un compromis entre la qualité de la représentation et les coûts engendrés par un fichier plus grand, qui prend plus de place de stockage, plus de temps à copier, à transmettre sur un réseau et/ou nécessite une puissance de calcul plus importante pour la numérisation (conversion analogique/digitale) et pour la **reconstruction** (conversion digitale/analogique).
-
-Ci-après, un signal continu sera numérisé, mettant en évidence le rôle et les effets des différents paramètres de la numérisation. Il s'agira pour l'exemple de l'intensité sonore telle qu'elle peut être capturée par un microphone.
-
-
-
-
-```{toggle}
-Ces oscillations peuvent être capturées par la membrane d'un microphone et générer un signal électrique qui peut être numérisé.
-
-En échange, un signal électrique qui stimule un haut-parleur produit des oscillations de la pression de l'air qui peuvent à leur tour être perçues. Ce signal peut provenir de la reconstruction d'un signal numérisé.
-```
-````
-
-## Échantillonnage
-
-L'intervalle temporel entre deux mesures est appelé la période d'échantillonnage. La **fréquence d'échantillonnage** (sampling rate) est le nombre de mesures prises par seconde, exprimée en Hz.
-
-Les limites pratiques d’un échantillonnage sont fixées par la fréquence de Nyquist, qui, de façon très simplifiée, indique que l’information découlant d’un processus dont la fréquence est supérieure à la moitié de la fréquence d'échantillonnage sera perdue lors de la numérisation. Il ne sera donc jamais possible d'avoir une représentation complète d'un processus complexe, tout au mieux une représentation suffisante. Comme toute activité d'ingénierie, la solution retenue  résulte d'une pesée d'intérêts  et non d'une évidence  pointant  vers une solution unique. 
 
 ```{figure} media/numerisation-01.png
 :height: 16em
 :name: fig-repr-num-freq
 :align: left
 ---
-Effet de la fréquence d'échantillonnage (sampling rate : 100, 200 et 400 Hz) sur la représentation obtenue par numérisation. <br> Plus la fréquence est élevée, plus la quantité d'information collectée est importante. Dans tous les cas, les détails du signal qui se déroulent entre les échantillonnages sont perdus.
+Effet de la fréquence d'échantillonnage (sampling rate : 100, 200 et 400 Hz) sur la représentation obtenue par numérisation. Plus la fréquence est élevée, plus la quantité d'information collectée est importante. Dans tous les cas, les détails du signal qui se déroulent entre les échantillonnages sont perdus.
 
 ```
 
-Sachant que l’oreille humaine ne perçoit globalement que les fréquences comprises entre 20 et 20000 Hz, une fréquence d’échantillonnage supérieure à 40 kHz permettra de restituer l’ensemble de l’information physiologiquement perceptible par l’oreille humaine.
+Une bonne fréquence d'échantillonnage est le résultat d'un compromis entre une grande qualité de son
+(donc une haute fréquence d'échantillonage) et une petite place en mémoire (donc une faible fréquence
+d'échantillonage). Pour conserver une fréquence donnée, par exempe 440 Hz qui correspond à un la, il faut
+une échantilloner à une fréquence deux fois plus élevée (880 Hz dans notre exemple) puisqu'il faut au minimum
+deux valeurs pour capter une oscillation. Par exemple, avec les six valeurs 0-1-0-1-0-1 on peut détecter au
+plus 3 oscillations. Sachant que l’oreille humaine ne perçoit globalement que les fréquences comprises entre 20 et 20000 Hz, une fréquence d’échantillonnage supérieure à 40 kHz permettra de restituer l’ensemble de l’information physiologiquement perceptible par l’oreille humaine. C'est la raison pour laquelle l’échantillonnage de la musique en qualité “CD” est réalisé à 44.1 kHz (incluant ainsi 10% de marge). 
+
+
+
 
 ````{admonition} Un peu d'histoire…
 :class: note
 La fréquence d'échantillonnage de 44.1 kHz a été retenue dans les années 1970 pour permettre l'utilisation des bandes vidéo pour stocker les enregistrements numériques. Ces bandes représentaient le meilleur rapport volume de stockage/prix pour l'époque.
 
-```{toggle}
 Cependant, les formats vidéos sont cadencés sur la fréquence du système électrique local : 60 Hz pour le NTSC américain (et 30 images par seconde) ; 50 Hz pour le PAL européen (et 25 images par seconde). En choisissant le multiple commun de 44.1 kHz, la norme permettait d'être utilisée avec les deux formats NTSC et PAL comme support de stockage physique pour le transport du "master" stéréo en vue de son impression sur des CDs.
 
 Depuis, avec la disparition des cassettes vidéo comme supports de données, puis l'apparition du support DAT, l'échantillonnage à 48 kHz s'impose progressivement (avec ses multiples 96 et 192 kHz). Ces valeurs ont l'avantage d'être des multiples de huit, ce qui est toujours favorable dans le domaine informatique.
 
 De plus, ces fréquences simplifient la synchronisation avec les enregistrements vidéo en 24, 25, 30, 60, 100 et même 120 images par seconde. Les multiples de 48 kHz sont donc des fréquences d'échantillonnage de choix pour la diffusion HDTV, notamment.
 
-```
 ````
-C'est la raison pour laquelle l’échantillonnage de la musique en qualité “CD” est réalisé à 44.1 kHz, en prenant en compte
-une petite marge pour l'utilisation de filtres passe-bas lors de l'enregistrement.
 
-Une fréquence d'échantillonnage inférieure génère un son dont la qualité est dégradée, à commencer par la précision des sons les plus aigus, aboutissant à une numérisation qui rappelle le son des anciens téléphones analogiques dont les fréquences transmises étaient limitées à 3.4 kHz pour des raisons techniques.
+Si l'échantillonage correspond à un processus de discrétisation du temps (on sépare l'intervalle de temps en
+morceaux), la discretisation des valeurs observées correspond à la *quantification*. De façon analogue à
+l'échantillonnage, on sépare les valeurs possibles du signal en un morceaux (ou plages) et on indique, pour
+chaque valeur échantillonnée, dans quelle plage elle se trouve. Si le découpage est très fin, il y aura
+beaucoup de plages et donc la représentation sera plus précise. Par contre, il ces plages devront être codées
+sur plus de bits et donc cela prendra plus de place en mémoire. Le nombres de bits utilisé pour coder les
+valeurs (et donc le nombre de valeurs différentes possible) est donnée par la *profondeur* de
+l'échantillonage. 
 
-D'ailleurs, les premiers téléphones mobiles ont par la suite répliqué ce niveau de qualité sonore comme base pour leur échantillonnage numérique (norme G.711). Selon la norme utilisée, les téléphones mobiles actuels transmettent quant à eux les fréquences jusqu'à 7 kHz (normes G.722.2 et suivantes).
-
-Une fréquence d’échantillonnage supérieure génère une plus grande quantité d’information, sans ajouter de valeur qualitative pour la très grande majorité des auditeurs.
-
-Le choix de la fréquence d'échantillonnage résulte donc d'une délicate balance entre coûts (taille des données) et bénéfices (qualité de la numérisation).
-
-## Quantification
-
-La quantification d'une valeur échantillonnée requiert de déterminer la **précision** de chaque échantillon, ce qui détermine le volume de données générées. Cela découle de la [représentation des nombres](../entiers/eleve.ipynb) par les ordinateurs.
-
-La précision de l'encodage est donnée par la **profondeur de l'échantillonnage** (bit depth) exprimée en bits (binary digits). Comme pour l'échantillonnage, plus la profondeur de l'échantillonnage est importante, plus la quantité d'information générée est importante.
 
 ```{figure} media/numerisation-02.png
 :height: 16em
@@ -134,11 +114,10 @@ La précision de l'encodage est donnée par la **profondeur de l'échantillonnag
 Effet de la profondeur de l'échantillonnage (bit depth : 3, 4 et 5 bits) sur la représentation obtenue par numérisation. </br>  Plus la profondeur est importante, plus la discrimination du signal et la différence entre les basses et les hautes intensités est importante. La quantité d'information générée (le nombre de 0 et de 1) devient également plus importante.
 ```
 
-Lorsque l'ensemble de la plage des valeurs possibles est utilisée pour l'encodage, la profondeur de l'échantillonnage définit la **plage dynamique** disponible. Elle est définie entre la valeur encodée la plus petite (0, par exemple) et la valeur encodée la plus élevée ($2^n - 1$ pour une valeur encodée sur n bits, par exemple). Elle correspond également  à une idée de précision  ou de discrimination  des échantillons. 
-
-Ici encore, l'oreille humaine ne peut percevoir ni les intensités les plus faibles (inférieures au bruit émis par l'individu lui-même) ni les intensités au-delà du seuil de douleur.
-
-Une précision minimale (environ 8 bits) est ainsi nécessaire pour restituer agréablement un enregistrement respectant les subtilités de l'expression orale (entre voix posée et criée, par exemple).
+Ici encore, l'oreille humaine ne peut percevoir ni les intensités les plus faibles
+(inférieures au bruit émis par l'individu lui-même) ni les intensités au-delà du seuil de douleur.
+Une précision minimale (environ 8 bits) est ainsi nécessaire pour restituer agréablement un enregistrement
+respectant les subtilités de l'expression orale (entre voix posée et criée, par exemple).
 
 Au-delà de 16 bits, une profondeur d'échantillonnage supérieure engendre une plage dynamique qui n'a pas d'application pertinente pour la restitution des sons pour la plupart des humains, au coût d'une plus grande quantité d'information collectée.
 
