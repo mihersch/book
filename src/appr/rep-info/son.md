@@ -31,8 +31,9 @@ La question est de savoir comment représenter ces oscillations en un ensemble d
 
 
 ```{figure} media/soncontinu.png
-:height: 16em
-:name: fig-repr-num-sig
+---
+height: 250px
+name: fig-repr-num-sig
 ---
 Un signal sonore représenté par la position d'une membrane vibrante
 (axe vertical) en fonction du temps (axe hoorizontal). 
@@ -66,9 +67,9 @@ $5 \cdot 1000= 5000$ morceaux donc sera décrit par 5000 valeurs du signal.
 
 
 ```{figure} media/numerisation-01.png
-:height: 16em
-:name: fig-repr-num-freq
-:align: left
+---
+height: 250px
+name: fig-repr-num-freq
 ---
 Effet de la fréquence d'échantillonnage (sampling rate : 100, 200 et 400 Hz) sur la représentation obtenue par numérisation. Plus la fréquence est élevée, plus la quantité d'information collectée est importante. Dans tous les cas, les détails du signal qui se déroulent entre les échantillonnages sont perdus.
 
@@ -96,22 +97,24 @@ De plus, ces fréquences simplifient la synchronisation avec les enregistrements
 
 ````
 
-Si l'échantillonage correspond à un processus de discrétisation du temps (on sépare l'intervalle de temps en
-morceaux), la discretisation des valeurs observées correspond à la *quantification*. De façon analogue à
-l'échantillonnage, on sépare les valeurs possibles du signal en un morceaux (ou plages) et on indique, pour
+Si l'échantillonage correspond à un processus de discrétisation du temps (on sépare en morceaux
+l'intervalle de temps
+représenté sur l'axe horitzontal), la discretisation des valeurs observées, c'est-à-dire de l'axe
+vertical, correspond à la *quantification*. De façon analogue à
+l'échantillonnage, on sépare les valeurs possibles du signal en un morceaux (ou plages) et on indique,pour
 chaque valeur échantillonnée, dans quelle plage elle se trouve. Si le découpage est très fin, il y aura
-beaucoup de plages et donc la représentation sera plus précise. Par contre, il ces plages devront être codées
+beaucoup de plages et donc la représentation sera plus précise. Par contre, ces plages devront être codées
 sur plus de bits et donc cela prendra plus de place en mémoire. Le nombres de bits utilisé pour coder les
-valeurs (et donc le nombre de valeurs différentes possible) est donnée par la *profondeur* de
+valeurs (déterminant ainsi le nombre de valeurs différentes possibles) est donné par la *profondeur* de
 l'échantillonage. 
 
 
 ```{figure} media/numerisation-02.png
-:height: 16em
-:name: fig-repr-num-depth
-:align : left
 ---
-Effet de la profondeur de l'échantillonnage (bit depth : 3, 4 et 5 bits) sur la représentation obtenue par numérisation. </br>  Plus la profondeur est importante, plus la discrimination du signal et la différence entre les basses et les hautes intensités est importante. La quantité d'information générée (le nombre de 0 et de 1) devient également plus importante.
+height: 250px
+name: fig-repr-num-depth
+---
+Effet de la profondeur de l'échantillonnage (bit depth : 3, 4 et 5 bits) sur la représentation obtenue par numérisation. Plus la profondeur est importante, plus la discrimination du signal et la différence entre les basses et les hautes intensités est importante. La quantité d'information générée (le nombre de 0 et de 1) devient également plus importante.
 ```
 
 Ici encore, l'oreille humaine ne peut percevoir ni les intensités les plus faibles
@@ -119,52 +122,32 @@ Ici encore, l'oreille humaine ne peut percevoir ni les intensités les plus faib
 Une précision minimale (environ 8 bits) est ainsi nécessaire pour restituer agréablement un enregistrement
 respectant les subtilités de l'expression orale (entre voix posée et criée, par exemple).
 
-Au-delà de 16 bits, une profondeur d'échantillonnage supérieure engendre une plage dynamique qui n'a pas d'application pertinente pour la restitution des sons pour la plupart des humains, au coût d'une plus grande quantité d'information collectée.
+Au-delà de 16 bits, une profondeur d'échantillonnage engendre une plage dynamique qui n'a pas d'application pertinente pour la restitution des sons pour la plupart des humains, au coût d'une plus grande quantité d'information collectée.
 
-À l'inverse, il est nécessaire de gérer correctement la plage d'amplitude dans laquelle la numérisation du signal se déroule. Cela s'opère en agissant sur le paramètre de **gain** du signal.
-
-La **distorsion** découle d’un signal dont l’amplitude dépasse les capacités d’encodage du système. Dans ces conditions, un ajustement du gain d’entrée est nécessaire pour rester au plus proche des limites du système, sans les franchir.
-
-La numérisation d’un signal dont l’amplitude serait par trop réduite débouche au contraire sur un encodage qui contient moins d’information, ce qui limite les opérations réalisables numériquement par la suite sans détériorer la qualité du signal.
+Enfin, le *gain* du signal détermine la plage d'amplitude dans laquelle la numérisation du signal se déroule, c'est-à-dire
+quelle sera l'amplitude maximale qui pourra être numérisée. Si le gain est trop grand, alors on perd de la précision car
+une partie des plages de valeurs ne seront pas utilisées. Si le gain est trop petit, le signal sera *saturé* c'est-à-dire que certaines valeurs du signal original sont en dehors des plages de prévues et ne pourront pas être rendues correctement, ce qui induira
+une *distortion* du signal sonore. 
 
 ```{figure} media/numerisation-04.png
-:height: 16em
-:name: fig-repr-num-dist
-:align: left
+---
+height: 250px
+name: fig-repr-num-dist
 ---
 Effet du gain (trop haut, correct, trop bas) sur la représentation obtenue par numérisation. La distorsion résulte de valeurs très différentes de celles du signal original. </br> Cette aberration du processus de numérisation ne peut plus être corrigée, car de l'information a été perdue au passage. À l'inverse, un gain trop faible nuit à la dynamique de l'information collectée, c'est-à-dire que l'écart entre la valeur retenue la plus faible et la plus élevée n'est qu'une fraction de l'intervalle disponible. Il en résulte une perte de précision.
 ```
 
-On notera finalement que la numérisation et la quantification travaillent ensemble pour définir la qualité du signal numérisé. Ces deux paramètres ne sont pas complètement indépendants. Leur choix est réalisé en fonction du résultat escompté et de ce que l'on cherche à réaliser avec le signal numérisé.
+On notera finalement que l'échantillonnage et la quantification travaillent ensemble pour définir la qualité du signal numérisé. Ces deux paramètres ne sont pas complètement indépendants. Leur choix est réalisé en fonction du résultat escompté et de ce que l'on cherche à réaliser avec le signal numérisé.
 
 Pour l'intensité sonore par exemple, une fréquence d'échantillonnage insuffisante ne peut pas être compensée par une profondeur d'échantillonnage supérieure. La qualité du résultat n'est pas améliorée.
 
 ```{figure} media/numerisation-03.png
-:height: 16em
-:name: fig-repr-num-bal
-:align: left
+---
+height: 250px
+name: fig-repr-num-bal
 ---
 Effet de la fréquence d'échantillonnage (sampling rate : 400, 200 et 100 Hz) sur la représentation obtenue par numérisation à une profondeur donnée (sampling depth : 5 bits). Une importante profondeur d'échantillonnage ne compense pas une fréquence d'échantillonnage insuffisante.
 ```
 
-Les dispositifs électroniques dont la fonction est l'échantillonnage et la quantification des signaux sont appelés des convertisseurs analogique-numérique (CAN) ou **analog to digital converter** (ADC), en anglais.
+Les dispositifs électroniques dont la fonction est l'échantillonnage et la quantification des signaux sont appelés des convertisseurs analogique-numérique (CAN) ou **analog to digital converter** (ADC), en anglais. Les dispositifs électroniques dont la fonction est la reconstruction des signaux sont appelés des convertisseurs numérique-analogique (CNA) ou **digital to analog converter** (DAC), en anglais. La sortie du convertisseur est généralement une tension électrique proportionnelle à l'intensité du signal.
 
-## Encodage
-
-L'encodage de l'information numérisée se fait dans des formats de fichiers spécifiques aux applications.
-
-Dans l'absolu, on pourrait imaginer un format universel de stockage de 0 et de 1. En connaissant la profondeur de l'échantillonnage, il serait aisément possible de reconstruire un signal. Toutefois, cela pose plusieurs problèmes.
-
-Cela ne donnerait aucune indication sur l'interprétation qu'il faut faire de ce signal (est-ce un son ? une image ? la variation de la vitesse du vent ?) ou même les bornes de ce signal (entre 0 et $2^n - 1$ ? entre $-2^{(n-1)}$ et $2^{(n-1)} - 1$ ?).
-
-De plus, la quantité de mémoire nécessaire pour stocker et pour manipuler les données serait maximisée. Or, il est possible de construire des formats de fichiers qui exploitent les propriétés spécifiques au signal numérisé pour simplifier dans un deuxième temps le résultat de la numérisation avant de l'enregistrer. Cela débouche sur des fichiers qui sacrifient une partie de la qualité du signal numérisé en échange d'un gain sur la taille des fichiers générés. L'usage de la mémoire  est ainsi économisé, mais,  en contre-partie, un plus grand nombre  de calculs est nécessaire pour manipuler les signaux. 
-
-C'est ainsi que des fichiers optimisés différents sont disponibles pour stocker des fichiers d'images (JPG), de vidéo (MP4), de son (MP3), ou de toute autre application. La plupart recourent pour cela à des compressions destructives au-cours desquelles une partie de l'information est abandonnée car, dans le contexte particulier, elles ne sont pas jugées indispensables.
-
-Par exemple, la reproduction exacte des nuances de bleu du ciel importe peu pour un film d'action. Pourtant, ces mêmes nuances sont essentielles pour la reproduction d'un tableau de Monnet...
-
-## Reconstruction
-
-On appelle **reconstruction** le processus qui transforme un signal numérisé en une variation continue d'une grandeur physique.
-
-Les dispositifs électroniques dont la fonction est la reconstruction des signaux sont appelés des convertisseurs numérique-analogique (CNA) ou **digital to analog converter** (DAC), en anglais. La sortie du convertisseur est généralement une tension électrique proportionnelle à l'intensité du signal.

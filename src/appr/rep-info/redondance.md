@@ -49,36 +49,6 @@ Le bit de parité est habituellement placé à la position de poids le plus faib
 ````{panels}
 :column: col-lg
 
-Le code suivant permet de tester le calcul de parité et son contrôle.
-
-```{codeplay}
-
-def getControlBit(number):
-    count = 0
-    bit = 1
-    while bit < 8:
-        if number & bit:
-            count += 1
-        bit <<= 1
-
-    return (count) % 2
-
-value = int(input('Valeur à transmettre [0-127] : '))
-print('-'*42)
-print(format(value, ' 38b'))
-value = value & 0x7f
-control = getControlBit(value)
-
-print('-'*42)
-print('  valeur (limitée à 7 bits)  :', value)
-print('  représentation binaire     :', format(value, '07b') + '.')
-print('  bit de contrôle            :', '.'*7 + str(control))
-print('-'*42)
-print('valeur transmise             :', format((value<<1) ^ control, '08b'))
-print('-'*42)
-```
-````
-
 On notera que, pour un coût de taille modeste (un huitième des bits transmis) et un calcul rapide à réaliser (une somme et une comparaison), des erreurs de transmission ponctuelles — celles qui ne portent que sur un nombre de positions impair — sont immédiatement détectables. Cela inclut les erreurs qui porteraient sur le bit de parité lui-même.
 
 ````{admonition} Le saviez-vous ?
@@ -114,96 +84,16 @@ Si le texte venait à être modifié, ne serait-ce que très légèrement, l'emp
 
 En effet, la somme des valeurs totalise alors 706 (= 104 +  97 + 99 + 104 +  97 + 104 + 101), soit 0x2**C2** en hexadécimal, alors que la somme des produits totalise 2827 (= 1x104 + 2x97 + 3x99 + 4x104 + 5x97 + 6x104 + 7x101) soit 0xB**0B**, ce qui donne un hash de C20B au lieu de C105 précédemment, alors qu'un seul bit diffère entre les deux messages.
 
-````{panels}
-:column: col-lg
-
-Le code suivant
-permet de tester
-la fonction
-de hachage
-décrite précédemment.
-
-
-```{codeplay}
-
-def getSum(information):
-    answer = 0
-    for car in information:
-        answer += ord(car)
-    return answer
-
-
-def getProductsSum(information):
-    answer = 0
-    index = 1
-    for car in information:
-        answer += index * ord(car)
-        index += 1
-    return answer
-
-
-def getTwoLastPositions(value):
-    return '{:02X}'.format(value)[-2:]
-
-
-def toHash(text):
-    return getTwoLastPositions(getSum(text)) \
-         + getTwoLastPositions(getProductsSum(text))
-
-
-text = input('Texte à hacher : ')
-sum = getSum(text)
-prodSum = getProductsSum(text)
-
-print('-'*42)
-print('somme              :', sum)
-print('                    ', hex(sum))
-print('-'*42)
-print('somme des produits :', prodSum)
-print('                    ', hex(prodSum))
-print('-'*42)
-print('hash               :', toHash(text))
-print('-'*42)
-```
-
-On notera que les mots 'hat' et 'fer' débouchent sur la même empreinte (3D86), par exemple.
-````
-
 On notera que la suppression d'une lettre au texte ("hachage" => C105) ne change pas la longueur de cette simple empreinte
 mais sa valeur ("hachag" => 5C42) et que cette **fonction de hachage** est aussi sensible à la casse ("Hachage" => A1E5).
+
+Mais il peut arriver que deux mots débouchent sur la même empreinte, par exemple 'hat' et 'fer' débouchent sur  (3D86). On parle alors de *collision* de hachage, un phénomène que l'on cherche autant que possible à éviter. De plus, une bonne fonction de hachage ne permet pas de reconstruire le texte d'origine sur la base de la seule empreinte.
+
+Grâce à leurs propriétés (déterministes et rapides), des **fonctions de hachage** plus complexes (**SHA**, **MD5**…) trouvent des applications dans de nombreux contextes : authenticité (signatures numériques), intégrité (erreurs de transfert, stockage, blockchains…), identification (fichiers, connexions réseau…), authentification (stockage et vérification des mots de passe)…
+
 
 ````{admonition} Le saviez-vous ?
 :class: note
 Même si le hachage d'une information est à dessein relativement rapide en soi,
 des contraintes artificielles provoquant délibéremment la multiplication de ces hachages peuvent être imposées lors de l'ajout des blocs dans une **blockchain**. Cela constitue la preuve de travail (*proof-of-Work*, PoW) des cryptomonnaies que l'on nomme communément **minage des cryptomonnaies**.
-
-```{toggle}
-La quantité faramineuse de calculs ainsi engendrée pour complexifier artificiellement ce hachage est responsable d'une part mesurable de la consommation électrique mondiale.
-
-Le partage de l'intégralité de la blockchain par l'ensemble des membres du réseau constitue en soi une redondance qui favorise la disponibilité de l'information, mais au prix du stockage d'une quantité mirobolante de copies et de la complexité de leur maintenance.
-```
 ````
-
-On notera qu'une empreinte numérique est une simplification de l'information hachée. Il est dès lors envisageable de trouver deux informations, de longueurs possiblement différentes, dont les empreintes sont identiques. En contrepartie, il n'est en principe pas envisageable de reconstruire le texte d'origine sur la base de la seule empreinte.
-
-Toutefois, grâce à leurs propriétés (déterministes et rapides), des **fonctions de hachage** plus complexes (**SHA**, **MD5**…) trouvent des applications dans de nombreux contextes : authenticité (signatures numériques), intégrité (erreurs de transfert, stockage, blockchains…), identification (fichiers, connexions réseau…), authentification (stockage et vérification des mots de passe)…
-
-## Disques RAID
-
-Les pannes de disques durs sont très communes et entrainent des pertes de données aux conséquences parfois irrécupérables.
-
-La mise en place de sauvegardes automatiques régulières sur des supports distincts et, de préférence, délocalisés
-(en soi une forme de redondance sur le stockage de l'information) représente un début de réponse. Toutefois, si le support utilisé pour le stockage n'est lui-même pas résilient, la sécurité de ces sauvegardes n'est pas assurée.
-
-Une solution technique a été proposée dès les années 1980 basée sur la disponibilité de grappes de disques durs relativement bon marché (*Redundant Array of Independent Disks*, RAID). Il est alors possible de créer (entre autres) des disques logiques de taille T (RAID 1), formés d'une grappe de $n$ disques physiques de taille T, sur chacun desquels est stockée une copie complète des données. À chaque écriture, le système maintient automatiquement l'ensemble des $n$ copies, ce qui permet de récupérer l'intégralité de l'information, même si $n-1$ disques sont endommagés.
-
-Ici encore, en exploitant le principe des bits de parité décrits précédemment, il est par exemple possible de construire une grappe de 3 disques (RAID 5) de taille T capable de stocker 2xT données. La part de stockage perdue (un disque sur trois) y est utilisée de telle sorte que, lorsqu'un des trois disques est perdu -- n'importe lequel des trois ! --, aucune information n'est réellement perdue. Mieux, si le disque défectueux est remplacé, son contenu peut être reconstruit automatiquement et la résilience de la grappe rétablie. En outre, les vitesses d'écriture et de lecture sur ces trois disques en grappe est également accélérée.
-
-Ce type d'infrastructure, malgré son coût plus élevé, est à la base des systèmes critiques qui ne peuvent se permettre de perdre des informations, ce qui pourrait inclure, à terme, les copies de sécurité des postes personnels, quand les données traitées sont sensibles.
-
-## Cloud computing
-
-Les systèmes informatiques récents sont distribués à l'échelle d'Internet, tant pour leurs parties matérielles que logicielles.
-On parle de systèmes *cloud* ou **informatique en nuage**.
-
-On trouve ainsi des systèmes de stockage de fichiers distribués sur plusieurs ordinateurs, voire dans plusieurs fermes de stockage. Cette configuration augmente considérablement la sécurité des données en contribuant à leur **intégrité** et à leur **disponibilité**.

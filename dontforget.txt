@@ -1,2 +1,7 @@
-update latex.py
+
 panels output cannot be resized
+match image sizes (camera obscura)
+notable persons and title level
+figure annotation in french
+figure caption style
+
