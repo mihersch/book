@@ -33,7 +33,7 @@ Pour vérifier la bonne installation de l'environnement de base :
 
 ### Installation rapide
 
-1. Récupération du projet : `git clone git@github.com:edunumsec2/book.git`
+1. Récupération du projet : `git clone git@github.com:mihersch/book.git`
 2. Vers la racine du projet : `cd book` 
 3. Création d'un environnement virtuel : `virtualenv .env`
 4. Activation de l'environnement virtuel : 
@@ -53,4 +53,8 @@ Pour vérifier la bonne installation de l'environnement de base :
 
 
 ### Paramétrisation
-La génération du document peut être paramétrée (pour latex et ou html) en modifiant le fichier [src/appr/conf.py]
+La génération du document peut être paramétrée (pour latex et ou html) en modifiant le fichier [src/appr/conf.py](src/appr/conf.py)
+
+### Licence
+
+Ce document est disponible sous licence Creative Commons CC-BY-NC-SA
