@@ -57,4 +57,4 @@ La génération du document peut être paramétrée (pour latex et ou html) en m
 
 ### Licence
 
-Ce document est disponible sous licence Creative Commons CC-BY-NC-SA
+Ce document est disponible sous licence Creative Commons CC-BY-NC

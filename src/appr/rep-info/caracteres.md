@@ -13,11 +13,11 @@ caractère à un nombre qui pourra être représenté en binaire.
 
 | Caractère | Décimal | Hexadécimal |   Binaire    |
 |-----------|---------|-------------|--------------|
-|     A     |    65   |    0x41     | 01**0**00001 |
-|     B     |    66   |    0x42     | 01**0**00010 |
-|     C     |    67   |    0x43     | 01**0**00011 |
+|     A     |    65   |    41     | 01**0**00001 |
+|     B     |    66   |    42     | 01**0**00010 |
+|     C     |    67   |    43     | 01**0**00011 |
 |     …     |    …    |     …       |        …     |
-|     Z     |    90   |    0x5A     | 01**0**11010 |
+|     Z     |    90   |    5A     | 01**0**11010 |
 
 
 Chaque caractère frappé sur le clavier est représenté par le code correspondant dans ce tableau.
@@ -36,10 +36,10 @@ représentant un chiffre ne correspond pas au chiffre lui-même.
 
 | Caractère | Décimal | Hexadécimal | Binaire  |
 |-----------|---------|-------------|----------|
-|     0     |    48   |    0x30     | 00110000 |
-|     1     |    49   |    0x31     | 00110001 |
+|     0     |    48   |    30     | 00110000 |
+|     1     |    49   |    31     | 00110001 |
 |     …     |    …    |     …       |    …     |
-|     9     |    57   |    0x39     | 00111001 |
+|     9     |    57   |    39     | 00111001 |
 
 
 Ces tables donnent également une représentation des caractères de ponctuation

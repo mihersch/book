@@ -34,6 +34,7 @@ La question est de savoir comment représenter ces oscillations en un ensemble d
 ---
 height: 250px
 name: fig-repr-num-sig
+align: left
 ---
 Un signal sonore représenté par la position d'une membrane vibrante
 (axe vertical) en fonction du temps (axe hoorizontal). 
@@ -70,6 +71,7 @@ $5 \cdot 1000= 5000$ morceaux donc sera décrit par 5000 valeurs du signal.
 ---
 height: 250px
 name: fig-repr-num-freq
+align: left
 ---
 Effet de la fréquence d'échantillonnage (sampling rate : 100, 200 et 400 Hz) sur la représentation obtenue par numérisation. Plus la fréquence est élevée, plus la quantité d'information collectée est importante. Dans tous les cas, les détails du signal qui se déroulent entre les échantillonnages sont perdus.
 
@@ -113,6 +115,7 @@ l'échantillonage.
 ---
 height: 250px
 name: fig-repr-num-depth
+align: left
 ---
 Effet de la profondeur de l'échantillonnage (bit depth : 3, 4 et 5 bits) sur la représentation obtenue par numérisation. Plus la profondeur est importante, plus la discrimination du signal et la différence entre les basses et les hautes intensités est importante. La quantité d'information générée (le nombre de 0 et de 1) devient également plus importante.
 ```
@@ -133,6 +136,7 @@ une *distortion* du signal sonore.
 ---
 height: 250px
 name: fig-repr-num-dist
+align: left
 ---
 Effet du gain (trop haut, correct, trop bas) sur la représentation obtenue par numérisation. La distorsion résulte de valeurs très différentes de celles du signal original. </br> Cette aberration du processus de numérisation ne peut plus être corrigée, car de l'information a été perdue au passage. À l'inverse, un gain trop faible nuit à la dynamique de l'information collectée, c'est-à-dire que l'écart entre la valeur retenue la plus faible et la plus élevée n'est qu'une fraction de l'intervalle disponible. Il en résulte une perte de précision.
 ```
@@ -145,6 +149,7 @@ Pour l'intensité sonore par exemple, une fréquence d'échantillonnage insuffis
 ---
 height: 250px
 name: fig-repr-num-bal
+align: left
 ---
 Effet de la fréquence d'échantillonnage (sampling rate : 400, 200 et 100 Hz) sur la représentation obtenue par numérisation à une profondeur donnée (sampling depth : 5 bits). Une importante profondeur d'échantillonnage ne compense pas une fréquence d'échantillonnage insuffisante.
 ```

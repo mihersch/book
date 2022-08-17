@@ -310,12 +310,15 @@ ce qui fait $2\cdot 16 + 3 = 35_{10}$. De même comme $B_{16} = 11_{10}$,
 le nombre hexadécimal $1B_{16}$ peut se traduire en
 $1\cdot 16^{1} + 11 \cdot 16^{0} = 16 + 11 = 27_{10}$.
 
+Afin d'éviter d'utiliser des indices, les informaticiens préfixent parfois les nombres héxadécimaux avec
+les caractères "0x" plutôt que de mettre le 16 en indice. L'expression "0x3B" est donc équivalente à "$3B_{16}$".
+
 ```{admonition} Micro-activité ✏️📒 
 :class: note
 
 Convertissez en décimal puis en binaire les nombres hexadécimaux suivants. 
 
-  - 32
+  - 0x32
   - AB
   - 4E
   - 10C
