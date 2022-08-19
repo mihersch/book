@@ -1,0 +1,565 @@
+<!doctype html>
+<html class="no-js" lang="fr">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Recherche" href="../search.html" /><link rel="next" title="4. Les images" href="images.html" /><link rel="prev" title="2. Les entiers" href="entiers.html" />
+
+    <link rel="shortcut icon" href="../_static/modulo-icon.ico"/><meta name="generator" content="sphinx-4.2.0, furo 2021.10.09"/>
+        <title>3. Le texte - Apprendre</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=0254c309f5cadf746f1a613e7677379ac9c8cdcd" />
+    <link rel="stylesheet" type="text/css" href="../_static/codeplay.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/glossary.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/questions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/videos.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/logic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/blanks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/timeline.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/global.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/reactions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/progress.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --font-stack: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --color-foreground-primary: black;
+  --color-foreground-secondary: #5a5c63;
+  --color-foreground-muted: #646776;
+  --color-foreground-border: #878787;
+  --color-background-primary: white;
+  --color-background-secondary: #f8f9fb;
+  --color-background-hover: #efeff4ff;
+  --color-background-over--transparent: #efeff400;
+  --color-background-border: #eeebee;
+  --color-announcement-background: #000000dd;
+  --color-announcement-text: #eeebee;
+  --color-brand-primary: #8044FF;
+  --color-brand-content: #8044FF;
+  --admonition-font-size: 0.9rem;
+  --admonition-title-font-size: 0.9rem;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  --font-stack: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --color-foreground-primary: #ffffffcc;
+  --color-foreground-secondary: #9ca0a5;
+  --color-foreground-muted: #81868d;
+  --color-foreground-border: #666666;
+  --color-background-primary: #131416;
+  --color-background-secondary: #131416;
+  --color-background-hover: #1e2124ff;
+  --color-background-over--transparent: #1e212400;
+  --color-background-border: #303335;
+  --color-announcement-background: #000000dd;
+  --color-announcement-text: #eeebee;
+  --color-brand-primary: #7C3EFF;
+  --color-brand-content: #7C3EFF;
+  --admonition-font-size: 0.9rem;
+  --admonition-title-font-size: 0.9rem;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  --font-stack: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --color-foreground-primary: #ffffffcc;
+  --color-foreground-secondary: #9ca0a5;
+  --color-foreground-muted: #81868d;
+  --color-foreground-border: #666666;
+  --color-background-primary: #131416;
+  --color-background-secondary: #131416;
+  --color-background-hover: #1e2124ff;
+  --color-background-over--transparent: #1e212400;
+  --color-background-border: #303335;
+  --color-announcement-background: #000000dd;
+  --color-announcement-text: #eeebee;
+  --color-brand-primary: #7C3EFF;
+  --color-brand-content: #7C3EFF;
+  --admonition-font-size: 0.9rem;
+  --admonition-title-font-size: 0.9rem;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Apprendre</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../_static/modulo-logo-light.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../_static/modulo-logo-dark.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Apprendre</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder=Recherche name="q" aria-label="Recherche">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Première année</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Représentation de l’information</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entiers.html">2. Les entiers</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">3. Le texte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">4. Les images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="son.html">5. Le son</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redondance.html">6. Redondance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conclusion.html">7. Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="le-texte">
+<span id="appr-repinfo-caracteres"></span><h1><span class="section-number">3. </span>Le texte<a class="headerlink" href="#le-texte" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Toute l’information est représentée dans un ordinateur par des nombres
+encodés sous forme binaire par des 0 et des 1. Se pose alors la question
+de la représentation du texte, ne serait-ce que parce que la communication
+entre les utilisateurs et les ordinateurs s’opère essentiellement sous forme textuelle.</p>
+<section id="principe">
+<h2><span class="section-number">3.1. </span>Principe<a class="headerlink" href="#principe" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La solution est simple : comme on sait déjà représenter les nombre en binaire, on associe chaque
+caractère à un nombre qui pourra être représenté en binaire.</p>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Caractère</p></th>
+<th class="head"><p>Décimal</p></th>
+<th class="head"><p>Hexadécimal</p></th>
+<th class="head"><p>Binaire</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>65</p></td>
+<td><p>41</p></td>
+<td><p>01<strong>0</strong>00001</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>66</p></td>
+<td><p>42</p></td>
+<td><p>01<strong>0</strong>00010</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>67</p></td>
+<td><p>43</p></td>
+<td><p>01<strong>0</strong>00011</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p>Z</p></td>
+<td><p>90</p></td>
+<td><p>5A</p></td>
+<td><p>01<strong>0</strong>11010</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>Chaque caractère frappé sur le clavier est représenté par le code correspondant dans ce tableau.</p>
+<p>Chacun des caractères de la phrase que vous lisez (qu’on nomme <strong>chaîne de caractères</strong>) a ainsi été stocké,
+transmis et manipulé par l’ordinateur sous la forme d’une séquence
+de 0 et 1.</p>
+<p>Lorsqu’il s’agit de représenter ce texte à l’écran ou à l’impression, les logiciels utilisent la table
+dans l’autre sens pour trouver le caractère correspondant au nombre binaire.</p>
+<p>En plus des lettres, les caractères qui représentent
+les chiffres sont eux-mêmes listés dans la table de conversion.
+Contre-intuitivement, la valeur binaire du caractère
+représentant un chiffre ne correspond pas au chiffre lui-même.</p>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Caractère</p></th>
+<th class="head"><p>Décimal</p></th>
+<th class="head"><p>Hexadécimal</p></th>
+<th class="head"><p>Binaire</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>48</p></td>
+<td><p>30</p></td>
+<td><p>00110000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>49</p></td>
+<td><p>31</p></td>
+<td><p>00110001</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>57</p></td>
+<td><p>39</p></td>
+<td><p>00111001</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>Ces tables donnent également une représentation des caractères de ponctuation
+et des symboles mathématiques, ainsi que des caractères non-imprimables comme
+le retour à la ligne.</p>
+<p>En réalité, il n’existe pas une table de conversion unique, mais des dizaines
+de tables de conversion. En effet, les caractères utilisés dans les différents pays
+diffèrent et donc les tables utilisées dans un pays (par exemple les Etats-Unis) ne
+conviennent pas pour la France (à cause des accents) et encore moins pour la Russie ou la Chine.
+Certaines tables ont été proposées à l’origine
+par des constructeurs d’ordinateurs ou des éditeurs de systèmes d’exploitation. Voici les tables
+les plus importantes.</p>
+</section>
+<section id="table-ascii">
+<h2><span class="section-number">3.2. </span>Table ASCII<a class="headerlink" href="#table-ascii" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le code américain normalisé pour l’échange d’information ASCII
+(pour American Standard Code for Information Interchange) est apparu dans les année 1960.
+Cette table représentait chaque caractère avec 7 bits, et pouvait donc contenir <span class="math notranslate nohighlight">\(2^{7}\)</span> 128 caractères
+différents, ce qui suffisait pour les 26 lettres de l’alphabet en minuscule et majuscule, les 10
+chiffres et les signes de ponctuations. De nos jours, cette table est encore largement utilisée mais
+sur 8 bits (le bit de plus à gauche est laissé toujours à 0). Cela permet de faire correspondre chaque
+caractère à un octet qui peut être représenter en hexadécimal par un nombre à deux chiffre.
+Cette table à l’avantage de prendre peu de place en mémoire, mais sont principal principal défaut est
+de ne pas prendre en compte les caractères qui n’existent pas dans la langue anglaise,
+ne serait-ce que les lettres accentuées.</p>
+<a class="reference internal image-reference" href="../_images/ASCII-Table-FR.png"><img alt="../_images/ASCII-Table-FR.png" src="../_images/ASCII-Table-FR.png" style="width: 850px;"/></a>
+<p><strong>Tab. 1</strong> La table de représentation des caractères ASCII</p>
+<p>Ainsi, pour représenter du texte en binaire en utilisant la table ASCII, on convertit chaque
+caractère, y compris les espaces et la ponctuation en hexadécimal puis en binaire. Par exemple,
+pour coder “A l’aide!” en binaire:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c||c|c|c|c|c|c|c|c|c|}
+ \text{Texte} &amp; \text{A}       &amp;        &amp; \text{l}       &amp;\text{'}        &amp;\text{a}        &amp;\text{i}        &amp;\text{d}        &amp;\text{e}        &amp; \text{!}        \\
+ \hline
+\text{Hex.}&amp; 41       &amp;20       &amp;6C       &amp;27       &amp;61       &amp;69       &amp;64       &amp;65       &amp; 21   \\
+\hline
+\text{Binaire}&amp; \scriptstyle 0100\,0001 &amp; \scriptstyle 0010\ 0000 &amp; \scriptstyle 0110\ 1100 &amp; \scriptstyle 0010\ 0111 &amp; \scriptstyle 0110\ 0001 &amp; \scriptstyle 0110\ 1001 &amp; \scriptstyle 0110\ 0100 &amp; \scriptstyle 0110\ 0101 &amp; \scriptstyle 0010\ 0001\\
+\hline
+\end{array}
+\end{split}\]</div></div>
+<p>Le texte “A l’aide!” peut donc être représenté par en binaire par la séquence de bits</p>
+<p>01000001 00100000 01101100 00100111 01100001 01101001 01100100 01100101 00100001.</p>
+<p>(Les espaces qui
+séparent les octets sont là pour nous aider à la lecture, mais ne sont pas représentés dans l’ordinateur.). Pour convertir du binaire en texte, il suffit séparer la séquence de bit en groupes de 8 bits et de convertir chaque paire d’octet en hexadécimal puis dans d’afficher le caractère correspondant en consultant
+la table.</p>
+<div class="note admonition">
+<p class="admonition-title">A vous!️📒</p>
+<ol class="simple">
+<li><p>À l’aide de la table ASCII, codez en binaire la phrase suivante  «L’an qui vient !».</p></li>
+<li><p>Voici maintenant une exclamation codée en binaire : 01000010 01110010 01100001 01110110 01101111 00100001. Retrouvez cette exclamation !</p></li>
+<li><p>Peut-on coder en binaire la phrase «Un âne est-il passé par là ?» à l’aide de la table ASCII (justifiez la réponse) ?</p></li>
+<li><p>Que se passe-t-il si un bit d’une séquence de bits encodant un texte en ascii disparaît (par exemple lors de la transmission). Peut-on quand même comprendre le texte transmis?</p></li>
+</ol>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Le saviez-vous ? </p>
+<p>Dès l’introduction de l’encodage ASCII, et jusqu’à aujourd’hui,
+une pratique répandue dans les milieux informatiques
+est d’utiliser les caractères ASCII comme support de créativité artistique. C’est ce qu’on appelle l’ASCII art.</p>
+<p>Les caractères ont un poids minimal en code binaire,
+c’est donc une façon très efficace de transmettre une information visuelle.</p>
+<div class="interactive_code"><iframe border="0" cellspacing="0" class="codeframe" data-code="cHJpbnQgKCIiIgogIC8kJCQkJCQgICAvJCQkJCQkICAvJCQgICAvJCQgLyQkJCQkJCAvJCQkJCQkJAogLyQkX18gICQkIC8kJF9fICAkJHwgJCQgIC8kJC98XyAgJCRfL3wgJCRfXyAgJCQKfCAkJCAgXCAkJHwgJCQgIFxfXy98ICQkIC8kJC8gICB8ICQkICB8ICQkICBcICQkCnwgJCQkJCQkJCR8ICAkJCQkJCQgfCAkJCQkJC8gICAgfCAkJCAgfCAkJCQkJCQkLwp8ICQkX18gICQkIFxfX19fICAkJHwgJCQgICQkICAgIHwgJCQgIHwgJCRfX19fLwp8ICQkICB8ICQkIC8kJCAgXCAkJHwgJCRcICAkJCAgIHwgJCQgIHwgJCQKfCAkJCAgfCAkJHwgICQkJCQkJC98ICQkIFwgICQkIC8kJCQkJCR8ICQkCnxfXy8gIHxfXy8gXF9fX19fXy8gfF9fLyAgXF9fL3xfX19fX18vfF9fLwoKIiIiKQ==" data-file="Y29kZS5weQ==" frameborder="0" scrolling="no" src="../codeplay/frame.html"></iframe></div><p><a class="reference external" href="https://www.patorjk.com/software/taag/">Cet outil</a>
+vous permet de transformer n’importe quel texte en ASCII.</p>
+<p>La vidéo suivante présente “l’asciiquarium”,
+un aquarium en ASCII dans le terminal.</p>
+<div class="video"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" mozallowfullscreen="" src="https://www.youtube-nocookie.com/embed/pAfvoVtsA64" webkitallowfullscreen="" width="560">"</iframe></div></div>
+<p>Au cours du XXe siècle, des tables multiples, mutuellement incompatibles, ont émergé : une table
+pour les européens, une autre pour les Japonais et ainsi de suite.</p>
+<p>Progressivement, notamment avec l’émergence du Web au cours des années 1990,
+l’augmentation de l’interconnexion des ordinateurs personnels a amené
+au début des années 2000 à la mise en place d’une énorme table
+intégrant le contenu de toutes les tables existantes, via le standard UTF.</p>
+</section>
+<section id="standard-utf">
+<h2><span class="section-number">3.3. </span>Standard UTF<a class="headerlink" href="#standard-utf" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le <a class="reference external" href="https://home.unicode.org/">standard Unicode</a> UTF (Universal Character Set Transformation Format)
+s’est imposé pour l’échange, car il permet d’agréger sur 8 bits, 16 bits ou 32 bits par caractère la totalité des caractères utilisés dans toutes les langues humaines… et même extraterrestres,
+puisque le <a class="reference external" href="https://www.kli.org/about-klingon/klingon-history/">Klingon</a> est également intégré.</p>
+<p>Les caractères liés à l’édition des partitions de musique ou les émojis sont également intégrés.</p>
+<section id="variantes">
+<h3>Variantes<a class="headerlink" href="#variantes" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour éviter de consommer 32 bits par caractère, des variantes plus compactes
+ont été mises à disposition.</p>
+<p>La plus connue – des européens, puisqu’elle regroupe les caractères qui nous concernent – est la <a class="reference external" href="https://www.utf8-chartable.de/">table UTF-8</a>. Elle se concentre sur les premiers 8 bits de la table UTF complète.
+Par sa nature, UTF-8 est d’un usage très répandu sur internet et dans les systèmes échangeant de l’information.
+Il s’agit également du codage le plus
+utilisé dans les systèmes de logiciels libres pour gérer le plus simplement possible des
+textes et leurs traductions dans tous les systèmes d’écritures et alphabets du monde.
+Les navigateurs internet d’aujourd’hui utilisent le codage UTF-8 et les concepteurs de sites prenent en compte cette même norme ; c’est pourquoi il y a de moins en moins de problèmes de <em>compatibilité</em>.
+Toutefois, toutes ces différentes normes et leurs incompatibilités sont la cause des problèmes que
+l’on rencontre parfois avec les caractères accentués. Il est donc préférable pour la rédaction de courriels à l’étranger, de n’utiliser que des caractères non accentués.</p>
+<p>UTF-8 est donc un encodage des caractères basé sur UNICODE, de longueur variable qui utilise de 1 à 4 octets par symbole.</p>
+<section id="comment-sopere-le-codage-sur-plusieurs-octets">
+<h4>Comment s’opère le codage sur plusieurs octets ?<a class="headerlink" href="#comment-sopere-le-codage-sur-plusieurs-octets" title="Lien permanent vers ce titre">¶</a></h4>
+<p>En UTF-8, chaque point de code de 0 à 127 est stocké dans un seul octet. Seuls les points de code 128 et supérieurs sont stockés en utilisant 2, 3 ou 4 octets.
+Chaque octet commence alors par quelques bits qui indiquent s’il s’agit d’un point de code à un octet, d’un point de code à plusieurs octets ou de la continuation d’un point de code à plusieurs octets :</p>
+<p><strong>0xxx xxxx</strong>  :  <em><strong>c’est un code US-ASCII à un seul octet (permettant donc d’encoder les 127 premiers caractères).</strong></em></p>
+<p>Les points de code multi-octets commencent chacun par quelques bits à 1 du premier octet en partant de la gauche, suivis d’un bit à 0, et qui vont dire si l’on doit lire l’octet suivant, ou les deux ou les trois suivants, pour comprendre l’encodage global. Par exemple, si l’octet le plus à gauche s’écrit :</p>
+<p><strong>110x xxxx</strong>  :  <em><strong>cela indique que le message global est encodé sur 1+1=2 octets, et donc qu’un deuxième octet suit.</strong></em></p>
+<p><strong>1110 xxxx</strong>  :  <em><strong>cela indique que le message global est encodé sur 1+1+1=3 octets, et donc qu’un deuxième puis un troisième octet suivent.</strong></em></p>
+<p><strong>1111 0xxx</strong>  :  <em><strong>cela indique que le message global est encodé sur 4 octets, et donc qu’un deuxième puis un troisième puis un quatrième octet suivent.</strong></em></p>
+<p>Enfin, les octets qui suivent ces codes de démarrage sont tous de la forme : 10xx xxxx.
+Les bits représentés par le caractère «x» représentent ce que l’on appelle la <em>charge utile</em>, c’est à dire l’encodage du caractère proprement dit.</p>
+<a class="reference internal image-reference" href="../_images/UTF8_nboctets.png"><img alt="../_images/UTF8_nboctets.png" src="../_images/UTF8_nboctets.png" style="width: 500px; height: 200px;"/></a>
+<p><strong>Tab. 2</strong> Définition du nombre d’octets utilisés</p>
+<p>Puisqu’on peut dire quel type d’octet on regarde à partir des premiers bits du premier octet à gauche, alors même si quelque chose est altéré quelque part, la séquence entière n’est pas perdue : ce codage est appelé <em>codage auto-synchronisant</em>.</p>
+<a class="reference internal image-reference" href="../_images/UTF8.png"><img alt="../_images/UTF8.png" src="../_images/UTF8.png" style="width: 700px; height: 400px;"/></a>
+<p><strong>Tab. 4</strong> Extrait de la table de représentation UTF-8</p>
+<div class="note admonition">
+<p class="admonition-title">A vous!</p>
+<ol class="simple">
+<li><p>Ouvrez un navigateur Internet (Firefox, …) et essayez de trouver dans les menus quel encodage de caractère
+(c’est-à-dire quelle table) ce navigateur utilise. Une recherche sur internet peut vous aider.</p></li>
+<li><p>Essayez de changer l’encodage de caractère selon diverses possibilités proposées. Qu’observez-vous et comment pouvez-vous l’expliquer?</p></li>
+</ol>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Pour aller plus loin. ️📒</p>
+<p>On transmet le texte suivant codé en UTF-8:</p>
+<p>11000011 1000000 00100000 01100011 01100101 01110100 00100000 11000011 10101001 01110100 11000011 10101001 0010001</p>
+<ol class="simple">
+<li><p>Séparez ce texte en ses différentes caractères et vérifiez qu’il en compte bien 9.</p></li>
+<li><p>Décodez les caractères qui peuvent l’être grâce à la table ASCII</p></li>
+<li><p>Sachant qu’en UTF-8 le caractère “é” se code par “11000011 10101001”, essayer de décoder l’entier du message.</p></li>
+</ol>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="images.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title"><span class="section-number">4. </span>Les images</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="entiers.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title"><span class="section-number">2. </span>Les entiers</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+            <a class="muted-link" href="../_sources/rep-info/caracteres.md.txt"
+               rel="nofollow">
+              Montrer le code source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contenu
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">3. Le texte</a><ul>
+<li><a class="reference internal" href="#principe">3.1. Principe</a></li>
+<li><a class="reference internal" href="#table-ascii">3.2. Table ASCII</a></li>
+<li><a class="reference internal" href="#standard-utf">3.3. Standard UTF</a><ul>
+<li><a class="reference internal" href="#variantes">Variantes</a><ul>
+<li><a class="reference internal" href="#comment-sopere-le-codage-sur-plusieurs-octets">Comment s’opère le codage sur plusieurs octets ?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/main.js"></script>
+    <script src="../_static/glossary.js"></script>
+    <script src="../_static/questions.js"></script>
+    <script src="https://logic.modulo-info.ch/simulator/lib/bundle.js"></script>
+    <script src="../_static/blanks.js"></script>
+    <script src="../_static/timeline.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="../_static/scripts/reactions.js"></script>
+    <script src="../_static/scripts/progress.js"></script>
+    <script src="../_static/scripts/dark.js"></script>
+    <script src="../_static/scripts/frames.js"></script>
+    </body>
+</html>
