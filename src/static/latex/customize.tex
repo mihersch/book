@@ -74,12 +74,13 @@
 \renewcommand*{\maketitle}{%
 \begin{titlepage}
  \centering
+ \resizebox{\textwidth}{!}{\includegraphics{modulo-head-banner.png}}\\
  \vspace*{\fill}
  {\Huge  \@title}\\
  \vspace*{3cm}
 {\raggedleft\Large\@author}\\
  \vspace*{3cm}
-{\raggedleft\Large\@date}
+{\raggedleft\Large\the\day.\the\month.\the\year}
  \vspace*{\fill}       
 \end{titlepage}
 }
