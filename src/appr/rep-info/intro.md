@@ -1,7 +1,8 @@
 (appr:repinfo:intro)=
 # Introduction
 
-Dans ce chapitre on s'intéresse à la manière dont un {glo}`ordinateur|ordinateur` représente l'information afin de pouvoir la traiter automatiquement.   
+Dans ce chapitre on s'intéresse à la manière dont l'information peut être
+représentée dans un {glo}`ordinateur|ordinateur` afin que celui-ci puisse la traiter automatiquement.   
 
 
 ````{admonition} Le saviez-vous ?
@@ -17,7 +18,7 @@ Mais avant de découvrir le code choisi pour représenter l'information à l'int
 
 ## Alphabets anciens et traditionnels
 
-Depuis quelques millénaires, l'espèce humaine a créé de nombreux alphabets, ainsi que de nombreux {glo}`sysco|systèmes de communication`. Depuis les [sumériens](https://fr.wikipedia.org/wiki/Sum%C3%A9rien) qui utilisaient des {glo}`picto|pictogrammes` et [l’écriture cunéiforme](https://fr.wikipedia.org/wiki/Cun%C3%A9iforme), en passant par les égyptiens et leurs [hiéroglyphes](https://fr.wikipedia.org/wiki/%C3%89criture_hi%C3%A9roglyphique_%C3%A9gyptienne), les chinois et leurs [idéogrammes](https://fr.wikipedia.org/wiki/Caract%C3%A8res_chinois) pour arriver aux symboles de nos alphabets actuels, l'espèce humaine n’a eu de cesse de mettre au point des systèmes pour représenter l’information et la {glo}`transmission|transmettre`. Les systèmes d'écriture représentent une réalité perçue ou imaginée par des combinaisons de symboles prédéfinis qui peuvent facilement être manipulés. En ce sens, les systèmes d'écriture sont les précurseurs de l'informatique, qui nécessite ses propres systèmes de représentation. 
+Depuis quelques millénaires, les groupes humains ont créé de nombreux alphabets, ainsi que de nombreux {glo}`sysco|systèmes de communication`. Depuis les [sumériens](https://fr.wikipedia.org/wiki/Sum%C3%A9rien) qui utilisaient des {glo}`picto|pictogrammes` et [l’écriture cunéiforme](https://fr.wikipedia.org/wiki/Cun%C3%A9iforme), en passant par les égyptiens et leurs [hiéroglyphes](https://fr.wikipedia.org/wiki/%C3%89criture_hi%C3%A9roglyphique_%C3%A9gyptienne), les chinois et leurs [idéogrammes](https://fr.wikipedia.org/wiki/Caract%C3%A8res_chinois) pour arriver aux symboles de nos alphabets actuels, les femmes et les hommes n’ont eu de cesse de mettre au point des systèmes pour représenter l’information et la {glo}`transmission|transmettre`. Les systèmes d'écriture représentent une réalité perçue ou imaginée par des combinaisons de symboles prédéfinis qui peuvent facilement être manipulés. En ce sens, les systèmes d'écriture sont les précurseurs de l'informatique, qui nécessite ses propres systèmes de représentation. 
 
 ````{tabbed} Sumérien
 ```{image} media/cuneiform.jpg
@@ -48,11 +49,16 @@ Depuis quelques millénaires, l'espèce humaine a créé de nombreux alphabets, 
 ````
 
 
-```{dropdown} Différentes représentations de la même information
-- Nombres en chiffres classiques, romains, lettres
-- Mot en différentes langues, morse, idéogrammes
-- Symboles danger, stop, paix
-```
+
+
+La même information peut être représentée de différentes manières. Par exemple
+
+- les nombres peuvent être représentés avec des chiffres indo-arabes, des chiffre romains ou des lettres
+- des objets peuvent être désignés en différentes langues, morse, idéogrammes
+- des symboles "danger", "stop", "paix", peuvent être différents selon les cultures et les contextes.
+
+Toutefois, certaines représentations se prêtent mieux à certaines manipulation que d'autres. Pour s'en convaincre,
+il suffit d'essayer d'effectuer une multiplication de nombres écrits en chiffre romain.
 
 On trouve des exemples célèbres et bien documentés de {glo}`sysco|systèmes de communication` depuis l'Antiquité grecque.
 
@@ -69,8 +75,7 @@ suffisamment grand pour être identifiables à longue distance. Une torche pouva
 
 ````{figure} media/polybe.png
 ---
-height: 400px
-width: 500px
+width: 250px
 name: fig-polybe
 align: left
 ---
@@ -115,40 +120,37 @@ Bien sûr, le Morse peut être utilisé aussi avec des signaux lumineux, ou sono
 
 [Vous trouverez ici](https://morsedecoder.com/) un traducteur du langage naturel vers le Morse.
 
-````{figure} media/morse.png
----
-height: 550px
-width: 450px
-name: fig-morse
-align: left
----
-Le code Morse est le système de représentation de l'information qui se rapproche le plus du langage binaire de l'informatique moderne. 
+
+Si vous observez le [code Morse](https://fr.wikipedia.org/wiki/Code_Morse_international), vous remarquerez que
+les signaux utilisés pour représenter les lettres ne suivent pas simplement l'ordre de l'alphabet, puisqu'il est
+plus économique de coder les lettres les plus fréquentes avec les codes les plus courts. Cela permet de transmettre
+des
+messages en anglais plus rapidement (mais pas forcément en d'autres langues). Cela illlustre que les représentations
+ne sont pas nécessairement neutres et peuvent favoriser certaines personnes, d'habitude celles qui les développent
+ou qui ont le pouvoir d'imposer certaines choses (ici les anglophones) au détriment d'autres. 
+
+
+````{panels}
+
+:img-top: media/morse.png
+
+Le code Morse 
+^^^^^
+
+----
+:img-top: media/letterdistribution.png
+
+La fréquence moyenne de distribution des lettres dans la langue anglaise. 
+
+^^^^^
 ````
 
-
-Si vous observez le [code Morse](https://fr.wikipedia.org/wiki/Code_Morse_international), vous remarquerez que les signaux utilisés pour représenter les lettres ne suivent pas simplement l'ordre de l'alphabet, puisqu'il est plus économique de coder les lettres les plus fréquentes avec les codes les plus courts.
-
-
-Le désavantage de ces codex d'abréviations est leur faible degré de standardisation. Comment savoir quel codex est utilisé ? Et surtout : comment faire pour que tout le monde s'accorde sur le codex ? 
-
-La réponse à cette question est l'apport le plus essentiel de l'introduction du code binaire, et des standards de représentation de l'information qui l'ont suivi : un langage pour les contrôler tous. 
-
-
-```{figure} media/letterdistribution.png
----
-height: 400px
-width: 450px
-name: fig-distribution
-align: left
----
-Ceci est une représentation de la fréquence moyenne de distribution des lettres dans la langue anglaise. 
-```
 
 ## Le binaire
 
 On pourrait penser de premier abord que le code Morse est un code constitué de deux symboles: le point et le trait. Mais il ne faut pas oublier les espaces, sans lesquelles on ne peut pas distinguer la lettre "A" (.-) du mot "ET" (. -). Ainsi le Morse est constité de trois symboles (voire 4 si on considère aussi le long espace entre les mots, mais qui pourrait être approximé par deux espaces consécutifs). 
 
-Un code constitué de deux symboles est appelé un code binaire. C'est ce genre code qui est utilisé par les ordinateurs, car deux symboles peuvent facilement être représenté par l'état d'un circuit électrique qui peut être allumé ou éteint. 
+Un code constitué de deux symboles est appelé un code binaire. C'est ce genre code qui est utilisé par les ordinateurs, car deux symboles peuvent facilement être représentés par l'état d'un circuit électrique qui peut être allumé ou éteint. 
 
 ## Questions
 
