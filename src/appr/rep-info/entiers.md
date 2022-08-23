@@ -40,12 +40,12 @@ et son coefficient, c'est la **forme canonique**.
 * 4 milliers $= 4 \cdot 1000 = 4 \cdot 10 ^{3}$ 
 +++
 
-Sa forme canonique est : $4 \cdot 10^3 + 5 \cdot 10^2 + 2 \cdot 10^1 + 8 \cdot 10^0 $ ce qui fait 4528. 
+Sa forme canonique est : $4 \cdot 10^3 + 5 \cdot 10^2 + 2 \cdot 10^1 + 8 \cdot 10^0 $ dont le résultat est 4528. 
 ```
 
 Si on veut préciser que cette écriture est à interpréter en base 10, on peut l'indiquer
-avec un petit indice placé à droite du nombre: $3528_{10}$ 
-Les nombres représentés en base 10 ou du système décimal sont des nombres décimaux.
+avec un petit indice placé à droite du nombre: $4528_{10}$ 
+Les nombres représentés en base 10 ou sont appelés les nombre du système décimal ou les nombres décimaux.
 
 
 ### Le système binaire
@@ -53,9 +53,9 @@ Les nombres représentés en base 10 ou du système décimal sont des nombres d�
 Le système binaire, ou numération positionnelle en base 2, est
 représenté à l'aide d'uniquement deux symboles : 0 et 1.
 De la même manière qu'en base 10 les nombres se représentent avec leurs unité, dizaines, centaines etc.,
-en base 2 les nombres se représentent avec leurs unité, "deuzaines", "quatraines", "huitaines", etc. 
+en base 2 les nombres se représentent avec leurs unités, "deuzaines", "quatraines", "huitaines", etc. 
 
-Ainsi, la forme canonique du nombre binaire $1101_{2}$ est : $1 \cdot 2^3 + 1 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0$
+Ainsi, la forme canonique du nombre binaire $1101_{2}$ est : $1 \cdot 2^3 + 1 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0$.
 La valeur de chaque chiffre dépend toujours de sa place qui représente,
 cette fois, une puissance de 2.
 
@@ -87,7 +87,7 @@ s'imposer dans le vocabulaire courant des ingénieurs eux-même...
 
 On compte en binaire de la même manière que l'on compte en base 10 en
 ajoutant 1 aux unités (position la plus à droite). Lorsqu'on arrive au
-dernier chiffre (i.e. 9 en base 10 et 1 en base 2), on le remet à 0 et
+dernier chiffre (c'est-à-dire 9 en base 10 et 1 en base 2), on le remet à 0 et
 on augmente de 1 le chiffre à sa gauche.
 
 On répète ces opérations pour tous les chiffres, quelle que soit leur
@@ -109,14 +109,13 @@ binaires ? Pourquoi ?
 
 La conversion d'un nombre binaire en nombre décimal se fait aisément
 grâce à la forme canonique.
-
 En effet, il suffit de calculer le résultat de la somme pondérée par les
 puissances de 2.
 
 ```{panels}
 :column: col-md
 
-Conversion du nombre 10101
+**Exemple: Conversion du nombre 10101**
 ^^^
 $$
 10101_{2} = 1 \cdot 2^4 + 0 \cdot 2^3 + 1 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0 = 21_{10}
@@ -243,7 +242,7 @@ avec les étapes suivantes :
 \end{array}
 ```
 
-Résultat : $(666_{10} = 1010011010_{2})$
+Résultat : $666_{10} = 1010011010_{2}$
 
 ```{admonition} Micro-activité ✏️📒 
 :class: note
@@ -278,7 +277,7 @@ trajectoire fatal.
 La représentation binaire des nombres est bien adaptée pour leur manipulation par des ordinateurs,
 mais vous avez peut-être remarqué qu'elle a un désavantage notoire pour les humains: les nombres
 écrits en binaire sont longs (ils contiennent beaucoup de chiffre), et on a tendance à s'emméler
-en les manipulant, par exemple pour les recopier ou les reconnaître. C'est pas exemple nettement plus
+en les manipulant, par exemple pour les recopier ou les reconnaître. C'est par exemple nettement plus
 facile pour nous (surtout au vu de notre expérence) de faire la différence entre $76_{10}$ et $78_{10}$
 qu'entre $1001100_{2}$ et $1001110_{2}$ qui représentent la même paire de nombres en binaire.
 
@@ -338,7 +337,7 @@ bout les groupe de 4 bits (en gardant le bon ordre!), on obtient la représentat
 hexadécimal: $3D_{16} = \underbrace{0011}_{3}\ \underbrace{1101_{2}}_{D}$ (l'espace est facultatif et
 aide à la lecture). On peut se convaincre que la réponse est correcte en faisant la conversion en décimal.
 ```{math}
-3D_{16} = 3*16+13 = 61_{10} \quad \text{et}\quad 111101_{2} = 32+16+8+4+1 = 61_{10}
+3D_{16} = 3\cdot 16+13 = 61_{10} \quad \text{et}\quad 111101_{2} = 32+16+8+4+1 = 61_{10}
 ```
 
 ```{admonition} Micro-activité ✏️📒 
@@ -357,7 +356,7 @@ $101100_{2}$ peut se séparer en groupes (en commençant à droite) ainsi
 $\underbrace{10}_{2}\ \underbrace{1100_{2}}_{C}$ ce qui est équivalent à $2C$. A nouveau,
 la conversion en décimal nous permet de vérifier que c'est bien juste:
 ```{math}
-2C_{16} = 2*16+12 = 44_{10} \quad \text{et}\quad 101100_{2} = 32+8+4 = 44_{10}
+2C_{16} = 2\cdot 16+12 = 44_{10} \quad \text{et}\quad 101100_{2} = 32+8+4 = 44_{10}
 ```
 
 Cette manière de faire ne fonctionne que parce que $16 = 2^{4}$ et ne peut donc pas être utilisée avec
