@@ -45,6 +45,6 @@ découpé en **quatre thématiques**.
 
    glossaire
 
-`Représentation de l'information <rep-info>`_ : ce chapitre vous explique comment certains concepts et éléments de réalité sont représentés dans un smartphone ou un ordinateur afin d'y être manipulée automatiquement. Une version pdf de ce chapitre est disponible `ici <media/rep-info.pdf`_.  
+`Représentation de l'information <rep-info>`_ : ce chapitre vous explique comment certains concepts et éléments de réalité sont représentés dans un smartphone ou un ordinateur afin d'y être manipulée automatiquement. Une version pdf de ce chapitre est disponible `ici <media/rep-info.pdf>`_.  
 
 
