@@ -1,7 +1,7 @@
 .. image:: ../static/assets/modulo-head-banner.png
    :alt: "Bannière Modulo"
 
-Informatique au gymnase : apprendre
+Introduction à l'informatique
 ====================================
 
 Bienvenue dans le cours d'informatique au gymnase. 

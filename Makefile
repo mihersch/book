@@ -3,7 +3,7 @@ all: pdf html
 
 pdf: 
 	sphinx-build  -E -b latex src/appr  build/latex/appr && \
-	cd build/latex/appr && make -f mmakefile  pdf
+	cd build/latex/appr && pdflatex modulo2.tex
 
 html: 
 	sphinx-build  -E -b html src/appr  build/appr
