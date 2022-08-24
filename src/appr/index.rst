@@ -45,18 +45,6 @@ découpé en **quatre thématiques**.
 
    glossaire
 
-`Représentation de l'information 
-<https://apprendre.modulo-info.ch/content/appr/theme/rep-info/accueil/eleve.html>`_
-: ce chapitre vous explique comment le monde 
-réel est transformé pour être représenté sur un smartphone ou un ordinateur. 
+`Représentation de l'information <rep-info>`_ : ce chapitre vous explique comment certains concepts et éléments de réalité sont représentés dans un smartphone ou un ordinateur afin d'y être manipulée automatiquement. Une version pdf de ce chapitre est disponible `ici <media/rep-info.pdf`_.  
 
-`Programmation I <https://dev-apprendre.modulo-info.ch/prog1/index.html>`_
-: ce chapitre présente la programmation en Python grâce à une approche visuelle et graphique. 
 
-`Algorithmique I <https://apprendre.modulo-info.ch/content/appr/theme/algo1/accueil/eleve.html>`_
-: ce chapitre vous fait découvrir les bases de l'algorithmique, 
-qui s'occupe de l'analyse des performances des programmes et leur optimisation. 
-
-`Architecture des ordinateurs <https://apprendre.modulo-info.ch/content/appr/theme/archi/accueil/eleve.html>`_
-: ce chapitre vous transporte dans les bases logiques et électroniques
-des ordinateurs modernes. 
