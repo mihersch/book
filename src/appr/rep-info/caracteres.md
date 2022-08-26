@@ -1,14 +1,13 @@
 (appr:repinfo:caracteres)=
 # Le texte
 
-Toute l'information est représentée dans un ordinateur par des nombres
-encodés sous forme binaire par des 0 et des 1. Se pose alors la question
-de la représentation du texte, ne serait-ce que parce que la communication
+Maintenant que l'on sait représenter des nombres en binaires, se pose alors la question
+de la représentation du texte. En effet, la communication
 entre les utilisateurs et les ordinateurs s'opère essentiellement sous forme textuelle. 
 
 ## Principe
 
-La solution est simple : comme on sait déjà représenter les nombre en binaire, on associe chaque
+La solution est simple : on associe chaque
 caractère à un nombre qui pourra être représenté en binaire.
 
 | Caractère | Décimal | Hexadécimal |   Binaire    |
@@ -20,8 +19,7 @@ caractère à un nombre qui pourra être représenté en binaire.
 |     Z     |    90   |    5A     | 01**0**11010 |
 
 
-Chaque caractère frappé sur le clavier est représenté par le code correspondant dans ce tableau.
-
+Chaque caractère frappé sur le clavier est représenté par le code correspondant dans ce tableau. 
 Chacun des caractères de la phrase que vous lisez (qu'on nomme **chaîne de caractères**) a ainsi été stocké,
 transmis et manipulé par l'ordinateur sous la forme d'une séquence
 de 0 et 1.
@@ -44,7 +42,16 @@ représentant un chiffre ne correspond pas au chiffre lui-même.
 
 Ces tables donnent également une représentation des caractères de ponctuation
 et des symboles mathématiques, ainsi que des caractères non-imprimables comme
-le retour à la ligne.
+le retour à la ligne. Mais si les caractères sont représenté comme des nombres,
+on peut se poser la question de comment savoir s'il s'agit de caractères
+ou de nombres. Si on rencontre l'octet "00110000", comment savoir
+s'il s'agit du caractère "0" ou du nombre 48? Dans les faits, on ne peut pas les distinguer,
+c'est le contexte qui va permettre de faire la différence. Si l'application qui traite cet
+octet est un traitement de texte, elle va sans doute le traiter comme un caractère. Si c'est la
+calculatrice, alors elle le traitera comme un nombre. C'est le rôle du programmeur ou la programmeuse
+de toujours savoir ce que représentent les octets qui sont manipulés par les programmes. 
+
+
 
 En réalité, il n'existe pas une table de conversion unique, mais des dizaines
 de tables de conversion. En effet, les caractères utilisés dans les différents pays
@@ -63,7 +70,7 @@ différents, ce qui suffisait pour les 26 lettres de l'alphabet en minuscule et 
 chiffres et les signes de ponctuations. De nos jours, cette table est encore largement utilisée mais
 sur 8 bits (le bit de plus à gauche est laissé toujours à 0). Cela permet de faire correspondre chaque
 caractère à un octet qui peut être représenter en hexadécimal par un nombre à deux chiffre. 
-Cette table à l'avantage de prendre peu de place en mémoire, mais sont principal principal défaut est
+Cette table à l'avantage de prendre peu de place en mémoire, mais son principal défaut est
 de ne pas prendre en compte les caractères qui n'existent pas dans la langue anglaise,
 ne serait-ce que les lettres accentuées.
 
@@ -122,24 +129,12 @@ est d'utiliser les caractères ASCII comme support de créativité artistique. C
 Les caractères ont un poids minimal en code binaire,
 c'est donc une façon très efficace de transmettre une information visuelle.
 
-````{codeplay}
-print ("""
-  /$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$ /$$$$$$$
- /$$__  $$ /$$__  $$| $$  /$$/|_  $$_/| $$__  $$
-| $$  \ $$| $$  \__/| $$ /$$/   | $$  | $$  \ $$
-| $$$$$$$$|  $$$$$$ | $$$$$/    | $$  | $$$$$$$/
-| $$__  $$ \____  $$| $$  $$    | $$  | $$____/
-| $$  | $$ /$$  \ $$| $$\  $$   | $$  | $$
-| $$  | $$|  $$$$$$/| $$ \  $$ /$$$$$$| $$
-|__/  |__/ \______/ |__/  \__/|______/|__/
-
-""")
-````
+```{image} media/asciiart.png
+:height: 200px
+```
 
 [Cet outil](https://www.patorjk.com/software/taag/)
-vous permet de transformer n'importe quel texte en ASCII.
-
-La vidéo suivante présente "l'asciiquarium",
+vous permet de transformer n'importe quel texte en ASCII et la vidéo suivante présente "l'asciiquarium",
 un aquarium en ASCII dans le terminal.
 
 ```{youtube} pAfvoVtsA64
@@ -159,9 +154,8 @@ intégrant le contenu de toutes les tables existantes, via le standard UTF.
 
 Le [standard Unicode](https://home.unicode.org/) UTF (Universal Character Set Transformation Format)
 s'est imposé pour l'échange, car il permet d'agréger sur 8 bits, 16 bits ou 32 bits par caractère la totalité des caractères utilisés dans toutes les langues humaines… et même extraterrestres,
-puisque le [Klingon](https://www.kli.org/about-klingon/klingon-history/) est également intégré. 
-
-Les caractères liés à l'édition des partitions de musique ou les émojis sont également intégrés.
+puisque le [Klingon](https://www.kli.org/about-klingon/klingon-history/) est également intégré. Les caractères liés à
+l'édition des partitions de musique ou les émojis sont également intégrés.
 
 ### Variantes
 

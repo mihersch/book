@@ -5,5 +5,5 @@ pdf:
 	sphinx-build  -E -b latex src/appr  build/latex/appr && \
 	cd build/latex/appr && pdflatex modulo2.tex
 
-html: 
+html:
 	sphinx-build  -E -b html src/appr  build/appr
