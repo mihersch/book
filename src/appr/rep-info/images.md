@@ -72,7 +72,8 @@ Ceci nous permet de construire des images simples, dessinées seulement en noir 
 
 ## Représentation d'une image en niveaux de gris
 
-Dans ce type d’image seul le niveau de l'intensité est codé sur un octet (256 valeurs). Par convention, la valeur 0 représente le noir (intensité lumineuse nulle) et la valeur 255 le blanc (intensité lumineuse maximale) :
+Dans ce type d’image seul le niveau de l'intensité est codé sur un octet (256 valeurs). Par convention, la valeur 0 représente le noir (intensité
+lumineuse nulle) et la valeur 255 le blanc (intensité lumineuse maximale) :
 
 ```{figure} media/Niveaux_gris.png
 ---
@@ -118,7 +119,8 @@ Pour faire la même chose sur un écran, on utilisera également trois couleurs,
 ```{figure} media/SyntheseAdd_pixels.png
 ---
 name: fig-repr-img-sys-pixel
-align: left
+align: center
+width: 400px
 ---
 Système additif et écran au microscope.
 ```
@@ -131,7 +133,7 @@ Chaque couleur est donc représentée comme un mélange de ces trois couleurs et
 
 [Dans cette autre animation](https://csfieldguide.org.nz/en/interactives/colour-matcher/) vous pouvez jouer avec la valeur de Rouge, Vert, Bleu, pour créer une couleur finale. L'outil vous permet d'abord de jouer avec des couleurs codées en 24 bits, puis en 8 bits, ce qui illustre bien la précision qu'on arrive à atteindre avec 24 bits. 
 
-Les formats matriciels sont Portable Network Graphics (.png), Joint Photographic Experts Group (.jpeg), Tagged Image File Format (.tiff), BITMAP (.bmp), Graphics Interchange Format (.gif) pour citer les plus courants.
+Les formats de fichiers matriciels les plus courants sont Portable Network Graphics (.png), Joint Photographic Experts Group (.jpeg), Tagged Image File Format (.tiff), BITMAP (.bmp) et Graphics Interchange Format (.gif).
 
 
 ````{admonition} Anecdote
@@ -140,16 +142,19 @@ Les formats matriciels sont Portable Network Graphics (.png), Joint Photographic
 
 
 ```{figure} media/milliondollarhomepage.png
+---
+align: center
+width: 500px
+---
 ```
-
 ````
 
 
 ### Définition et résolution
 
-On appelle *définition* le nombre de points (pixel) constituant l'image, c'est-à-dire sa « dimension informatique » (le nombre de colonnes de l'image que multiplie son nombre de lignes). Une image possédant 640 pixels en largeur et 480 en hauteur aura une définition de 640 pixels par 480, notée 640x480 soit 307200 pixels.
+On appelle *définition* le nombre de pixels constituant l'image, c'est-à-dire sa « dimension informatique » (le nombre de colonnes de l'image que multiplie son nombre de lignes). Une image possédant 640 pixels en largeur et 480 en hauteur aura une définition de 640 pixels par 480, notée 640x480 soit 307200 pixels.
 
-La *résolution*, terme souvent confondu avec la *définition*, détermine en revanche le nombre de points par unité de surface, exprimé en points par pouce (PPP, en anglais DPI pour Dots Per Inch), un pouce représentant 2.54 cm. La résolution permet ainsi d'établir le rapport entre le nombre de pixels d'une image et la taille réelle de sa représentation sur un support physique. Une résolution de 300 dpi signifie donc 300 colonnes et 300 rangées de pixels sur un pouce carré ce qui donne donc 90000 pixels sur un pouce carré. La résolution de référence de 72 dpi nous donne un pixel de 1/72 (un pouce divisé par 72) soit 0.353 mm, correspondant à un point pica (unité typographique anglo saxonne).
+La *résolution*, détermine en revanche le nombre de points par unité de surface, exprimé en points par pouce (PPP, en anglais DPI pour Dots Per Inch), un pouce représentant 2.54 cm. La résolution permet ainsi d'établir le rapport entre le nombre de pixels d'une image et la taille réelle de sa représentation sur un support physique. Une résolution de 300 dpi signifie donc 300 colonnes et 300 rangées de pixels sur un pouce carré ce qui donne donc 90000 pixels sur un pouce carré. La résolution de référence de 72 dpi nous donne un pixel de 1/72 (un pouce divisé par 72) soit 0.353 mm, correspondant à un point pica (unité typographique anglo saxonne).
 
 Les dimensions d'une image sont donc définies par :
 - largeur = nombre de colonnes / résolution,
@@ -162,11 +167,9 @@ La plupart de ces formats utilisent des algorithmes de compression, afin de réd
 On définit alors le taux de compression par : (1 - (taille du fichier image))/(taille de l'image en mémoire)
 
 
-La compression peut être réalisée avec ou sans perte :
-
-- sans perte : l’image comprimée est parfaitement identique à l’originale,
-- avec perte : l’image est plus ou moins dégradée, selon le taux de compression souhaité.
-
+La compression peut être réalisée avec ou sans perte selon si l’image comprimée est parfaitement identique à l’originale.
+La compression avec pertes dégrade la qualité de l'image et certaines informations sont perdues. L'ampleur de cette dégradation dépend
+du taux de compression. 
 
 
 ## Les images vectorielles
