@@ -166,7 +166,7 @@ latex_elements = {
 }
 
 
-latex_additional_files = ["../static/assets/modulo-head-banner.png"]
+latex_additional_files = ["../static/assets/modulo-head-banner.png","../static/assets/by-nc.eu.png"]
 #(root document, name of generated latex file, document title, document author, theme, ??)
 latex_documents = [('index','modulo2.tex',"Introduction à l'informatique", "Adapté de Modulo, les ressources vaudoises pour l'enseignement de l'informatique","manual","True")]
 
