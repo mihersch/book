@@ -172,7 +172,7 @@ Que signifie informatique ?
 ```
 ```{question} Question 3
 Pourrait-on imaginer un code composé d'un seul symbol ? 
-1. {f}`Non`
-1. {v}`Oui`
+1. {v}`Non`
+1. {f}`Oui`
 1. {f}`Ca dépend`
 ```
