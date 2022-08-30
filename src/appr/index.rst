@@ -6,7 +6,7 @@ Introduction à l'informatique
 
 Bienvenue dans le cours d'informatique au gymnase. 
 Ce cours a été conçu pour vous accompagner dans votre découverte de l'informatique. Il est 
-découpé en **quatre thématiques**. 
+découpé en plusieurs chapitres. 
 
 .. toctree::
    :name: Première année
