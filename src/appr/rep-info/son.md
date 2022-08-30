@@ -1,7 +1,9 @@
 (appr:repinfo:son)=
 # Le son
 
-Un son est une histoire d’énergie et de vibrations. Un son émerge quand des molécules subissent une pression initiale, ce qui va les amener à avancer et entrainer ce mouvement sur les molécules devant immédiatement voisines en leur transmettant une grande partie de cette énergie. Suite à ce nouveau mouvement, elles repartent en arrière pour retrouver leur position d'équilibre ayant transmis cette énergie initiale aux molécules voisines qui à leur tour vont se comporter de la même manière. 
+Un son est une histoire d’énergie et de vibrations. Un son émerge quand des molécules subissent une pression initiale, ce qui va les faire entrer en
+vibration et entraîner dans ce mouvement les molécules voisines avec lesquelles elles entrent en collision. L'énergie vibratoire est ainsi transmise
+de molécule en molécule. 
 
 
 ```{youtube} kW9nwkrfGFw
@@ -37,7 +39,7 @@ name: fig-repr-num-sig
 align: left
 ---
 Un signal sonore représenté par la position d'une membrane vibrante
-(axe vertical) en fonction du temps (axe hoorizontal). 
+(axe vertical) en fonction du temps (axe horizontal). 
 ```
 
 ## Numérisation
@@ -78,7 +80,7 @@ Effet de la fréquence d'échantillonnage (sampling rate : 100, 200 et 400 Hz) s
 ```
 
 Une bonne fréquence d'échantillonnage est le résultat d'un compromis entre une grande qualité de son
-(donc une haute fréquence d'échantillonage) et une petite place en mémoire (donc une faible fréquence
+(donc une haute fréquence d'échantillonage) et une faible place en mémoire (donc une faible fréquence
 d'échantillonage). Pour conserver une fréquence donnée, par exempe 440 Hz qui correspond à un la, il faut
 une échantilloner à une fréquence deux fois plus élevée (880 Hz dans notre exemple) puisqu'il faut au minimum
 deux valeurs pour capter une oscillation. Par exemple, avec les six valeurs 0-1-0-1-0-1 on peut détecter au
@@ -103,7 +105,7 @@ Si l'échantillonage correspond à un processus de discrétisation du temps (on 
 l'intervalle de temps
 représenté sur l'axe horitzontal), la discretisation des valeurs observées, c'est-à-dire de l'axe
 vertical, correspond à la *quantification*. De façon analogue à
-l'échantillonnage, on sépare les valeurs possibles du signal en un morceaux (ou plages) et on indique,pour
+l'échantillonnage, on sépare les valeurs possibles du signal en un morceaux (ou plages) et on indique, pour
 chaque valeur échantillonnée, dans quelle plage elle se trouve. Si le découpage est très fin, il y aura
 beaucoup de plages et donc la représentation sera plus précise. Par contre, ces plages devront être codées
 sur plus de bits et donc cela prendra plus de place en mémoire. Le nombres de bits utilisé pour coder les
@@ -154,5 +156,5 @@ align: left
 Effet de la fréquence d'échantillonnage (sampling rate : 400, 200 et 100 Hz) sur la représentation obtenue par numérisation à une profondeur donnée (sampling depth : 5 bits). Une importante profondeur d'échantillonnage ne compense pas une fréquence d'échantillonnage insuffisante.
 ```
 
-Les dispositifs électroniques dont la fonction est l'échantillonnage et la quantification des signaux sont appelés des convertisseurs analogique-numérique (CAN) ou **analog to digital converter** (ADC), en anglais. Les dispositifs électroniques dont la fonction est la reconstruction des signaux sont appelés des convertisseurs numérique-analogique (CNA) ou **digital to analog converter** (DAC), en anglais. La sortie du convertisseur est généralement une tension électrique proportionnelle à l'intensité du signal.
+Les dispositifs électroniques dont la fonction est l'échantillonnage et la quantification des signaux sont appelés des convertisseurs analogique-numérique (CAN) ou **analog to digital converter** (ADC), en anglais. Les dispositifs électroniques dont la fonction est la reconstruction des signaux sont appelés des convertisseurs numérique-analogique (CNA) ou **digital to analog converter** (DAC), en anglais. 
 

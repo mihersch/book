@@ -1,16 +1,14 @@
 (appr:repinfo:conclusion)=
 # Conclusion
 
-Trois éléments clés sous entendent notre description du monde : la matière, l’énergie et l’information. Transmettre l'information est sans aucun doute la révolution de ce 20ème siècle achevé et l'enjeu majeur de ce début du 21ème.
-
-La notion d'information est porteuse de sens. Elle s'appuie sur des *données* et un *canal de transmission* ; elle est véhiculée entre un *émetteur* et un *récepteur*. 
-
-Dès lors se pose la problématique de la *fidélité* de la représentation, et de l'adaptation au canal de transmission.
+Trois éléments clés sous entendent notre description physique du monde : la matière, l’énergie et l’information. Transmettre et manipuler
+automatiquement l'information a constitué une révolution du 20ème siècle achevé et est au centre d'enjeux majeurs de ce début du 21ème.
+La transmission d'une information se fait entre un *émetteur* et un *récepteur* par le biais d'un *canal de transmission*. Pour ceci, l'émetteur et le
+récepteur doivent préalablement se mettre d'accord sur une manière commune de *représenter* cette information. Dès lors se pose la problématique de la *fidélité* de la représentation, et de l'adaptation au canal de transmission.
 
 ```{figure} media/la-voix-de-son-maitre_1956.jpg
 ---
-width: 600px
-height: 400px
+width: 400px
 align: left
 ---
 Publicité «iconique» pour la société française Pathé Marconi, du nom d'Émile Pathé (1860-1937), leader du disque phonographique dès le xixe siècle, et de Guglielmo Marconi (1874-1937), pionnier de la radio et prix Nobel de physique en 1909 
@@ -24,8 +22,7 @@ Le dialogue entre *discret* et *continu* est caractéristique de la science nota
 
 ```{figure} media/image_3.png
 ---
-width: 600px
-height: 500px
+width: 500px
 ---
 [Günther Uecker, Spirale I 1997](https://www.echosciences-grenoble.fr/articles/l-artiste-gunther-uecker-avec-ses-tableaux-de-clous-rencontre-le-discret-et-le-continu-de-la-science)
 ```
@@ -38,11 +35,3 @@ Représenter l'information à travers ce que comprend la machine (c'est à dire 
 
 Dès lors, on peut s'interroger sur les évolutions de cette technologie dans le sens d'un accroissement de ces performances de représentation, c'est à dire principalement la fidélité, la rapidité et l'accessibilité.
 L'accroissement des performances des machines liées à l'adoption des transistors, l'arrivée des microprocesseurs puis à la miniaturisation suit une croissance exponentielle depuis sa prédiction par Gordon E. Moore en 1965 : c'est la fameuse [loi de Moore](https://fr.wikipedia.org/wiki/Loi_de_Moore). Les ordinateurs sont devenus de plus en plus petits, de moins en moins coûteux et de plus en plus rapides et puissants.
-
-Les performances calculatoires ont impacté les mathématiques elles-mêmes, science des nombres.
-
-Les outils de traduction parviennent à des niveaux inimaginables il y a encore vingt ans.
-
-La synthèse vocale atteint aujourd'hui une telle qualité qu'il devient difficile pour l'oreille humaine de distinguer une voix humaine de celle d'un robot.
-
-Pour représenter le réel, si l'on peut imaginer des marges de progression encore possibles en terme de fidélité, c'est sans doute sur l'accessibilité, la diffusion, la consommation des ressources et l'impact sur le climat que se situent les enjeux du développement numérique.
