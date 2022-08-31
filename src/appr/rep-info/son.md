@@ -69,9 +69,9 @@ Ainsi, un son de 5 secondes échantilloné à 1000 Hz (ou 1 kHz) aura
 $5 \cdot 1000= 5000$ morceaux donc sera décrit par 5000 valeurs du signal. 
 
 
-```{figure} media/numerisation-01.png
+```{figure} media/numerisation-01_fr.png
 ---
-height: 250px
+width: 700px
 name: fig-repr-num-freq
 align: left
 ---
