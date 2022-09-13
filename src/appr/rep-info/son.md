@@ -113,13 +113,13 @@ valeurs (déterminant ainsi le nombre de valeurs différentes possibles) est don
 l'échantillonage. 
 
 
-```{figure} media/numerisation-02.png
+```{figure} media/numerisation-02_fr.png
 ---
 height: 250px
 name: fig-repr-num-depth
 align: left
 ---
-Effet de la profondeur de l'échantillonnage (bit depth : 3, 4 et 5 bits) sur la représentation obtenue par numérisation. Plus la profondeur est importante, plus la discrimination du signal et la différence entre les basses et les hautes intensités est importante. La quantité d'information générée (le nombre de 0 et de 1) devient également plus importante.
+Effet de la profondeur de l'échantillonnage (3 et 5 bits) sur la représentation obtenue par numérisation. Plus la profondeur est importante, plus la discrimination du signal et la différence entre les basses et les hautes intensités est importante. La quantité d'information générée (le nombre de 0 et de 1) devient également plus importante.
 ```
 
 Ici encore, l'oreille humaine ne peut percevoir ni les intensités les plus faibles
@@ -134,7 +134,7 @@ quelle sera l'amplitude maximale qui pourra être numérisée. Si le gain est tr
 une partie des plages de valeurs ne seront pas utilisées. Si le gain est trop petit, le signal sera *saturé* c'est-à-dire que certaines valeurs du signal original sont en dehors des plages de prévues et ne pourront pas être rendues correctement, ce qui induira
 une *distortion* du signal sonore. 
 
-```{figure} media/numerisation-04.png
+```{figure} media/numerisation-04_fr.png
 ---
 height: 250px
 name: fig-repr-num-dist
@@ -147,13 +147,13 @@ On notera finalement que l'échantillonnage et la quantification travaillent ens
 
 Pour l'intensité sonore par exemple, une fréquence d'échantillonnage insuffisante ne peut pas être compensée par une profondeur d'échantillonnage supérieure. La qualité du résultat n'est pas améliorée.
 
-```{figure} media/numerisation-03.png
+```{figure} media/numerisation-03_fr.png
 ---
 height: 250px
 name: fig-repr-num-bal
 align: left
 ---
-Effet de la fréquence d'échantillonnage (sampling rate : 400, 200 et 100 Hz) sur la représentation obtenue par numérisation à une profondeur donnée (sampling depth : 5 bits). Une importante profondeur d'échantillonnage ne compense pas une fréquence d'échantillonnage insuffisante.
+Une importante profondeur d'échantillonnage ne compense pas une fréquence d'échantillonnage insuffisante.
 ```
 
 Les dispositifs électroniques dont la fonction est l'échantillonnage et la quantification des signaux sont appelés des convertisseurs analogique-numérique (CAN) ou **analog to digital converter** (ADC), en anglais. Les dispositifs électroniques dont la fonction est la reconstruction des signaux sont appelés des convertisseurs numérique-analogique (CNA) ou **digital to analog converter** (DAC), en anglais. 
