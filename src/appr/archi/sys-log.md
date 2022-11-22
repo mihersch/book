@@ -185,7 +185,7 @@ Considéront, par exemple les circuit logique suivant
 
 ```{logic}
 :height: 290
-:mode: connect
+:mode: tryout
 
 {
   "v": 3,
@@ -200,16 +200,99 @@ Considéront, par exemple les circuit logique suivant
 }
 ```
 
-Sa fonction logique est donnée par $(A ET B) OU C$. En effet la sortie de la première porte est $A ET B$ et la deuxième porte prend
-cette sortie et combine avec l'entrée C dans un $OU$, ce qui donne $(A ET B) OU C$. 
+Sa fonction logique est donnée par (A ET B) OU C. En effet la sortie de la première porte est A ET B et la deuxième porte prend
+cette sortie et combine avec l'entrée C dans un OU, ce qui donne (A ET B) OU C.
+
+```{exercise}
+Déterminer la fonction logique des quatres circuits logiques suivants:
+```{logic}
+:height: 290
+:mode: tryout
+
+{
+  "v": 3,
+  "in": [
+    {"pos": [40, 30], "id": 0, "name": "A", "val": 0},
+    {"pos": [40, 70], "id": 1, "name": "B", "val": 0},
+    {"pos": [40, 110], "id": 9, "name": "C", "val": 0},
+    {"pos": [410, 90], "id": 10, "name": "B", "val": 0},
+    {"pos": [410, 50], "id": 11, "name": "A", "val": 0},
+    {"pos": [410, 130], "id": 12, "name": "C", "val": 0},
+    {"pos": [40, 200], "id": 22, "name": "A", "val": 0},
+    {"pos": [40, 250], "id": 23, "name": "B", "val": 0},
+    {"pos": [410, 180], "id": 31, "name": "A", "val": 0},
+    {"pos": [410, 220], "id": 32, "name": "B", "val": 0},
+    {"pos": [410, 260], "id": 33, "name": "C", "val": 0}
+  ],
+  "out": [
+    {"pos": [310, 60], "id": 8, "name": "Z"},
+    {"pos": [740, 110], "id": 21, "name": "Z"},
+    {"pos": [290, 220], "id": 30, "name": "Z"},
+    {"pos": [740, 210], "id": 52, "name": "Z"}
+  ],
+  "gates": [
+    {"type": "AND", "pos": [140, 50], "in": [2, 3], "out": 4},
+    {"type": "OR", "pos": [230, 60], "in": [5, 6], "out": 7},
+    {"type": "NOT", "pos": [490, 50], "in": 13, "out": 14},
+    {"type": "AND", "pos": [580, 60], "in": [15, 16], "out": 17},
+    {"type": "XOR", "pos": [670, 110], "in": [18, 19], "out": 20},
+    {"type": "NAND", "pos": [130, 210], "in": [24, 25], "out": 26},
+    {"type": "XOR", "pos": [220, 220], "in": [27, 28], "out": 29},
+    {"type": "NAND", "pos": [540, 190], "in": [37, 38], "out": 39},
+    {"type": "OR", "pos": [540, 250], "in": [43, 44], "out": 45},
+    {"type": "XNOR", "pos": [650, 210], "in": [49, 50], "out": 51}
+  ],
+  "wires": [
+    [0, 2],
+    [1, 3],
+    [4, 5],
+    [7, 8],
+    [9, 6],
+    [11, 13],
+    [10, 16],
+    [14, 15],
+    [17, 18],
+    [12, 19],
+    [20, 21],
+    [22, 24],
+    [23, 25],
+    [26, 27],
+    [23, 28],
+    [29, 30],
+    [31, 37],
+    [32, 38],
+    [32, 43],
+    [33, 44],
+    [39, 49],
+    [45, 50],
+    [51, 52]
+  ]
+}
+```
+
+```{exercise}
+Dessiner les  circuits logiques correspondant aux fonctions logiques suivantes:
+
+1. Z = (A OU-X B) ET C
+1. Z = (A ET B) ET (B OU C)
+1. Z = (NON (A OU B) ) OU C
+1. Z = (NON A) OU (B OU C)
+
+```
 
 
 ### Analyse de circuit
-L'analyse d'un circuit donné consiste à en déterminer la table de vérité de ce circuit. Pour ceci, faut d'abord remplir le tableau avec les
+L'analyse d'un circuit donné consiste à en déterminer la table de vérité de ce circuit. Pour ceci, faut d'abord remplir le tablea avec les
+toutes les combinaisons possible de valeur pour les entrée. Ainsi si le circuit n'a qu'une entrée $X$, il n'y aura que deux valeurs
+possibles pour les entrées, $X=0$ ou $X=1$, donc la table n'aura que deux lignes. Si le circuit a deux entrées, $X$ et $Y$, il y aura
+quatres valeurs possibles pour les entrées, $X=0$ et $Y=0$, $X=0$ et $Y1$, $X=1$ et $Y=0$,$X=1$ et $Y=1$. Ainsi chaque fois qu'on ajoute
+une entrée, on multiplie le nombre de possibilités par deux (car il y a celles déjà existantes avec la nouvelle entrée à 0 et celles
+déjà existantes avec la nouvelle entrées à 1). Si $n$ est le nombre d'entrées, il y a donc $2^{n}$ possibilités de combinaisons de
+valeurs et donc de lignes à la table de vérité. 
 
 ```{logic}
 :height: 230
-:mode: connect
+:mode: tryout
 
 {
   "v": 3,
