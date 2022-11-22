@@ -303,7 +303,11 @@ valeurs et donc de lignes à la table de vérité.
 }
 ```
 
+```{exercise}
+Déterminer, sans utiliser le simulateur, la table de vérité des circuits logiques de l'exercice précédent. Vérifer ensuite vos réponses
+avec le simulateur. 
 
+```
 
 ### Création d'un circuit
 
