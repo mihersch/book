@@ -180,7 +180,7 @@ Les sorties sont les valeurs produites par le circuit en fonction des entrées.
 
 ### Fonctions logiques
 
-Chaque circuit logique réalise *fonction logique* qui s'obtient en étudiant la manière dont les portes logiques sont connectées.
+Chaque circuit logique réalise une *fonction logique* qui s'obtient en étudiant la manière dont les portes logiques sont connectées.
 Considéront, par exemple les circuit logique suivant 
 
 ```{logic}
