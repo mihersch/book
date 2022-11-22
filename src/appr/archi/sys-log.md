@@ -1,53 +1,24 @@
 # Portes logiques
 
-En informatique, les {glo}`syslogique|systèmes logiques` décrivent comment sont connectés les circuits électroniques des ordinateurs afin de leur permettre, d'une part, d'effectuer des calculs et de traiter des données et, d'autre part, d'utiliser leur mémoire de travail, où sont stockées les données qu'ils traitent.
-
-Même si on a l'impression que les ordinateurs peuvent faire toutes sortes de choses, il y a un ensemble limité d'opérations de base que l'électronique d'une machine peut faire. Parmi ces quelques opérations de base, on trouve l'addition, la soustraction, la multiplication ou la division de nombres. La plupart des tâches que l'ordinateur exécute reposent sur ces quelques opérations (ainsi que sur quelques opérations dites _logiques_, qui vont être explicitées).
-
-C'est assez fascinant de se dire que des tâches a priori non mathématiques, comme corriger l'orthographe ou la grammaire d'un texte automatiquement, sont réalisées avec ces opérations de base. 
-
-En parallèle à ce qui leur permet de faire des calculs, les ordinateurs disposent et utilisent de la mémoire. Il y en a au cœur des microprocesseurs, les _registres_, ce qu'on appelle la _mémoire vive_ — appelée aussi RAM (_Random-Access Memory_). La mémoire servant au stockage de longue durée comme disques durs et autres SSD n'est pas discutée dans cette section. L'étude des systèmes logiques permet de comprendre les principes derrière la gestion de cette mémoire et de voir comment les ordinateurs peuvent y lire et écrire des données entre deux calculs.
 
 
-## Exemple suivi : addition de deux nombres
+Même si on a l'impression que les ordinateurs peuvent faire toutes sortes de choses, par exemple traduire des textes, corriger de l'ortographe,
+ou composer de la musique, le processeur n'est capable de faire qu'un nombre limité d'opérations, par exemples additionner et soustraire des nombres,
+stocker et lire des valeur dans une mémoire. Tous les applications et programmes ne sont que de longues combinaisons de ces opérations de base. 
 
-On s'intéresse à une des opérations arithmétiques les plus simples : l'**addition**. Comment l'ordinateur additionne-t-il deux nombres ? On va définir le cadre de travail et s'intéresser aux circuits électroniques qui vont être à même de réaliser une addition.
+Ces opérations de bases sont elles-même réalisée par des circuits électroniques, eux-même constitués de "mini-circuits" capable de réaliser des
+opérations très simples. Ces opérations sont qualifées de "logiques" car elles sont inspirées des opérations logiques "et", "ou", "non". En effet,
+comme on n'a que deux valeurs possibles, 0 et 1, (allumé ou éteint), cela ressemble opérations logiques qui manipulent, elles aussi,
+que deux valeurs possibles "Vrai" et "Faux". Par convention, on dit que la valeur 1 est équivalente à "Vrai" et la valeur 0 est équivalente à "Faux".
+On peut ainsi naviguer entre l'état d'un circuit électronique, des chiffres binaires et des valeurs logique (ou booléennes) "Vrai" et "Faux":
 
-Que se passe-t-il pour l'addition de deux nombres entiers ? On va utiliser leur représentation binaire (avec uniquement des 1 et des 0). Pour faire simple, on va chercher à additionner simplement deux bits, disons $A$ et $B$, où chacun peut valoir soit 0 soit 1. Posons que la somme $S = A + B$. En énumérant tous les cas de figure, on a :
+| électronique | chiffre binaire | valeur logique|
+| :-:     | :-: | ----:|
+| éteint  | 0   | Faux   |
+| allumé  | 1   | Vrai   |
 
-| $A$ | $B$ | $S$ |
-| :-: | :-: | --: |
-| 0   | 0   | 0   |
-| 1   | 0   | 1   |
-| 0   | 1   | 1   |
-| 1   | 1   | 10  |
 
-La dernière ligne est intéressante : on sait que $1+1=2$, mais en {glo}`codebinaire|binaire`, on sait aussi que n'existent que des 0 et des 1, et 2 s'écrit ainsi 10 (voir le chapitre {ref}`représentation de l'information <representationinformation>`). Cela veut dire que, pour traiter tous les cas d'une addition de deux {glo}`bit|bits`, on a besoin aussi de deux bits de sortie, et qu'un seul ne suffit pas. En explicitant chaque fois le deuxième bit de sortie, notre tableau devient :
-
-| $A$ | $B$ | $S$ |
-| :-: | :-: | :-: |
-| 0   | 0   | 00  |
-| 1   | 0   | 01  |
-| 0   | 1   | 01  |
-| 1   | 1   | 10  |
-
-La question est de déterminer comment faire calculer les deux bits de la somme $S$ à partir de $A$ et $B$ à un circuit électronique. Pour cela, on a besoin du concept de {glo}`portelogique|portes logiques`. Ces portes logiques sont elles-mêmes constituées de _transistors_, dont on a parlé en début de chapitre.
-
-Dans un premier temps, on détaille les portes logiques et on s'intéresse à la réalisation des circuits logiques.
-
-Ensuite, on regarde comment, fort de cette connaissance des portes logiques, il est possible de concevoir un circuit qui effectuera l'addition en question.
-
-Finalement, on comprendra comment un ordinateur est capable, avec un circuit logique, de stocker le résultat d'un tel calcul afin qu'il soit réutilisable plus tard.
-
-Les opérations arithmétiques et logiques et l'accès à la mémoire ne suffisent pas à constituer un ordinateur complet. C'est dans le chapitre suivant que sera traité la problématique de l'agencement de ces sous-systèmes afin de constituer une machine capable d'exécuter une suite d'instructions, c'est à dire un programme.
-
-## Portes logiques
-
-Les circuits électroniques qui composent un ordinateur sont constitués de composants électroniques comme des {glo}`resistance|résistances`, des condensateurs, des {glo}`transistor|transistors`, etc., qui déterminent où va passer le courant électrique et sur quelles parties du circuit règnera quelle {glo}`tension|tension`.
-
-Quand on parle de portes et de circuits logiques, on simplifie tout cela. On considèrera simplement qu'un segment de circuit électronique où la tension est nulle (0 volt) représente la valeur binaire 0, alors qu'une tension non nulle (par exemple, 3 volts) représente la valeur binaire 1. Ainsi, pour véhiculer deux bits comme $A$ et $B$ dans un circuit, on a besoin de deux «fils».
-
-Les portes logiques sont des composants électroniques (eux-mêmes constitués en général de transistors et résistances) qui ont une ou plusieurs entrées et qui combinent ces entrées pour produire une sortie donnée. La manière dont la sortie est calculée dépend du type de la porte. On se propose à présent d'étudier en détails l'ensemble de ces portes.
+Les portes logiques sont des composants électroniques qui ont une ou plusieurs entrées et qui combinent ces entrées pour produire une sortie donnée. La manière dont la sortie est calculée dépend du type de la porte. On se propose à présent d'étudier en détails l'ensemble de ces portes.
 
 ## Porte ET
 
@@ -58,8 +29,8 @@ En énumérant les quatre possibilités pour les entrées, on peut écrire ce qu
 | $X$ | $Y$ | $Z$ |
 | :-: | :-: | :-: |
 | 0   | 0   | 0   |
-| 1   | 0   | 0   |
 | 0   | 1   | 0   |
+| 1   | 0   | 0   |
 | 1   | 1   | 1   |
 
 On peut dessiner des diagrammes avec des portes logiques. Ce ne sont pas des diagrammes électroniques, ils cachent une partie de la complexité réelle des circuits. Dans un tel diagramme logique, la porte **ET** est représentée ainsi :
@@ -92,22 +63,6 @@ Cliquez sur {logicref}`tryout_and.x|l'entrée $X$` ou {logicref}`tryout_and.y|l'
 }
 ```
 
-````{dropdown} Pour aller plus loin
-Comment une porte **ET** est-elle elle-même construite ? Cela a déjà été mentionné : avec d'autres composants électroniques plus simples. En simplifiant un peu, on peut considérer qu'une porte **ET** est constituée de deux transistors :
-
-```{figure} media/andgatetransistor.png
----
-height: 300px
-width: 200px
----
-Construction d'une porte logique **ET** à partir de deux transistors (et de résistances).
-```
-
-Ici, les deux transistors sont les composants symbolisés par un cercle. Rappelons qu'ils laissent passer du courant de haut en bas lorsqu'ils détectent un courant sur l'entrée qui vient de la gauche. Ici, si **V** représente une tension continue de, disons, 5 volts, on aura donc une tension similaire sur la sortie **Out** que si à la fois **A** et **B**, qui sont ici les entrées du circuit, sont «actives» — donc lorsque les deux transistors sont «ouverts». Sinon, on aura une tension de 0 volts sur la sortie **Out**.
-````
-
-
-
 ## Porte OU
 
 Pour que la sortie de la porte **OU** vaille 1, il suffit que l'une des deux entrées $X$ ou $Y$ vaille 1.
@@ -117,8 +72,8 @@ Voici sa table de vérité:
 | $X$ | $Y$ | $Z$ |
 | :-: | :-: | :-: |
 | 0   | 0   | 0   |
-| 1   | 0   | 1   |
 | 0   | 1   | 1   |
+| 1   | 0   | 1   |
 | 1   | 1   | 1   |
 
 On notera que le **OU** logique est un peu différent du «ou» que l'on utilise en général à l'oral : on voit à la dernière ligne de la table de vérité que la sortie $Z$ vaut également 1 si les deux entrées $X$ et $Y$ valent 1. À l'oral, le «ou» est en général interprété comme _exclusif_: si l'on propose à un ami un bonbon _ou_ une glace, on exclut la possibilité qu'il choisisse les deux. Ce n'est pas le cas pour le **OU** logique.
@@ -173,188 +128,29 @@ Ensemble, les portes **ET**, **OU** et **NON** représentent les relations logiq
  * Au contraire, si on dit «je vais à la piscine s'*il fait beau* **OU** *que mes amis m'accompagnent*», on utilise la **disjonction**, qui est comme une sorte de «somme logique» de deux propositions (même si, comme noté plus haut, le «ou», dans le langage courant, est généralement exclusif, contrairement au **OU** logique, qui est inclusif).
  * La **négation** est encore plus évidente, puisque la proposition «je ne vais pas à la piscine» est simplement la négation, ou l'inverse, de la proposition «je vais à la piscine». 
 
-```{panels}
-:column: col-lg
-Ressource complémentaire
-^^^
-Une application pour s'exercer à l'interprétation des conjonctions, disjonctions et négations logiques: [The Boolean Game](https://booleangame.com/)
-```
-
-<!-- Pour simplifier la représentation de ces relations logiques, on les exprime sous la forme de {glo}`tableverite|tables de vérité`.
-
-| $A$ | $B$ | $Q$ |
-|:-: |:-: |:-: |
-| 0   | 0   | 0   |
-| 1   | 0   | 0   |
-| 0   | 1   | 0   |
-| 1   | 1   | 1   |
-
-Dans le tableau qui précède, si on reprend notre exemple de la piscine, on pourrait dire que A représente «il fait beau», B représente «mes amies m'accompagnent», et le résultat Q est «je vais à la piscine». 1 signifie qu'une proposition est vraie, 0 qu'elle est fausse. Le tableau ci-dessus représente donc l'opération logique ET, ou {glo}`conjonction|conjonction`.  -->
 
 
-## Combinaisons de portes
-
-Les portes peuvent être connectées les unes aux autres. Voici par exemple un diagramme logique réalisant la fonction appelée **OU-X**, qui est un «ou exclusif» et dont {logicref}`xor_circuit_tryout.z|la sortie $Z$` vaut 1 lorsque soit {logicref}`xor_circuit_tryout.x|$X$`, soit {logicref}`xor_circuit_tryout.y|$Y$` vaut 1, mais pas les deux en même temps :
-
-```{logic}
-:ref: xor_circuit_tryout
-:height: 150
-:mode: tryout
-
-{
-  "v": 3,
-  "opts": {"showGateTypes": true},
-  "in": [
-    {"pos": [50, 30], "id": 0, "ref": "x", "name": "X", "val": 0},
-    {"pos": [50, 90], "id": 1, "ref": "y", "name": "Y", "val": 0}
-  ],
-  "out": [{"pos": [390, 50], "id": 2, "ref": "z", "name": "Z"}],
-  "gates": [
-    {"type": "OR", "pos": [190, 40], "in": [3, 4], "ref": "or", "out": 5},
-    {"type": "AND", "pos": [330, 50], "in": [6, 7], "ref": "and2", "out": 8},
-    {"type": "NOT", "pos": [230, 120], "in": 9, "ref": "inv", "out": 10},
-    {"type": "AND", "pos": [160, 120], "in": [11, 12], "ref": "and1", "out": 13}
-  ],
-  "wires": [[0, 3], [0, 11], [1, 4], [1, 12], [13, 9], [10, 7], [5, 6], [8, 2]]
-}
-```
 
 
-Ce circuit contient {logicref}`xor_circuit_tryout.or|une porte **OU**`, {logicref}`xor_circuit_tryout.{and1,and2}|deux portes **ET**` et {logicref}`xor_circuit_tryout.inv|un inverseur`, tous interconnectés.
+## Porte OU-X
 
-Ce diagramme n'est pas forcément facile à lire — discutons d'abord comment l'interpréter avec papier et crayon pour vérifier s'il effectue bien un **OU-X**.
+Pour que la sortie de la porte **OU-X** vaille 1, il faut que l'une des deux entrées $X$ ou $Y$ vaille 1, mais pas les deux. Autrement dit, il faut que
+$X$ soit différent de $Y$. 
 
-
-### Analyse d'un circuit
-
-Pour analyser un circuit logique comme celui présenté ci-dessus, on cherchera à établir sa table de vérité. En l'occurrence, comme pour les portes précédentes, ce circuit a {logicref}`xor_circuit_tryout.{x,y}|deux entrées`: si chaque entrée peut valoir 1 ou 0, on a en tout, de nouveau, quatre configurations possibles à examiner dans le but de remplir la dernière colonne :
-
-| $X$ | $Y$ | $Z$   |
-| :-: | :-: | :-:   |
-| 0   | 0   | $???$ |
-| 1   | 0   | $???$ |
-| 0   | 1   | $???$ |
-| 1   | 1   | $???$ |
-
-
- Pour remplir chaque ligne, on va changer les entrées selon les valeurs de $X$ et $Y$ et observer l'effet des portes et ainsi voir comment le circuit se comporte. Prenons $X=Y=0$: c'est le cas représenté par le diagramme fixe ci-dessous. Rappelons qu'un segment noir véhicule un «0», alors qu'un segment coloré véhicule un «1».
-
- ```{logic}
-:ref: xor_circuit_00
-:height: 150
-:mode: static
-
-{
-  "v": 3,
-  "opts": {"showGateTypes": true},
-  "in": [
-    {"pos": [50, 30], "id": 0, "ref": "x", "name": "X", "val": 0},
-    {"pos": [50, 90], "id": 1, "ref": "y", "name": "Y", "val": 0}
-  ],
-  "out": [{"pos": [390, 50], "id": 2, "ref": "z", "name": "Z"}],
-  "gates": [
-    {"type": "OR", "pos": [190, 40], "in": [3, 4], "ref": "or", "out": 5},
-    {"type": "AND", "pos": [330, 50], "in": [6, 7], "ref": "and2", "out": 8},
-    {"type": "NOT", "pos": [230, 120], "in": 9, "ref": "inv", "out": 10},
-    {"type": "AND", "pos": [160, 120], "in": [11, 12], "ref": "and1", "out": 13}
-  ],
-  "wires": [[0, 3], [0, 11], [1, 4], [1, 12], [13, 9], [10, 7], [5, 6], [8, 2]]
-}
-```
-
-Le résultat intermédiaire des {logicref}`xor_circuit_00.{or,and1}|deux portes de gauche` sera 0. L'{logicref}`xor_circuit_00.inv|inverseur` transforme en 1 la sortie de la porte **ET**, mais la {logicref}`xor_circuit_00.and2|porte finale`, qui est aussi une porte **ET**, n'obtient qu'un seul 1 en entrée et donc livre une {logicref}`xor_circuit_00.z|sortie de 0`.
-
-Le cas est différent si l'une des deux entrées vaut 1. Voici deux diagrammes fixes, une fois pour $X=1, Y=0$ et une fois pour $Y=1, X=0$ :
-
-```{logic}
-:ref: xor_circuit_10
-:height: 150
-:mode: static
-
-{
-  "v": 3,
-  "opts": {"showGateTypes": true},
-  "in": [
-    {"pos": [50, 30], "id": 0, "ref": "x", "name": "X", "val": 1},
-    {"pos": [50, 90], "id": 1, "ref": "y", "name": "Y", "val": 0}
-  ],
-  "out": [{"pos": [390, 50], "id": 2, "ref": "z", "name": "Z"}],
-  "gates": [
-    {"type": "OR", "pos": [190, 40], "in": [3, 4], "ref": "or", "out": 5},
-    {"type": "AND", "pos": [330, 50], "in": [6, 7], "ref": "and2", "out": 8},
-    {"type": "NOT", "pos": [230, 120], "in": 9, "ref": "inv", "out": 10},
-    {"type": "AND", "pos": [160, 120], "in": [11, 12], "ref": "and1", "out": 13}
-  ],
-  "wires": [[0, 3], [0, 11], [1, 4], [1, 12], [13, 9], [10, 7], [5, 6], [8, 2]]
-}
-```
-
-```{logic}
-:ref: xor_circuit_01
-:height: 150
-:mode: static
-
-{
-  "v": 3,
-  "opts": {"showGateTypes": true},
-  "in": [
-    {"pos": [50, 30], "id": 0, "ref": "x", "name": "X", "val": 0},
-    {"pos": [50, 90], "id": 1, "ref": "y", "name": "Y", "val": 1}
-  ],
-  "out": [{"pos": [390, 50], "id": 2, "ref": "z", "name": "Z"}],
-  "gates": [
-    {"type": "OR", "pos": [190, 40], "in": [3, 4], "ref": "or", "out": 5},
-    {"type": "AND", "pos": [330, 50], "in": [6, 7], "ref": "and2", "out": 8},
-    {"type": "NOT", "pos": [230, 120], "in": 9, "ref": "inv", "out": 10},
-    {"type": "AND", "pos": [160, 120], "in": [11, 12], "ref": "and1", "out": 13}
-  ],
-  "wires": [[0, 3], [0, 11], [1, 4], [1, 12], [13, 9], [10, 7], [5, 6], [8, 2]]
-}
-```
-
-
-Ici, dans les deux cas, {logicref}`{xor_circuit_01,xor_circuit_10}.or|la porte **OU**, en haut`, livrera un 1, dont a besoin {logicref}`{xor_circuit_01,xor_circuit_10}.and2|la porte **ET** finale de droite` pour donner {logicref}`{xor_circuit_01,xor_circuit_10}.z|une sortie de 1`. {logicref}`{xor_circuit_01,xor_circuit_10}.and1|La porte **ET** du bas`, elle, continue de livrer un 0.
-
-Mais dans le cas $X = Y = 1$, représenté ici, la situation est différente :
-
-```{logic}
-:ref: xor_circuit_11
-:height: 150
-:mode: static
-
-{
-  "v": 3,
-  "opts": {"showGateTypes": true},
-  "in": [
-    {"pos": [50, 30], "id": 0, "ref": "x", "name": "X", "val": 1},
-    {"pos": [50, 90], "id": 1, "ref": "y", "name": "Y", "val": 1}
-  ],
-  "out": [{"pos": [390, 50], "id": 2, "ref": "z", "name": "Z"}],
-  "gates": [
-    {"type": "OR", "pos": [190, 40], "in": [3, 4], "ref": "or", "out": 5},
-    {"type": "AND", "pos": [330, 50], "in": [6, 7], "ref": "and2", "out": 8},
-    {"type": "NOT", "pos": [230, 120], "in": 9, "ref": "inv", "out": 10},
-    {"type": "AND", "pos": [160, 120], "in": [11, 12], "ref": "and1", "out": 13}
-  ],
-  "wires": [[0, 3], [0, 11], [1, 4], [1, 12], [13, 9], [10, 7], [5, 6], [8, 2]]
-}
-```
-
-{logicref}`xor_circuit_11.and1|La porte **ET** du bas` livre un 1, qui est {logicref}`xor_circuit_11.inv|inversé en 0` avant d'atteindre {logicref}`xor_circuit_11.and2|la porte finale`, qui ne peut dès lors elle-même que {logicref}`xor_circuit_11.z|livrer un 0 comme sortie`.
-
-La table de vérité complétée de ce circuit est ainsi :
+Voici sa table de vérité:
 
 | $X$ | $Y$ | $Z$ |
 | :-: | :-: | :-: |
 | 0   | 0   | 0   |
-| 1   | 0   | 1   |
 | 0   | 1   | 1   |
+| 1   | 0   | 1   |
 | 1   | 1   | 0   |
 
-Cette fonction s'appelle «ou exclusif», car pour avoir un 1 de sortie, elle exclut le cas où les deux entrées sont 1 en même temps. Elle est souvent utilisée, au point qu'on la représente en fait dans les diagrammes simplement par {logicref}`xor_tryout.xor|le dessin de cette porte`, appelée **OU-X**, comme simplification du diagramme ci-dessus :
+
+
+Essayez la porte **OU-X** :
 
 ```{logic}
-:ref: xor_tryout
 :height: 100
 :mode: tryout
 
@@ -365,14 +161,65 @@ Cette fonction s'appelle «ou exclusif», car pour avoir un 1 de sortie, elle ex
     {"pos": [50, 70], "id": 4, "name": "Y", "val": 0}
   ],
   "out": [{"pos": [220, 50], "id": 5, "name": "Z"}],
-  "gates": [{"type": "XOR", "pos": [150, 50], "in": [0, 1], "ref": "xor", "out": 2}],
+  "gates": [{"type": "XOR", "pos": [150, 50], "in": [0, 1], "out": 2}],
   "wires": [[3, 0], [4, 1], [2, 5]]
 }
 ```
 
-```{admonition} Exercice 1 : vérification d’une porte
-Vérifiez que la porte **OU-X** se comporte bien comme le circuit ci-dessous réalisé avec des portes **ET**, **OU** et **NON**.
+
+
+
+## Circuits logiques
+
+Ces portes logiques peuvent être combinées les unes ou autres pour créer des *circuits logiques* dont les fonctions sont plus complexes.
+Un circuit logique possède une ou plusieurs *entrées* qui vont déterminer une ou plusieurs *sorties*. Les entrées sont les
+valeurs "reçues" par le circuit, elles peuvent par exemple être données par un humain (en appuyant sur un bouton),
+fournies par un capteur, ou déterminées par un autre circuit.
+Les sorties sont les valeurs produites par le circuit en fonction des entrées.
+
+
+### Fonctions logiques
+
+Chaque circuit logique réalise *fonction logique* qui s'obtient en étudiant la manière dont les portes logiques sont connectées.
+Considéront, par exemple les circuit logique suivant 
+
+```{logic}
+:height: 290
+:mode: connect
+
+{
+  "v": 3,
+  "in": [
+    {"pos": [150, 90], "id": 0, "name": "A", "val": 0},
+    {"pos": [150, 140], "id": 1, "name": "B", "val": 0},
+    {"pos": [150, 200], "id": 9, "name": "C", "val": 0}
+  ],
+  "out": [{"pos": [600, 110], "id": 8, "name": "Z"}],
+  "gates": [{"type": "AND", "pos": [290, 100], "in": [2, 3], "out": 4}, {"type": "OR", "pos": [460, 110], "in": [5, 6], "out": 7}],
+  "wires": [[0, 2], [1, 3], [4, 5], [7, 8], [9, 6]]
+}
 ```
+
+Sa fonction logique est donnée par $(A ET B) OU C$. En effet la sortie de la première porte est $A ET B$ et la deuxième porte prend
+cette sortie et combine avec l'entrée C dans un $OU$, ce qui donne $(A ET B) OU C$. 
+
+
+### Analyse de circuit
+L'analyse d'un circuit donné consiste à en déterminer la table de vérité de ce circuit. Pour ceci, faut d'abord remplir le tableau avec les
+
+```{logic}
+:height: 230
+:mode: connect
+
+{
+  "v": 3,
+  "in": [{"pos": [150, 90], "id": 0, "name": "X", "val": 1}, {"pos": [150, 140], "id": 1, "name": "Y", "val": 1}],
+  "out": [{"pos": [600, 110], "id": 8, "name": "Z"}],
+  "gates": [{"type": "AND", "pos": [290, 100], "in": [2, 3], "out": 4}, {"type": "OR", "pos": [460, 110], "in": [5, 6], "out": 7}],
+  "wires": [[0, 2], [1, 3], [1, 6], [4, 5], [7, 8]]
+}
+```
+
 
 
 ### Création d'un circuit

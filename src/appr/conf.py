@@ -63,7 +63,7 @@ language = 'fr'
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 
-exclude_patterns = ['archi', 'algo1', 'prog1', 'prog2', 'hist','algo2', 'projets','resx', 'glossaire.md']
+exclude_patterns = ['algo1', 'prog1', 'prog2', 'hist','algo2', 'projets','resx', 'glossaire.md']
 
 # -- Options for HTML output -------------------------------------------------
 
