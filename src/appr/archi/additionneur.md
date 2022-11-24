@@ -3,27 +3,21 @@
 
 On a découvert quelques {glo}`portelogique|portes logiques` ainsi que la possibilité de les connecter pour en faire des circuits logiques plus complexes. Ces portes logiques vont maintenant permettre de réaliser l'additionneur annoncé en début de chapitre précédent.
 
-On rappelle qu'on a deux {glo}`bit|bits` de sortie à calculer pour la sortie $S = A + B$. $S$ est donc constitué de $S_0$, le bit des unités, et de $S_1$, le bit représentant la valeur décimale 2. On rappelle ici la {glo}`tableverite|table de vérité` pour $S_0$, tirée directement du chapitre précédent :
+On rappelle qu'on a deux {glo}`bit|bits` de sortie à calculer pour la sortie $S = A + B$. $S$ est donc constitué de $S_0$, le bit des unités, et de $S_1$, le bit représentant la valeur décimale 2. On peut
+    donc représenter le nombre binaire S par ses deux bits: S_{1}S_{0}. Afin de concevoir un circuit
+    qui additionne les deux bits A et B, on commence par en déterminer la {glo}`tableverite|table de vérité` pour $S_0$ et $S_1$ qui constituent les deux sorties du circuit. Les deux entrées sont A et B. On obtient la table suivante est les deux dernière colonnes représentent la somme (en binaire) des valeurs
+    de A et B. 
 
-| $A$ | $B$ |$S_0$|
-| :-: | :-: | :-: |
-| 0   | 0   | 0   |
-| 1   | 0   | 1   |
-| 0   | 1   | 1   |
-| 1   | 1   | 0   |
+| $A$ | $B$ |$S_1$|$S_0$|
+| :-: | :-: | :-: | :-: |
+| 0   | 0   | 0   | 0   |
+| 1   | 0   | 0   | 1   |
+| 0   | 1   | 0   | 1   |
+| 1   | 1   | 1   | 0   |
 
-En comparant cette table de vérité avec celles des portes logiques, on se rend compte que $S_0$ n'est autre qu'un **OU-X** (OU exclusif) de $A$ et $B$.
-
-La table de vérité pour $S_1$ est :
-
-| $A$ | $B$ |$S_1$|
-| :-: | :-: | :-: |
-| 0   | 0   | 0   |
-| 1   | 0   | 0   |
-| 0   | 1   | 0   |
-| 1   | 1   | 1   |
-
-Et on constate que $S_1$ n'est autre qu'un **ET** logique de $A$ et $B$. On peut dessiner l'additionneur de deux bits ainsi :
+On remarque que la colonne $S_{1}$ correspond à l'opération ET, et la colonne $S_{0}$ correspond à
+    l'opération OU-X. On a donc $S_{0}$=A OU-X B et $S_{1}$=A ET B. On peut donc dessiner
+    l'additionneur de deux bits ainsi :
 
 ```{logic}
 :height: 140
@@ -63,7 +57,7 @@ Lorsqu'on additionne deux nombres à plusieurs chiffres, que ce soit en base 10 
 C'est ici que ça se complique : pour additionner les chiffres de la deuxième colonne, on doit potentiellement additionner _trois_ chiffres, et plus seulement deux. On a donc, en entrée, les deux bits $A$ et $B$ qui viennent des nombres à additionner, et aussi potentiellement cette retenue qui vient de la colonne des unités, qu'on appellera $C_{in}$ (pour _carry_, « retenue » en anglais). Ceci est vrai en base 2 comme en base 10. Il faut donc un additionneur plus puissant, à trois entrées, pour prendre en compte cette retenue. Il s'appelle _additionneur complet_ et livrera deux sorties : le bit de somme, appelé simplement $S$, et la retenue à reporter pour la colonne suivante, appelée $C_{out}$.
 
 
-````{admonition} Exercice 2 : bases de l'additionneur complet
+````{exercise} bases de l'additionneur complet
 
  * Déterminez combien de combinaisons différentes sont possibles pour trois signaux d'entrée $A$, $B$ et $C_{in}$ qui chacun peuvent valoir soit 1 soit 0.
  * Listez toutes ces combinaisons.

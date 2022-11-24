@@ -317,7 +317,7 @@ Dessiner les  circuits logiques correspondant aux fonctions logiques suivantes:
 L'analyse d'un circuit donné consiste à en déterminer la table de vérité de ce circuit. Pour ceci, faut d'abord remplir la table avec
 toutes les combinaisons possible de valeur pour les entrée. Ainsi si le circuit n'a qu'une entrée $X$, il n'y aura que deux valeurs
 possibles pour les entrées, $X=0$ ou $X=1$, donc la table n'aura que deux lignes. Si le circuit a deux entrées, $X$ et $Y$, il y aura
-quatres valeurs possibles pour les entrées, $X=0$ et $Y=0$, $X=0$ et $Y1$, $X=1$ et $Y=0$,$X=1$ et $Y=1$. Ainsi chaque fois qu'on ajoute
+quatres valeurs possibles pour les entrées, $X=0$ et $Y=0$, $X=0$ et $Y=1$, $X=1$ et $Y=0$,$X=1$ et $Y=1$. Ainsi chaque fois qu'on ajoute
 une entrée, on multiplie le nombre de possibilités par deux (car il y a celles déjà existantes avec la nouvelle entrée à 0 et celles
 déjà existantes avec la nouvelle entrées à 1). Si $n$ est le nombre d'entrées, il y a donc $2^{n}$ possibilités de combinaisons de
 valeurs et donc de lignes à la table de vérité. Considérons l'exemple suivant:
@@ -353,4 +353,63 @@ avec le simulateur.
 ```
 
 ### Synthèse de circuit
+Cela peut être intéressant de pouvoir comprendre le fonctionnement d'un circuit déjà existant, mais
+c'est d'habitude plus utile de concevoir un circuit réalisant une fonction donnée. Dans ce cas, on part
+de la table de vérité et on essaie de déterminer un circuit correspondant à cette table de vérité.
+    
+Prenons l'exemple d'un circuit qui commande un store automatique connecté à un capteur de lumière et un
+capteur de vent. On souhaite réaliser un circuit qui baisse le store lorsqu'il y a beaucoup de
+lumière mais pas de vent. On suppose le que store se baisse lorsqu'il reçoit un 1, que le capteur
+de lumière retourne un 1 lorsqu'il y beaucoup de lumière et 0 sinon. De même le capteur de vent retourne
+1 lorsqu'il y a du vent et 0 sinon. Notre circuit a donc deux entrées, le capteur de lumière (L)
+et le capteur de vent (V). Sa sortie est la commande du store (S). On peut donc définit la table
+   de vérité du circuit de la manière suivante:
 
+|  L  |  V  | S    |
+| :-: | :-: | :--: | 
+| 0   | 0   | 0    | 
+| 0   | 1   | 0    | 
+| 1   | 0   | 1    | 
+| 1   | 1   | 0    | 
+        
+Cette table indique qu'on veut mettre S à 1 uniquement si $L=1$ et $V=0$. Sinon, S reste à 0. Une fois
+    la table de vérité, il faut déduire une fonction logique correspondant à cette table. Pour ceci, il
+    suffit de formuler une fonction logique décrivant toutes les lignes une sortie à 1. Dans notre
+    exemple cette fonction est L ET NON V (c'est-à-dire $L=1$ et $V=0$). On peut ensuite dessiner le
+    circuit logique correspondant à cette fonction, où chaque opération logique est représentée par
+    une porte logique. Pour S=L ET NON V, on obtient le circuit suivant.
+
+```{logic}
+:height: 100
+:mode: tryout
+
+{
+  "v": 3,
+  "gates": [{"type": "AND", "pos": [190, 60], "in": [0, 1], "out": 2}, {"type": "NOT", "pos": [110, 70], "in": 5, "out": 6}],
+  "in": [{"pos": [40, 30], "id": 3, "name": "L", "val": 0}, {"pos": [40, 70], "id": 4, "name": "V", "val": 0}],
+  "out": [{"pos": [260, 60], "id": 7, "name": "S"}],
+  "wires": [[3, 0], [6, 1], [4, 5], [2, 7]]
+}
+```
+De manière générale, il y a plusieurs fonctions logiques, et donc plusieurs circuits logiques
+    correspondant à une table de vérité. Par exemple, la table ci-dessus peut également être décrite
+    par la fonction NON (V OU NON L), et donc le circuit ci-dessous.
+
+```{logic}
+:height: 140
+:mode: tryout
+
+{
+  "v": 3,
+  "in": [{"pos": [40, 50], "id": 3, "name": "L", "val": 0}, {"pos": [40, 90], "id": 4, "name": "V", "val": 0}],
+  "out": [{"pos": [260, 60], "id": 7, "name": "S"}],
+  "gates": [{"type": "NOR", "pos": [190, 60], "in": [0, 1], "out": 2}, {"type": "NOT", "pos": [110, 50], "in": 5, "out": 6}],
+  "wires": [[2, 7], [6, 0], [3, 5], [4, 1]]
+}
+```
+
+On dit que deux circuits sont
+    équivalents s'ils ont la même table de vérité. Il y a donc toujours plusieurs manières possibles
+    de concevoir un circuit. Dans la pratique, on va privilégier les circuits avec moins de portes,
+    ou des circuits avec moins de sortes différentes de portes, pour en simplifier le montage et
+    diminuer le risque de disfonctionnement
