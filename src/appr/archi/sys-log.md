@@ -106,6 +106,9 @@ Essayez la porte **OU** :
 
 ## Porte OU-X
 
+'''{math}
+\ifnef\OUX\newcommand{\OUX}{\operatorname{OU-X}}
+'''
 Pour que la sortie de la porte **OU-X** vaille 1, il faut que l'une des deux entrées $X$ ou $Y$ vaille 1, mais pas les deux. Autrement dit, il faut que
 $X$ soit différent de $Y$. 
 

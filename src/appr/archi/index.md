@@ -21,11 +21,11 @@ Dans ce chapitre, vous découvrirez comment sont construits les ordinateurs, com
 intro
 sys-log
 additionneur
-alu
-mem
-archi-gen
-micro-pro
-conclusion
+#alu
+#mem
+#archi-gen
+#micro-pro
+#conclusion
 ```
 
 ## Objectifs

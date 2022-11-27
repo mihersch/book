@@ -16,7 +16,7 @@ On rappelle qu'on a deux {glo}`bit|bits` de sortie à calculer pour la sortie $S
 | 1   | 1   | 1   | 0   |
 
 On remarque que la colonne $S_{1}$ correspond à l'opération ET, et la colonne $S_{0}$ correspond à
-    l'opération OU-X. On a donc $S_{0}$=A OU-X B et $S_{1}$=A ET B. On peut donc dessiner
+    l'opération OU-X. On a donc $S_{0}$=A OU-X B et $S_{1}$ =A ET B. On peut donc dessiner
     l'additionneur de deux bits ainsi :
 
 ```{logic}
@@ -111,16 +111,19 @@ $S$ et $C_{out}$. Pour $S$, on remarque que sa valeur vaut 1 uniqument lorsque u
 il y a un nombre impair de valeur à 1 parmi les entrées. On pourrait lister tous les cas est obtenir $S = (((C_{in}\ ET\ NON A)\ ET\ NON\ B)
 OU ((B\ ET\ NON A)\ ET\ NON\ C_{in})) OU (((A\ ET\ NON B)\ ET\ NON\ C_{in}) OU ((A\ ET\ B)\ ET\ C_{in}))$. Mais on peut aussi remarquer
 qu'il est simplement possible d'utiliser deux portes opérations OU-X:
+
 ```{math}
-S = (A\ \operatorname{OU-X}\ B) OUX\ C_{in}$
+\newcommand{\OUX}{\operatorname{OU-X}} 
+S = (A\ \OUX B) \OUX C_{in}
 ```
 
 Pout la sortie $C_{out}$, on remarque qu'il faut au moins deux entrées à 1 pour que $C_{out}$ vaille 1. Cela peut s'exprimer en disant qu'on a soit
 les deux sorties $A$ et $B$ à 1 soit seulement l'une d'entre elle, mais alors $C_{in}$ doit aussi valoir 1. Autrement dit
 
-$$
-C_{out} = (A\ ET\ B) OU ((A\ OUX\ B) ET\ C_{in})
-$$
+```{math}
+\newcommand{\OUX}{\operatorname{OU-X}} 
+C_{out} = (A\ ET\ B) OU ((A\ \OUX\ B) ET\ C_{in})
+```
 
 Il suffit ensuite de dessiner le circuit logique correspondant. On remarque que l'expression $(A OU-X B)$ apparaît pour les deux sorties $S$ et $C_{out}$, donc on peut utiliser la même porte. On obtient donc le résultat suivant.
 
@@ -164,7 +167,7 @@ Il suffit ensuite de dessiner le circuit logique correspondant. On remarque que 
 }
 ```
 ```{micro}
-Vérifier que les sorties $C_{out}S$ du circuit ci-dessus indiquent bien, en binaire, le nombre d'entrées activée à 1. 
+Vérifier que les sorties $C_{out}S$ du circuit ci-dessus indiquent bien, en binaire, le nombre d'entrées activées à 1. 
 
 ```
 Ce circuit nous permet de faire l'addition de trois bits, donc il permet de traiter une colonne dans une addition en colonnes.

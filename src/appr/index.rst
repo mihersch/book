@@ -45,6 +45,14 @@ découpé en plusieurs chapitres.
 
    glossaire
 
-`Représentation de l'information <rep-info>`_ : ce chapitre vous explique comment certains concepts et éléments de réalité sont représentés dans un smartphone ou un ordinateur afin d'y être manipulée automatiquement. Une version pdf de ce chapitre est disponible `ici <media/rep-info.pdf>`_.  
+`Représentation de l'information <rep-info>`_ : ce chapitre vous explique comment certains concepts et éléments de réalité sont représentés dans un smartphone ou un ordinateur afin d'y être manipulée automatiquement. Une version pdf de ce chapitre est disponible `ici <media/rep-info.pdf>`_.
+
+`Architecture des ordinateurs <archi>`_ : ce chapitre vous explique comment
+on peut concevoir des circuits électroniques peuvent qui réalisent les
+opération logiques et arithmétiques qui sont à la base du fonctionnement des
+ordinateurs. En particulier, on étudiera comment créer un circuit permettant
+d'aditionner des nombres binaires. Une version pdf de
+ce chapitre est disponible `ici <media/archi.pdf>`_.
+
 
 
