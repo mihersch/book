@@ -157,6 +157,17 @@ myst_url_schemes = ['mailto', 'http', 'https']
 
 today_fmt = '%d %B %Y' # date format
 
+
+mathjax_config = {
+    'TeX': {
+        'Macros': {
+   	            # MoA notations
+            "OUX": r'\operatorname{BAX}',
+        }
+   }
+}
+
+
 latex_elements = {
     'papersize': 'a4paper',
     'preamble': r'\input{../../../src/static/latex/customize}',

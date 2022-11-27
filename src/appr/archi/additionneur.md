@@ -50,11 +50,26 @@ Le circuit fonctionne correctement. Il faut tester les quatre combinaisons qui a
 
 ## Additionneur complet
 
-Le circuit précédent est particulièrement intéressant, car il montre qu'il est possible d'utiliser des opérateurs logiques pour réaliser l'opération arithmétique de l'addition. L'additionneur est limité: en fait, on l'appelle un _demi-additionneur_. Il n'est capable d'additionner que deux bits — c'est très limité. En fait, il serait intéressant d'avoir un additionneur de _trois_ bits. Pourquoi ? À cause de la manière dont on pose les additions en colonnes.
+Le circuit précédent est particulièrement intéressant, car il montre qu'il est possible d'utiliser
+des opérateurs logiques pour réaliser l'opération arithmétique de l'addition. L'additionneur est
+limité: en fait, on l'appelle un _demi-additionneur_. Il n'est capable d'additionner que deux bits
+— c'est très limité. En fait, il serait intéressant d'avoir un additionneur de _trois_ bits.
+Pourquoi ? À cause de la manière dont on pose les additions en colonnes.
 
-Lorsqu'on additionne deux nombres à plusieurs chiffres, que ce soit en base 10 ou en base 2, on commence par la colonne de droite, les unités. On connait le concept de _retenue_: en base 10, si l'addition des unités dépasse 9, on retient 1 dans la colonne des dizaines. En base 2, de façon similaire, si l'addition des unités dépasse… 1, on retient 1 dans la colonne suivante à gauche. C'est ce qu'on a fait avec le demi-additionneur: on peut considérer que la sortie $S_0$ représente la colonne des unités dans la somme, et la sortie $S_1$ représente la retenue à prendre en compte dans la colonne suivante.
+Lorsqu'on additionne deux nombres à plusieurs chiffres, que ce soit en base 10 ou en base 2,
+on commence par la colonne de droite, les unités. On connait le concept de _retenue_: en base 10,
+si l'addition des unités dépasse 9, on retient 1 dans la colonne des dizaines. En base 2, de façon
+similaire, si l'addition des unités dépasse… 1, on retient 1 dans la colonne suivante à gauche. C'est
+ce qu'on a fait avec le demi-additionneur: on peut considérer que la sortie $S_0$ représente la colonne
+des unités dans la somme, et la sortie $S_1$ représente la retenue à prendre en compte dans la colonne suivante.
 
-C'est ici que ça se complique : pour additionner les chiffres de la deuxième colonne, on doit potentiellement additionner _trois_ chiffres, et plus seulement deux. On a donc, en entrée, les deux bits $A$ et $B$ qui viennent des nombres à additionner, et aussi potentiellement cette retenue qui vient de la colonne des unités, qu'on appellera $C_{in}$ (pour _carry_, « retenue » en anglais). Ceci est vrai en base 2 comme en base 10. Il faut donc un additionneur plus puissant, à trois entrées, pour prendre en compte cette retenue. Il s'appelle _additionneur complet_ et livrera deux sorties : le bit de somme, appelé simplement $S$, et la retenue à reporter pour la colonne suivante, appelée $C_{out}$.
+C'est ici que ça se complique : pour additionner les chiffres de la deuxième colonne, on doit potentiellement
+additionner _trois_ chiffres, et plus seulement deux. On a donc, en entrée, les deux bits $A$ et $B$ qui viennent
+des nombres à additionner, et aussi potentiellement cette retenue qui vient de la colonne des unités, qu'on
+appellera $C_{in}$ (pour _carry_, « retenue » en anglais). Ceci est vrai en base 2 comme en base 10. Il faut
+donc un additionneur plus puissant, à trois entrées, pour prendre en compte cette retenue. Il s'appelle
+_additionneur complet_ et livrera deux sorties : le bit de somme, appelé simplement $S$, et la retenue à
+reporter pour la colonne suivante, appelée $C_{out}$.
 
 
 ````{exercise} bases de l'additionneur complet
@@ -91,8 +106,69 @@ La table de vérité est ainsi:
 ```
 ````
 
+Pour pouvoir dessiner le circuit logique de cet additionneur, on commence par  déterminer la fonction logique de chacune des sorties
+$S$ et $C_{out}$. Pour $S$, on remarque que sa valeur vaut 1 uniqument lorsque une ou trois des entrées sont à 1, autrement dit lorsque
+il y a un nombre impair de valeur à 1 parmi les entrées. On pourrait lister tous les cas est obtenir $S = (((C_{in}\ ET\ NON A)\ ET\ NON\ B)
+OU ((B\ ET\ NON A)\ ET\ NON\ C_{in})) OU (((A\ ET\ NON B)\ ET\ NON\ C_{in}) OU ((A\ ET\ B)\ ET\ C_{in}))$. Mais on peut aussi remarquer
+qu'il est simplement possible d'utiliser deux portes opérations OU-X:
+```{math}
+S = (A\ \operatorname{OU-X}\ B) OUX\ C_{in}$
+```
 
-En faisant pour l'instant abstraction des détails d'un additionneur complet, on peut se dire qu'on le dessine simplement ainsi :
+Pout la sortie $C_{out}$, on remarque qu'il faut au moins deux entrées à 1 pour que $C_{out}$ vaille 1. Cela peut s'exprimer en disant qu'on a soit
+les deux sorties $A$ et $B$ à 1 soit seulement l'une d'entre elle, mais alors $C_{in}$ doit aussi valoir 1. Autrement dit
+
+$$
+C_{out} = (A\ ET\ B) OU ((A\ OUX\ B) ET\ C_{in})
+$$
+
+Il suffit ensuite de dessiner le circuit logique correspondant. On remarque que l'expression $(A OU-X B)$ apparaît pour les deux sorties $S$ et $C_{out}$, donc on peut utiliser la même porte. On obtient donc le résultat suivant.
+
+
+```{logic}
+:height: 200
+:mode: tryout
+
+{
+  "v": 3,
+  "in": [
+    {"pos": [60, 30], "id": 0, "name": "A", "val": 0},
+    {"pos": [60, 90], "id": 1, "name": "B", "val": 0},
+    {"pos": [60, 150], "id": 2, "name": "Cin", "val": 0}
+  ],
+  "out": [
+    {"pos": [440, 50], "id": 3, "name": "S"},
+    {"pos": [440, 140], "id": 4, "name": "Cout"}
+  ],
+  "gates": [
+    {"type": "XOR", "pos": [170, 40], "in": [5, 6], "out": 7},
+    {"type": "XOR", "pos": [290, 50], "in": [8, 9], "out": 10},
+    {"type": "AND", "pos": [260, 110], "in": [11, 12], "out": 13},
+    {"type": "AND", "pos": [260, 170], "in": [14, 15], "out": 16},
+    {"type": "OR", "pos": [370, 140], "in": [17, 18], "out": 19}
+  ],
+  "wires": [
+    [10, 3],
+    [7, 8],
+    [0, 5],
+    [1, 6],
+    [2, 9],
+    [13, 17],
+    [16, 18],
+    [19, 4],
+    [7, 11],
+    [2, 12],
+    [0, 14],
+    [1, 15]
+  ]
+}
+```
+```{micro}
+Vérifier que les sorties $C_{out}S$ du circuit ci-dessus indiquent bien, en binaire, le nombre d'entrées activée à 1. 
+
+```
+Ce circuit nous permet de faire l'addition de trois bits, donc il permet de traiter une colonne dans une addition en colonnes.
+Pour simplifier le dessin du circuit, on va représenter le circuit ci-dessous par la boîte suivante à trois entrées et deux sorties:
 
 ```{logic}
 :height: 120
@@ -154,7 +230,7 @@ La configuration $S_2 = S_1 = S_0 = 1$ représente le nombre décimal 7. Ce sera
 ````
 
 
-`````{admonition} Exercice 4 : additionneur de demi-octets
+`````{exercise} additionneur de demi-octets
 
 En connectant des additionneurs complets, réalisez un circuit qui additionne deux nombres $A$ et $B$ de quatre bits, numérotés $A_0$ à $A_3$ et $B_0$ à $B_3$, respectivement. Combien de bits de sortie doit-il y avoir pour traiter toutes les valeurs possibles ?
 
@@ -237,7 +313,7 @@ On a besoin de cinq bits de sortie. Le schéma, représenté horizontalement et 
 Cet exercice démontre l'opportunité de penser en termes modulaires, ce qui revient souvent en informatique. Ici, on a réalisé qu'un additionneur complet résout un sous-problème bien défini d'une addition générale d'un nombre à $n$ bits, et qu'une fois qu'on a créé un tel additionneur, il suffit d'en connecter plusieurs les uns derrière les autres de manière structurée pour additionner des nombres plus grands.
 
 
-````{admonition} Exercice 5 : overflow
+````{exercise} overflow
 
 Le schéma ci-dessous montre le même additionneur de demi-octets de l'exercice précédent, mais, de plus, la valeur en base 10 de ses 4 bits d'entrée pour $A$ et pour $B$ est affichée avec {logicref}`fulladder_4bits_test.{displayA,displayB}|un module d'affichage spécial à droite`. {logicref}`fulladder_4bits_test.{displayS}|La même chose` est faite pour représenter la valeur $S = A + B$ (mais seulement sur les quatre premiers bits de $S$). Actuellement, le circuit effectue le calcul $0 + 0 = 0$.
 
@@ -322,7 +398,7 @@ Dès que la somme dépasse 15, elle n'est plus représentable sur les 4 bits qui
 ````
 
 
-````{admonition} Exercice 6 : circuit défectueux
+````{exercise} circuit défectueux
 
 L'additionneur de demi-octets ci-dessous a été endommagé et ne fonctionne plus correctement. Par exemple, lorsqu'on lui demande d'effectuer le calcul $11 + 1$, il livre comme réponse $8$.
 
@@ -400,55 +476,3 @@ La {logicref}`fulladder_4bits_faulty.cout2|retenue sortant du deuxième addition
 ````
 
 
-`````{admonition} Exercice 7 : design d'un additionneur complet
-
-_**Note :** exercice difficile et actuellement peu guidé ici ; prochainement complété par davantage d'indications._
-
-En s'aidant de la table de vérité d'un seul additionneur complet, créer un circuit logique qui calcule ses sorties $S$ et $C_{out}$ en fonction des entrées $A$, $B$ et $C_{in}$.
-
-````{dropdown} Indice
- * La sortie $S$ doit être 1 soit lorsque les trois entrées valent 1, soit lorsqu'une seule des trois entrée vaut 1.
- * La sortie $C_{out}$, qui est la retenue, doit être 1 lorsque deux ou trois des trois entrées valent 1.
-````
-
-````{dropdown} Corrigé
-```{logic}
-:height: 200
-:mode: tryout
-
-{
-  "v": 3,
-  "in": [
-    {"pos": [60, 30], "id": 0, "name": "A", "val": 0},
-    {"pos": [60, 90], "id": 1, "name": "B", "val": 0},
-    {"pos": [60, 150], "id": 2, "name": "Cin", "val": 0}
-  ],
-  "out": [
-    {"pos": [440, 50], "id": 3, "name": "S"},
-    {"pos": [440, 140], "id": 4, "name": "Cout"}
-  ],
-  "gates": [
-    {"type": "XOR", "pos": [170, 40], "in": [5, 6], "out": 7},
-    {"type": "XOR", "pos": [290, 50], "in": [8, 9], "out": 10},
-    {"type": "AND", "pos": [260, 110], "in": [11, 12], "out": 13},
-    {"type": "AND", "pos": [260, 170], "in": [14, 15], "out": 16},
-    {"type": "OR", "pos": [370, 140], "in": [17, 18], "out": 19}
-  ],
-  "wires": [
-    [10, 3],
-    [7, 8],
-    [0, 5],
-    [1, 6],
-    [2, 9],
-    [13, 17],
-    [16, 18],
-    [19, 4],
-    [7, 11],
-    [2, 12],
-    [0, 14],
-    [1, 15]
-  ]
-}
-```
-````
-`````
