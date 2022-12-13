@@ -8,7 +8,7 @@ stocker et lire des valeur dans une mémoire. Tous les applications et programme
 
 Ces opérations de bases sont elles-même réalisée par des circuits électroniques, eux-même constitués de "mini-circuits" capable de réaliser des
 opérations très simples. Ces opérations sont qualifées de "logiques" car elles sont inspirées des opérations logiques "et", "ou", "non". En effet,
-comme on n'a que deux valeurs possibles, 0 et 1, (allumé ou éteint), cela ressemble opérations logiques qui manipulent, elles aussi,
+comme on n'a que deux valeurs possibles, 0 et 1, (allumé ou éteint), cela ressemble aux opérations logiques qui manipulent, elles aussi,
 que deux valeurs possibles "Vrai" et "Faux". Par convention, on dit que la valeur 1 est équivalente à "Vrai" et la valeur 0 est équivalente à "Faux".
 On peut ainsi naviguer entre l'état d'un circuit électronique, des chiffres binaires et des valeurs logique (ou booléennes) "Vrai" et "Faux":
 
@@ -106,9 +106,11 @@ Essayez la porte **OU** :
 
 ## Porte OU-X
 
+<!--
 '''{math}
-\ifnef\OUX\newcommand{\OUX}{\operatorname{OU-X}}
+\ifndef\OUX\newcommand{\OUX}{\operatorname{OU-X}}
 '''
+-->
 Pour que la sortie de la porte **OU-X** vaille 1, il faut que l'une des deux entrées $X$ ou $Y$ vaille 1, mais pas les deux. Autrement dit, il faut que
 $X$ soit différent de $Y$. 
 
@@ -376,7 +378,7 @@ et le capteur de vent (V). Sa sortie est la commande du store (S). On peut donc 
 | 1   | 1   | 0    | 
         
 Cette table indique qu'on veut mettre S à 1 uniquement si $L=1$ et $V=0$. Sinon, S reste à 0. Une fois
-    la table de vérité, il faut déduire une fonction logique correspondant à cette table. Pour ceci, il
+    la table de vérité écrite, il faut déduire une fonction logique correspondant à cette table. Pour ceci, il
     suffit de formuler une fonction logique décrivant toutes les lignes une sortie à 1. Dans notre
     exemple cette fonction est L ET NON V (c'est-à-dire $L=1$ et $V=0$). On peut ensuite dessiner le
     circuit logique correspondant à cette fonction, où chaque opération logique est représentée par
