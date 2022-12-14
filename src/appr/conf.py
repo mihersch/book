@@ -180,7 +180,6 @@ mathjax3_config = {
    }
 }
 
-mathjax_config = mathjax3_config
 
 latex_elements = {
     'papersize': 'a4paper',

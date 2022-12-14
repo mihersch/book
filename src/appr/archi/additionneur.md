@@ -108,12 +108,19 @@ La table de vérité est ainsi:
 
 Pour pouvoir dessiner le circuit logique de cet additionneur, on commence par  déterminer la fonction logique de chacune des sorties
 $S$ et $C_{out}$. Pour $S$, on remarque que sa valeur vaut 1 uniqument lorsque une ou trois des entrées sont à 1, autrement dit lorsque
-il y a un nombre impair de valeur à 1 parmi les entrées. On pourrait lister tous les cas est obtenir $S = (((C_{in}\ ET\ NON A)\ ET\ NON\ B)
-OU ((B\ ET\ NON A)\ ET\ NON\ C_{in})) OU (((A\ ET\ NON B)\ ET\ NON\ C_{in}) OU ((A\ ET\ B)\ ET\ C_{in}))$. Mais on peut aussi remarquer
+il y a un nombre impair de valeur à 1 parmi les entrées. On pourrait lister tous les cas est obtenir
+```{math}
+:nowrap:
+\begin{align}
+      S = &(((C_{in}\ ET\ NON A)\ ET\ NON\ B) OU ((B\ ET\ NON A)\ ET\ NON\ C_{in})) OU \nonumber\\
+    & (((A\ ET\ NON B)\ ET\ NON\ C_{in}) OU ((A\ ET\ B)\ ET\ C_{in})).\nonumber
+\end{align}
+```
+Mais on peut aussi remarquer
 qu'il est simplement possible d'utiliser deux portes opérations OU-X:
 
 ```{math}
-\newcommand{\OUX}{\operatorname{OU-X}} 
+\renewcommand{\OUX}{\operatorname{OU-X}} 
 S = (A\ \OUX B) \OUX C_{in}
 ```
 
@@ -121,11 +128,11 @@ Pout la sortie $C_{out}$, on remarque qu'il faut au moins deux entrées à 1 pou
 les deux sorties $A$ et $B$ à 1 soit seulement l'une d'entre elle, mais alors $C_{in}$ doit aussi valoir 1. Autrement dit
 
 ```{math}
-\newcommand{\OUX}{\operatorname{OU-X}} 
+\renewcommand{\OUX}{\operatorname{OU-X}} 
 C_{out} = (A\ ET\ B) OU ((A\ \OUX\ B) ET\ C_{in})
 ```
 
-Il suffit ensuite de dessiner le circuit logique correspondant. On remarque que l'expression $(A OU-X B)$ apparaît pour les deux sorties $S$ et $C_{out}$, donc on peut utiliser la même porte. On obtient donc le résultat suivant.
+Il suffit ensuite de dessiner le circuit logique correspondant. On remarque que l'expression $(A \OUX B)$ apparaît pour les deux sorties $S$ et $C_{out}$, donc on peut utiliser la même porte. On obtient donc le résultat suivant.
 
 
 ```{logic}
