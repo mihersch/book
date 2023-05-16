@@ -18,6 +18,7 @@ découpé en plusieurs chapitres.
    prog1/index
    algo1/index
    archi/index
+   resx/index
 
 .. toctree::
    :name: Deuxième année
@@ -53,6 +54,9 @@ opération logiques et arithmétiques qui sont à la base du fonctionnement des
 ordinateurs. En particulier, on étudiera comment créer un circuit permettant
 d'aditionner des nombres binaires. Une version pdf de
 ce chapitre est disponible `ici <media/archi.pdf>`_.
+
+`Internet <resx>`_ : ce chapitre vous donnent un aperçu des principaux éléments permettant le fonctionnement d'Internet. Une version pdf de ce chapitre est disponible `ici <media/resx.pdf`_. 
+
 
 
 
