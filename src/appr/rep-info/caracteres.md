@@ -105,9 +105,7 @@ séparent les octets sont là pour nous aider à la lecture, mais ne sont pas re
 la table. 
 
 
-````{admonition} A vous!️📒
-:class: note 
-
+````{exercise} A vous!️📒
 1. À l’aide de la table ASCII, codez en binaire la phrase suivante  «L’an qui vient !».
 
 1. Voici maintenant une exclamation codée en binaire : 01000010 01110010 01100001 01110110 01101111 00100001. Retrouvez cette exclamation !
@@ -120,8 +118,7 @@ la table.
 ````
 
 
-`````{admonition} Le saviez-vous ? 
-:class: hint
+`````{didyouknow}
 Dès l'introduction de l'encodage ASCII, et jusqu'à aujourd'hui,
 une pratique répandue dans les milieux informatiques
 est d'utiliser les caractères ASCII comme support de créativité artistique. C'est ce qu'on appelle l'ASCII art. 
@@ -207,9 +204,7 @@ Puisqu'on peut dire quel type d'octet on regarde à partir des premiers bits du 
 
 
 
-`````{admonition} A vous!
-:class: note
-
+`````{micro}
 1. Ouvrez un navigateur Internet (Firefox, …) et essayez de trouver dans les menus quel encodage de caractère
 (c'est-à-dire quelle table) ce navigateur utilise. Une recherche sur internet peut vous aider. 
 
@@ -217,9 +212,7 @@ Puisqu'on peut dire quel type d'octet on regarde à partir des premiers bits du 
 
 ``````
 
-````{admonition} Pour aller plus loin. ️📒
-:class: note
-
+````{togofurther}
 On transmet le texte suivant codé en UTF-8:
 
 11000011 1000000 00100000 01100011 01100101 01110100 00100000 11000011 10101001 01110100 11000011 10101001 0010001

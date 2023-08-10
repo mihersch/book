@@ -21,7 +21,4 @@ intro
 entiers
 caracteres
 images
-son
-redondance
-conclusion
 ```

@@ -71,8 +71,7 @@ décimal. Ainsi le nombre treize $1101_{2}$ s'écrit avec 4 bits.
 
 
 
-```{admonition} Le saviez-vous ? 
-:class: hint
+```{didyouknow}
 Le *bit* vient de la terminologie anglo-saxonne de *binary digit*. Un ensemble
 de 8 bits et appelé un **octet**. Un *kilo-octet* (ko) correspond à
 $10^3$ octets soit $1000$ octets, donc $8000$ bits. Attention à ne pas
@@ -99,8 +98,7 @@ $$
 
 En binaire, on obtient : $0\quad 1\quad 10\quad 11\quad 100\quad 101\quad 110\quad 111\quad 1000\quad ...$
 
-```{admonition} Micro-activité ✏️📒 
-:class: note 
+```{micro}
 Comptez jusqu'à 40 en binaire. Que pouvez vous observer au sujet de la parité des nombres
 binaires ? Pourquoi ?
 ```
@@ -162,27 +160,20 @@ octet en nombre décimal. Prenons l'exemple de l'octet $00101010_{2}$:
 L'octet $(00101010_{2})$ correspond donc à une valeur décimale de
 $ 00101010_{2} = 0 \cdot 2^7 + 0 \cdot 2^6 + 1 \cdot 2^5 + 0 \cdot 2^4 + 1 \cdot 2^3 + 0 \cdot 2^2 + 1 \cdot 2^1 + 0 \cdot 2^0 = 32+ 8 + 2 = 42_{10}$
 
-```{admonition} Important 
-:class: caution 
+```{important}
 L'utilisation d'un tableau de conversion nécessite d'écrire le nombre binaire de droite à gauche car
 le bit de poids faible ($=2^0$) se trouve à droite, de la même façon que
 le chiffre de poids faible (=l'unité) se trouve à droite en
 représentation décimale.
 ```
 
-```{admonition} Micro-activité ✏️📒 
-:class: note
-
-
+```{exercise}
 Donnez la conversion décimale des nombres binaires suivants :
 
   - 10101101
   - 01110010
   - 1111
   - 1111011
-
-
-
 ```
 
 #### Conversion du décimal vers le binaire
@@ -244,9 +235,7 @@ avec les étapes suivantes :
 
 Résultat : $666_{10} = 1010011010_{2}$
 
-```{admonition} Micro-activité ✏️📒 
-:class: note
-
+```{exercise} 
 Donnez la conversion binaire des nombres décimaux suivants :
 
   - 97
@@ -256,9 +245,7 @@ Donnez la conversion binaire des nombres décimaux suivants :
   - 511
 ```
 
-```{admonition} Anecdote 
-:class: hint
-
+```{didyouknow}
 Le 4 juin 1996, le premier vol de la fusée Ariane 5 a explosé 40
 secondes après l'allumage. La fusée et son chargement avaient coûté 500
 millions de dollars. La commission d'enquête a rendu son rapport au bout
@@ -276,7 +263,7 @@ trajectoire fatal.
 
 La représentation binaire des nombres est bien adaptée pour leur manipulation par des ordinateurs,
 mais vous avez peut-être remarqué qu'elle a un désavantage notoire pour les humains: les nombres
-écrits en binaire sont longs (ils contiennent beaucoup de chiffre), et on a tendance à s'emméler
+écrits en binaire sont longs (ils contiennent beaucoup de chiffres), et on a tendance à s'emméler
 en les manipulant, par exemple pour les recopier ou les reconnaître. C'est par exemple nettement plus
 facile pour nous (surtout au vu de notre expérence) de faire la différence entre $76_{10}$ et $78_{10}$
 qu'entre $1001100_{2}$ et $1001110_{2}$ qui représentent la même paire de nombres en binaire.
@@ -312,9 +299,7 @@ $1\cdot 16^{1} + 11 \cdot 16^{0} = 16 + 11 = 27_{10}$.
 Afin d'éviter d'utiliser des indices, les informaticiens préfixent parfois les nombres héxadécimaux avec
 les caractères "0x" plutôt que de mettre le 16 en indice. L'expression "0x3B" est donc équivalente à "$3B_{16}$".
 
-```{admonition} Micro-activité ✏️📒 
-:class: note
-
+```{exercise}
 Convertissez en décimal puis en binaire les nombres hexadécimaux suivants. 
 
   - 0x32
@@ -340,8 +325,7 @@ aide à la lecture). On peut se convaincre que la réponse est correcte en faisa
 3D_{16} = 3\cdot 16+13 = 61_{10} \quad \text{et}\quad 111101_{2} = 32+16+8+4+1 = 61_{10}
 ```
 
-```{admonition} Micro-activité ✏️📒 
-:class: note 
+```{exercise}
 Convertissez les nombres hexadécimaux suivants en binaire:
   - 2B3
   - 819
@@ -363,8 +347,7 @@ Cette manière de faire ne fonctionne que parce que $16 = 2^{4}$ et ne peut donc
 une autre base que l'hexadécimal.
 
 
-```{admonition} Micro-activité ✏️📒 
-:class: note 
+```{exercise}
 Convertissez les nombres binaire suivants en hexadécimal:
   - 1010110
   - 001010100011
@@ -376,8 +359,7 @@ Vous pouvez vérifier vos réponses avec un convertisseur en ligne, par exemple 
 ```
 
 
-```{admonition} Pour aller plus loin
-:class: note
+```{togofurther}
 1. Justifier pourquoi cette méthode de conversion entre binaire en hexadécimal est correcte.
 1. Par analogie, trouver comment convertir un nombre binaire en nombre octal, c'est-à-dire en base 8. 
 ```

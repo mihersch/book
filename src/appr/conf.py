@@ -52,7 +52,7 @@ extensions = [
     'sphinx.ext.todo'
 ]
 
-glossary_doc = 'glossaire'
+# glossary_doc = 'glossaire'
 # uncomment to show todos (or preferably compile with "-D todo_include_todos=1" flag  to avoid contaminating the git repo and the public online version with todos)
 # todo_include_todos = True
 # Add any paths that contain templates here, relative to this directory.
@@ -66,26 +66,38 @@ html_extra_path = ['../assets']
 # Usually you set "language" from the command line for these cases.
 language = 'fr'
 
+## Enable figure numbering
+numfig=True        
+
+
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 
 
 latex_mode = tags.has('latex_mode')
-texfname = "modulo"    
-chapters = {"rep-info", "prog1", "algo1", "archi",   "prog2", "algo2", "resx", "projets", "hist", "glossaire"}
+texfname = "modulo"
 
-tokeep = {"rep-info","archi","resx" }
+    
+all_chapters = {"rep-info", "prog1", "algo1", "archi",   "prog2", "algo2", "resx", "projets", "hist", "glossaire"}
+exclude_patterns = ['algo1', 'algo2', 'archi', 'resx', 'prog1', 'prog2', 'projets', "glossaire"]
 
-exclude_patterns = list(chapters.difference(tokeep))
-print(type(tags))
+selected_chapters = set()
 if latex_mode:
-    for ch in tokeep:
-        if tags.has(ch):
-            tokeep = {ch}
-            texfname = ch
-            break
-    exclude_patterns = list(chapters.difference(tokeep))
+    exclude_patterns = ['algo1', 'algo2', 'archi', 'prog1', 'prog2', 'projets', "glossaire"]
+    exclude_chapters = []
+    selection = False
+    for chap in all_chapters:
+        if tags.has(chap):
+            selected_chapters.add(chap)
+
+    ## exclude non-selected chapters 
+    if len(selected_chapters) > 0:
+        exclude_patterns += list(all_chapters - selected_chapters)
+
+    ## if prints only one chapter, change tex file name to that chapter
+    if len(selected_chapters) == 1: 
+        texfname = list(selected_chapters)[0]
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -194,9 +206,8 @@ latex_elements = {
 }
 
 
-#latex_documents = ('modulo','modulo.tex',"Modulo: une introduction à l'informatique", "John","manual","True")
 latex_additional_files = ["../static/assets/modulo-head-banner.png","../static/assets/by-nc.eu.png"]
-latex_documents = [('index',texfname +'.tex',"Modulo. Une~introduction~à~l'informatique", "Groupe de travail DGEP, EPFL, HEP-VD, UNIL","manual","True")]
+latex_documents = [('index',texfname + '.tex',"Introduction~à~l'informatique", "Adapté de Modulo par M. Hersch","manual","True")]
 
 latex_show_urls = 'footnote'
 

@@ -136,8 +136,7 @@ Chaque couleur est donc représentée comme un mélange de ces trois couleurs et
 Les formats de fichiers matriciels les plus courants sont Portable Network Graphics (.png), Joint Photographic Experts Group (.jpeg), Tagged Image File Format (.tiff), BITMAP (.bmp) et Graphics Interchange Format (.gif).
 
 
-````{admonition} Anecdote
-:class: hint
+````{didyouknow}
 [The Million Dollar Homepage](https://fr.wikipedia.org/wiki/The_Million_Dollar_Homepage) est un site web conçu en 2005 par Alex Tew, un étudiant anglais, dans le but de financer ses études supérieures. La page d'accueil est une grille de 1000 X 1000 pixels. Chaque pixel était vendu 1$ en tant qu'espace publicitaire. Ils ont tous été vendus...
 
 
@@ -194,9 +193,7 @@ En revanche, chaque forme d'une image vectorielle est remplie d'une seule couleu
 
 Les formats vectoriels les plus courants sont Postscript (.ps) et Encapsulé Postscript (.eps), Adobe Illustrator (AI), Portable Document Format (PDF), WMF (format Windows).
 
-```{admonition} Micro-activité ✏️📒
-:class: note
-
+```{micro}
 Saisissez le texte suivant dans un éditeur de texte et enregistrer le sous forme de fichier *.svg*. Il vous sera ensuite normalement possible d'ouvrir ce fichier avec un logiciel pour afficher les images.
 
 	<svg width="100" height="100"  version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -205,10 +202,8 @@ Saisissez le texte suivant dans un éditeur de texte et enregistrer le sous form
 
 Modifier le fichier afin de dessiner quatre carrés différents.
 ```
-<br>
 
-```{admonition} Aller plus loin
-:class: note
+```{exercise}
 Identifiez et listez les avantages et les inconvénients du format vectoriel en comparaison avec le système matriciel.
 ```
 

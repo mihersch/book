@@ -5,8 +5,8 @@ Dans ce chapitre on s'intéresse à la manière dont l'information peut être
 représentée dans un {glo}`ordinateur|ordinateur` afin que celui-ci puisse la traiter automatiquement.   
 
 
-````{admonition} Le saviez-vous ?
-:class: hint
+````{didyouknow}
+
 Le mot **informatique** est la concaténation de «information» et «automatique».
 ````
 
@@ -83,8 +83,7 @@ Le codage de la lettre «s» dans le carré de Polybe est quatre torches à gauc
 
 ````
 
-````{admonition} Anecdote
-:class: hint
+````{note}
 Dans l'exemple ci-dessus, on utilise les lettres de l'alphabet, mais il est plus probable qu'à l'époque les cités voisines utilisaient des expressions toutes faites dans chacune des cases, comme «l'ennemi est à nos portes» ou «envoyez-nous de l'aide». 
 ````
 
@@ -104,8 +103,7 @@ name: fig-chappe
 Le télégraphe de Chappe émet des signaux ressemblant aux bras d'un être humain. 
 ````
 
-````{admonition} Anecdote
-:class: hint
+````{didyouknow}
 [Le piratage du télégraphe Chappe](https://fr.wikipedia.org/wiki/Piratage_du_t%C3%A9l%C3%A9graphe_Chappe) est un détournement du réseau de télégraphie optique français entrepris par deux hommes d'affaires bordelais, Louis et François Blanc, entre 1834 et 1836, afin de connaître avant tout le monde le prix de certaines actions à la Bourse de Paris.
 
 Le piratage a été rendu possible par la corruption d'un agent télégraphique de Tours, qui ajoutait discrètement le prix actuel des actions aux messages envoyés par l'État.
